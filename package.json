@@ -1,0 +1,45 @@
+{
+  "name": "phoenix-functions",
+  "version": "0.1.0",
+  "description": "equations for phoenix command",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "prepublishOnly": "npm run build",
+    "watch": "webpack --watch",
+    "webpack": "webpack",
+    "start": "webpack --watch & webpack-dev-server --open-page 'webpack-dev-server/dist'",
+    "test": "mocha --require babel-core/register --require ./test/config.js --recursive",
+    "test:watch": "npm test -- --watch",
+    "document": "documentation build src/** -f html -o docs --shallow"
+  },
+  "author": "Matthew Butler",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "documentation": "^8.0.0",
+    "mocha": "^5.2.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          }
+        }
+      ]
+    ]
+  }
+}
