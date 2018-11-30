@@ -13,14 +13,18 @@ export function calculateActionTime(actionPoints, actionsPerImpulse, time, curre
     let next = time
     let phase = time.phase
     let impulse = time.impulse
-    let i = impulse
+    let i = impulse    
 
     //while there are still total actions at each impulse
     while (actions >= ca[i]) {
 
-        if (ca[i] > currentImpulseRemainder) {
-
+        if (currentImpulseRemainder > 0) {
+            ca[i] = currentImpulseRemainder
+            currentImpulseRemainder = 0
+        } else if (currentImpulseRemainder === 0) {
+            ca[i] = actionsPerImpulse[i]
         }
+
         //subtract the impulse's actions from total actions
         actions = actions - ca[i]
         i++

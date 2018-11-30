@@ -30,7 +30,7 @@ describe('Calculate Action Time', () => {
         expect(calculateActionTime(4, twelveAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":1},"remainder":1})
     })
     it('tests if only 1 action per phase', () => {
-        expect(calculateActionTime(3, oneAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":3},"remainder":0})
+        expect(calculateActionTime(3, oneAP, {"impulse" : 1, "phase" : 1}, 0)).to.eql({"time":{"impulse":1,"phase":3},"remainder":0})
     }) 
     it('tests if 0 action points are spent', () => {
         expect(calculateActionTime(0, sevenAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":1},"remainder":2})
