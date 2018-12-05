@@ -1,3 +1,24 @@
-import { calculateActionTime } from './functions'
+import { calculateActionTime, tableLookup } from './functions'
 
-document.write(JSON.stringify(calculateActionTime(2, {"1": 3, "2": 3, "3": 2, "4": 2}, {"impulse" : 1, "phase" : 1}, 0)))
+const sampleTable = [
+    {
+      "Position": "Look Over/Around",
+      "Target Size": -4,
+      "Auto Elev": -3,
+      "Auto Width": -3
+    },
+    {
+      "Position": "Fire Over/Around",
+      "Target Size": 0,
+      "Auto Elev": 2,
+      "Auto Width": 2
+    },
+    {
+      "Position": "Standing Exposed",
+      "Target Size": 7,
+      "Auto Elev": 14,
+      "Auto Width": 1
+    }
+  ]
+
+tableLookup(sampleTable, 'Position', 'Target Size', 'Standing Exposed')

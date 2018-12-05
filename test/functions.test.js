@@ -1,5 +1,7 @@
 import { expect } from 'chai'
-import { calculateActionTime } from '../src/functions'
+import { calculateActionTime, tableLookup } from '../src/functions'
+import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from '../src/tables'
+
 
 let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
 let sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
@@ -35,4 +37,16 @@ describe('Calculate Action Time', () => {
     it('tests if 0 action points are spent', () => {
         expect(calculateActionTime(0, sevenAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":1},"remainder":2})
     })    
+})
+
+describe('Table Lookup', () => {
+    it('tests Standard Target Size Modifiers - 4E table', () => {
+        expect(tableLookup(standardTargetSizeModifiers_4E, 'Position', 'Target Size', 'Look Over/Around')).to.equal(-4)
+    })
+    it('tests Odds of Hitting - 4G table', () => {
+        expect(tableLookup(oddsOfHitting_4G, 'EAL', 'Single Shot', 13)).to.equal(22)
+    })
+    it('tests Target Size Modifiers - 4F table', () => {
+        expect(tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', 0.5)).to.equal(-3)
+    })
 })

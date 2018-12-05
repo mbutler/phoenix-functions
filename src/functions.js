@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
  *
@@ -57,4 +59,23 @@ export function calculateActionTime(actionPoints, actionsPerImpulse, time, curre
     }
     
     return {time: next, remainder: actions}
+}
+
+/**
+ * Looks up results on a two-dimensional data table
+ *
+ * @param {array} table - A json representation of the book's lookup table 
+ * @param {string} inputName - The exact header name of the input value
+ * @param {string} columnName - The header name of the column being cross-referenced with input
+ * @param {string, number} inputValue - The known input value being cross-referenced
+ * @return {string, number} - The resulting lookup
+ */
+export function tableLookup(table, inputName, columnName, inputValue) {
+    let item
+    _.forEach(table, (row) => {
+        if (row[inputName] === inputValue) {
+            item = row[columnName]
+        }
+    })
+    return item
 }
