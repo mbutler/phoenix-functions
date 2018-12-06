@@ -1,4 +1,4 @@
-import _ from 'lodash'
+//import _ from 'lodash'
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
@@ -72,10 +72,15 @@ export function calculateActionTime(actionPoints, actionsPerImpulse, time, curre
  */
 export function tableLookup(table, inputName, columnName, inputValue) {
     let item
-    _.forEach(table, (row) => {
+    table.forEach((row) => {
         if (row[inputName] === inputValue) {
             item = row[columnName]
         }
     })
-    return item
+
+    if (item !== undefined) {
+        return item
+    } else {
+        throw Error('Value not found or malformed argument(s).')
+    }    
 }

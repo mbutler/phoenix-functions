@@ -49,4 +49,7 @@ describe('Table Lookup', () => {
     it('tests Target Size Modifiers - 4F table', () => {
         expect(tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', 0.5)).to.equal(-3)
     })
+    it('tests values out of range', () => {
+        expect(() => tableLookup(oddsOfHitting_4G, "EAL", "Single Shot", 29)).to.throw(Error)
+    })
 })
