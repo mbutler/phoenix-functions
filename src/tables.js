@@ -1,210 +1,220 @@
 export const oddsOfHitting_4G = [
-    {
-      "EAL": 28,
-      "Single Shot": 99,
-      "Burst Elevation": 99
-    },
-    {
-      "EAL": 27,
-      "Single Shot": 98,
-      "Burst Elevation": 98
-    },
-    {
-      "EAL": 26,
-      "Single Shot": 96,
-      "Burst Elevation": 98
-    },
-    {
-      "EAL": 25,
-      "Single Shot": 94,
-      "Burst Elevation": 97
-    },
-    {
-      "EAL": 24,
-      "Single Shot": 90,
-      "Burst Elevation": 95
-    },
-    {
-      "EAL": 23,
-      "Single Shot": 86,
-      "Burst Elevation": 92
-    },
-    {
-      "EAL": 22,
-      "Single Shot": 80,
-      "Burst Elevation": 90
-    },
-    {
-      "EAL": 21,
-      "Single Shot": 74,
-      "Burst Elevation": 86
-    },
-    {
-      "EAL": 20,
-      "Single Shot": 67,
-      "Burst Elevation": 82
-    },
-    {
-      "EAL": 19,
-      "Single Shot": 60,
-      "Burst Elevation": 77
-    },
-    {
-      "EAL": 18,
-      "Single Shot": 53,
-      "Burst Elevation": 73
-    },
-    {
-      "EAL": 17,
-      "Single Shot": 46,
-      "Burst Elevation": 68
-    },
-    {
-      "EAL": 16,
-      "Single Shot": 39,
-      "Burst Elevation": 62
-    },
-    {
-      "EAL": 15,
-      "Single Shot": 33,
-      "Burst Elevation": 57
-    },
-    {
-      "EAL": 14,
-      "Single Shot": 27,
-      "Burst Elevation": 52
-    },
-    {
-      "EAL": 13,
-      "Single Shot": 22,
-      "Burst Elevation": 47
-    },
-    {
-      "EAL": 12,
-      "Single Shot": 18,
-      "Burst Elevation": 43
-    },
-    {
-      "EAL": 11,
-      "Single Shot": 15,
-      "Burst Elevation": 38
-    },
-    {
-      "EAL": 10,
-      "Single Shot": 12,
-      "Burst Elevation": 34
-    },
-    {
-      "EAL": 9,
-      "Single Shot": 9,
-      "Burst Elevation": 31
-    },
-    {
-      "EAL": 8,
-      "Single Shot": 7,
-      "Burst Elevation": 27
-    },
-    {
-      "EAL": 7,
-      "Single Shot": 6,
-      "Burst Elevation": 24
-    },
-    {
-      "EAL": 6,
-      "Single Shot": 5,
-      "Burst Elevation": 21
-    },
-    {
-      "EAL": 5,
-      "Single Shot": 4,
-      "Burst Elevation": 19
-    },
-    {
-      "EAL": 4,
-      "Single Shot": 3,
-      "Burst Elevation": 17
-    },
-    {
-      "EAL": 3,
-      "Single Shot": 2,
-      "Burst Elevation": 15
-    },
-    {
-      "EAL": 2,
-      "Single Shot": 2,
-      "Burst Elevation": 13
-    },
-    {
-      "EAL": 1,
-      "Single Shot": 1,
-      "Burst Elevation": 11
-    },
-    {
-      "EAL": 0,
-      "Single Shot": 1,
-      "Burst Elevation": 10
-    },
-    {
-      "EAL": -1,
-      "Single Shot": 1,
-      "Burst Elevation": 9
-    },
-    {
-      "EAL": -2,
-      "Single Shot": 0,
-      "Burst Elevation": 8
-    },
-    {
-      "EAL": -3,
-      "Single Shot": 0,
-      "Burst Elevation": 7
-    },
-    {
-      "EAL": -4,
-      "Single Shot": 0,
-      "Burst Elevation": 6
-    },
-    {
-      "EAL": -5,
-      "Single Shot": 0,
-      "Burst Elevation": 5
-    },
-    {
-      "EAL": -6,
-      "Single Shot": 0,
-      "Burst Elevation": 4
-    },
-    {
-      "EAL": -7,
-      "Single Shot": 0,
-      "Burst Elevation": 3
-    },
-    {
-      "EAL": -8,
-      "Single Shot": 0,
-      "Burst Elevation": 2
-    },
-    {
-      "EAL": -10,
-      "Single Shot": 0,
-      "Burst Elevation": 1
-    },
-    {
-      "EAL": -15,
-      "Single Shot": 0,
-      "Burst Elevation": 0
-    },
-    {
-      "EAL": -17,
-      "Single Shot": 0,
-      "Burst Elevation": 0
-    },
-    {
-      "EAL": -22,
-      "Single Shot": 0,
-      "Burst Elevation": 0
-    }
-  ]
+  {
+    "EAL": 28,
+    "Single Shot": 99,
+    "Burst Elevation": 99
+  },
+  {
+    "EAL": 27,
+    "Single Shot": 98,
+    "Burst Elevation": 98
+  },
+  {
+    "EAL": 26,
+    "Single Shot": 96,
+    "Burst Elevation": 98
+  },
+  {
+    "EAL": 25,
+    "Single Shot": 94,
+    "Burst Elevation": 97
+  },
+  {
+    "EAL": 24,
+    "Single Shot": 90,
+    "Burst Elevation": 95
+  },
+  {
+    "EAL": 23,
+    "Single Shot": 86,
+    "Burst Elevation": 92
+  },
+  {
+    "EAL": 22,
+    "Single Shot": 80,
+    "Burst Elevation": 90
+  },
+  {
+    "EAL": 21,
+    "Single Shot": 74,
+    "Burst Elevation": 86
+  },
+  {
+    "EAL": 20,
+    "Single Shot": 67,
+    "Burst Elevation": 82
+  },
+  {
+    "EAL": 19,
+    "Single Shot": 60,
+    "Burst Elevation": 77
+  },
+  {
+    "EAL": 18,
+    "Single Shot": 53,
+    "Burst Elevation": 73
+  },
+  {
+    "EAL": 17,
+    "Single Shot": 46,
+    "Burst Elevation": 68
+  },
+  {
+    "EAL": 16,
+    "Single Shot": 39,
+    "Burst Elevation": 62
+  },
+  {
+    "EAL": 15,
+    "Single Shot": 33,
+    "Burst Elevation": 57
+  },
+  {
+    "EAL": 14,
+    "Single Shot": 27,
+    "Burst Elevation": 52
+  },
+  {
+    "EAL": 13,
+    "Single Shot": 22,
+    "Burst Elevation": 47
+  },
+  {
+    "EAL": 12,
+    "Single Shot": 18,
+    "Burst Elevation": 43
+  },
+  {
+    "EAL": 11,
+    "Single Shot": 15,
+    "Burst Elevation": 38
+  },
+  {
+    "EAL": 10,
+    "Single Shot": 12,
+    "Burst Elevation": 34
+  },
+  {
+    "EAL": 9,
+    "Single Shot": 9,
+    "Burst Elevation": 31
+  },
+  {
+    "EAL": 8,
+    "Single Shot": 7,
+    "Burst Elevation": 27
+  },
+  {
+    "EAL": 7,
+    "Single Shot": 6,
+    "Burst Elevation": 24
+  },
+  {
+    "EAL": 6,
+    "Single Shot": 5,
+    "Burst Elevation": 21
+  },
+  {
+    "EAL": 5,
+    "Single Shot": 4,
+    "Burst Elevation": 19
+  },
+  {
+    "EAL": 4,
+    "Single Shot": 3,
+    "Burst Elevation": 17
+  },
+  {
+    "EAL": 3,
+    "Single Shot": 2,
+    "Burst Elevation": 15
+  },
+  {
+    "EAL": 2,
+    "Single Shot": 2,
+    "Burst Elevation": 13
+  },
+  {
+    "EAL": 1,
+    "Single Shot": 1,
+    "Burst Elevation": 11
+  },
+  {
+    "EAL": 0,
+    "Single Shot": 1,
+    "Burst Elevation": 10
+  },
+  {
+    "EAL": -1,
+    "Single Shot": 1,
+    "Burst Elevation": 9
+  },
+  {
+    "EAL": -2,
+    "Single Shot": 0,
+    "Burst Elevation": 8
+  },
+  {
+    "EAL": -3,
+    "Single Shot": 0,
+    "Burst Elevation": 7
+  },
+  {
+    "EAL": -4,
+    "Single Shot": 0,
+    "Burst Elevation": 6
+  },
+  {
+    "EAL": -5,
+    "Single Shot": 0,
+    "Burst Elevation": 5
+  },
+  {
+    "EAL": -6,
+    "Single Shot": 0,
+    "Burst Elevation": 4
+  },
+  {
+    "EAL": -7,
+    "Single Shot": 0,
+    "Burst Elevation": 3
+  },
+  {
+    "EAL": -8,
+    "Single Shot": 0,
+    "Burst Elevation": 2
+  },
+  {
+    "EAL": -9,
+    "Single Shot": 0,
+    "Burst Elevation": 1
+  },
+  {
+    "EAL": -10,
+    "Single Shot": 0,
+    "Burst Elevation": 1
+  },
+  {
+    "EAL": -11,
+    "Single Shot": 0,
+    "Burst Elevation": 0
+  },
+  {
+    "EAL": -15,
+    "Single Shot": 0,
+    "Burst Elevation": 0
+  },
+  {
+    "EAL": -17,
+    "Single Shot": 0,
+    "Burst Elevation": 0
+  },
+  {
+    "EAL": -22,
+    "Single Shot": 0,
+    "Burst Elevation": 0
+  }
+]
 
   export const standardTargetSizeModifiers_4E = [
     {
@@ -425,5 +435,106 @@ export const oddsOfHitting_4G = [
     {
       "Size": 39,
       "ALM": 28
+    }
+  ]
+
+  export const shotScatter_5C = [
+    {
+      "Difference in SA": [
+        1,
+        8
+      ],
+      "Scatter (hexes)": 1
+    },
+    {
+      "Difference in SA": [
+        8,
+        12
+      ],
+      "Scatter (hexes)": 2
+    },
+    {
+      "Difference in SA": [
+        12,
+        14
+      ],
+      "Scatter (hexes)": 3
+    },
+    {
+      "Difference in SA": [
+        14,
+        16
+      ],
+      "Scatter (hexes)": 4
+    },
+    {
+      "Difference in SA": [
+        16,
+        18
+      ],
+      "Scatter (hexes)": 5
+    },
+    {
+      "Difference in SA": [
+        18,
+        20
+      ],
+      "Scatter (hexes)": 6
+    },
+    {
+      "Difference in SA": [
+        20,
+        22
+      ],
+      "Scatter (hexes)": 8
+    },
+    {
+      "Difference in SA": [
+        22,
+        23
+      ],
+      "Scatter (hexes)": 10
+    },
+    {
+      "Difference in SA": [
+        23,
+        24
+      ],
+      "Scatter (hexes)": 12
+    },
+    {
+      "Difference in SA": [
+        24,
+        25
+      ],
+      "Scatter (hexes)": 14
+    },
+    {
+      "Difference in SA": [
+        25,
+        26
+      ],
+      "Scatter (hexes)": 16
+    },
+    {
+      "Difference in SA": [
+        26,
+        27
+      ],
+      "Scatter (hexes)": 19
+    },
+    {
+      "Difference in SA": [
+        27,
+        28
+      ],
+      "Scatter (hexes)": 21
+    },
+    {
+      "Difference in SA": [
+        28,
+        29
+      ],
+      "Scatter (hexes)": 25
     }
   ]

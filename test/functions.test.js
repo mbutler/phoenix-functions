@@ -1,6 +1,7 @@
 import { expect } from 'chai'
+import _ from 'lodash'
 import { calculateActionTime, tableLookup } from '../src/functions'
-import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from '../src/tables'
+import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C } from '../src/tables'
 
 
 let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -51,5 +52,8 @@ describe('Table Lookup', () => {
     })
     it('tests values out of range', () => {
         expect(() => tableLookup(oddsOfHitting_4G, "EAL", "Single Shot", 29)).to.throw(Error)
+    })
+    it('tests number between range values', () => {
+        expect(tableLookup(shotScatter_5C, 'Difference in SA', 'Scatter (hexes)', 8)).to.equal(2)
     })
 })

@@ -1,4 +1,4 @@
-//import _ from 'lodash'
+import _ from 'lodash'
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
@@ -68,15 +68,29 @@ export function calculateActionTime(actionPoints, actionsPerImpulse, time, curre
  * @param {string} inputName - The exact header name of the input value
  * @param {string} columnName - The header name of the column being cross-referenced with input
  * @param {string, number} inputValue - The known input value being cross-referenced
- * @return {string, number} - The resulting lookup
+ * @return {any} - The resulting lookup
  */
 export function tableLookup(table, inputName, columnName, inputValue) {
+    let range = false
     let item
-    table.forEach((row) => {
-        if (row[inputName] === inputValue) {
-            item = row[columnName]
-        }
-    })
+    //if the first object is an array, then we have a range of values
+    if (Array.isArray(table[0][inputName]) === true) {
+        range = true
+    }    
+
+    if (range === true) {
+        _.forEach(table, (row) => {
+            if (_.inRange(inputValue, row[inputName][0], row[inputName][1])) {
+                item = row[columnName]
+            }
+        })
+    } else {
+        _.forEach(table, (row) => {
+            if (row[inputName] === inputValue) {
+                item = row[columnName]
+            }
+        })
+    }
 
     if (item !== undefined) {
         return item
