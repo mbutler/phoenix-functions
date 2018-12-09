@@ -98,3 +98,4 @@ export function tableLookup(table, inputName, columnName, inputValue) {
         throw Error('Value not found or malformed argument(s).')
     }    
 }
+
