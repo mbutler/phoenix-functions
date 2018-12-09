@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup } from '../src/functions'
-import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C } from '../src/tables'
-
+import { calculateActionTime, tableLookup, timeToPhases } from '../src/functions'
+import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B } from '../src/tables'
+import { weapons } from '../src/weapons'
 
 let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
 let sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
@@ -55,5 +55,57 @@ describe('Table Lookup', () => {
     })
     it('tests number between range values', () => {
         expect(tableLookup(shotScatter_5C, 'Difference in SA', 'Scatter (hexes)', 8)).to.equal(2)
+    })
+    it('tests fire on DC 1 of Hit Location and Damage - 6A table', () => {
+        expect(tableLookup(hitLocationDamage_6A['DC 1'], 'Fire', "2", 6)).to.equal(2000)
+    })
+    it('tests open on DC 10 of Hit Location and Damage - 6A table', () => {
+        expect(tableLookup(hitLocationDamage_6A['DC 10'], 'Open', "3", 3)).to.equal(2000000)
+    })
+    it('tests non-value on DC 6 of Hit Location and Damage - 6A table', () => {
+        expect(() => tableLookup(hitLocationDamage_6A['DC 6'], 'fire', "2.5", 3)).to.throw(Error)
+    })
+    it('tests Medical Aid and Recovery - 8A table', () => {
+        expect(tableLookup(medicalAidRecovery_8A, 'Damage Total', 'First Aid - CTP', 66)).to.equal('25d')
+    })
+    it('tests out-of-range on Medical Aid and Recovery - 8A table', () => {
+        expect(() => tableLookup(medicalAidRecovery_8A, 'Damage Total', 'First Aid - CTP', 20000000)).to.throw(Error)
+    })
+    it('tests Incapacitation Time - 8B table', () => {
+        expect(tableLookup(incapacitationTime_8B, 'PD Total', '3', 333)).to.equal('63m')
+    })
+})
+
+describe('Weapons Test', () => {
+    it('FN Mk 1', () => {
+        expect(weapons['FN Mk 1']['20']['AP']['PEN']).to.equal(2.7)
+        expect(weapons['FN Mk 1']['Aim Time']['4']).to.equal(-9)
+    })
+    it('Type 51', () => {
+        expect(weapons['Type 51']['20']['AP']['PEN']).to.equal(3.6)
+        expect(weapons['Type 51']['Aim Time']['4']).to.equal(-9)
+    })
+    it('Uzi', () => {
+        expect(weapons['Uzi']['20']['AP']['PEN']).to.equal(3.3)
+        expect(weapons['Uzi']['Aim Time']['4']).to.equal(-8)
+    })
+    it('AKM 47', () => {
+        expect(weapons['AKM 47']['20']['AP']['PEN']).to.equal(15)
+        expect(weapons['AKM 47']['Aim Time']['4']).to.equal(-7)
+    })
+})
+
+describe('Time to Phases', () => {
+    it('tests hours', () => {
+        expect(timeToPhases('1h')).to.equal(1800)
+    })
+    it('tests minutes', () => {
+        expect(timeToPhases('7m')).to.equal(210)
+    })
+    it('tests days', () => {
+        expect(timeToPhases('3d')).to.equal(129600)
+    })
+    it('tests phases', () => {
+        expect(timeToPhases('15p')).to.equal(15)
     })
 })

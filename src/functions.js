@@ -99,3 +99,34 @@ export function tableLookup(table, inputName, columnName, inputValue) {
     }    
 }
 
+/**
+ * Converts time to phases
+ *
+ * @param {string} time - A length of time in the Incapacitation Table format 
+ * @return {number} - The total number of phases
+ */
+export function timeToPhases(time) {
+    let multiplier
+    let phases
+    if (_.endsWith(time, 'h') === true) {
+        let amount = _.trimEnd(time, 'h')
+        phases = (amount * 3600) / 2
+    }
+
+    if (_.endsWith(time, 'm') === true) {
+        let amount = _.trimEnd(time, 'm')
+        phases = (amount * 60) / 2
+    }
+
+    if (_.endsWith(time, 'd') === true) {
+        let amount = _.trimEnd(time, 'd')
+        phases = (amount * 86400) / 2
+    }
+
+    if (_.endsWith(time, 'p') === true) {
+        let amount = _.trimEnd(time, 'p')
+        phases = amount * 1
+    }
+
+    return phases
+}
