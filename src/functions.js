@@ -106,7 +106,6 @@ export function tableLookup(table, inputName, columnName, inputValue) {
  * @return {number} - The total number of phases
  */
 export function timeToPhases(time) {
-    let multiplier
     let phases
     if (_.endsWith(time, 'h') === true) {
         let amount = _.trimEnd(time, 'h')
@@ -129,4 +128,17 @@ export function timeToPhases(time) {
     }
 
     return phases
+}
+
+/**
+ * Returns the correct Accuracy Level Modifier for any distance
+ *
+ * @param {number} distance - The distance to target in hexes (map) or inches (miniatures)
+ * @return {number} - The ALM to add in to EAL calculation
+ */
+export function rangeALM(distance) {
+    let alm
+    alm = -193.0515 + (186.8799 + 193.0515) / (1 + Math.pow((distance / 154.6719), 0.07601861))
+
+    return _.round(alm)
 }

@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM } from '../src/functions'
 import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -63,7 +63,7 @@ describe('Table Lookup', () => {
         expect(tableLookup(hitLocationDamage_6A['DC 10'], 'Open', "3", 3)).to.equal(2000000)
     })
     it('tests non-value on DC 6 of Hit Location and Damage - 6A table', () => {
-        expect(() => tableLookup(hitLocationDamage_6A['DC 6'], 'fire', "2.5", 3)).to.throw(Error)
+        expect(() => tableLookup(hitLocationDamage_6A['DC 6'], 'Fire', "2.5", 3)).to.throw(Error)
     })
     it('tests Medical Aid and Recovery - 8A table', () => {
         expect(tableLookup(medicalAidRecovery_8A, 'Damage Total', 'First Aid - CTP', 66)).to.equal('25d')
@@ -107,5 +107,12 @@ describe('Time to Phases', () => {
     })
     it('tests phases', () => {
         expect(timeToPhases('15p')).to.equal(15)
+    })
+})
+
+describe('Range Equation', () => {
+    it('test the range ALM function', () => {
+        expect(rangeALM(10)).to.equal(17)
+        expect(rangeALM(1250)).to.equal(-18)
     })
 })
