@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { movementModifiers_4D } from './tables';
+import { movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables';
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
@@ -144,6 +144,14 @@ export function rangeALM(distance) {
     return _.round(alm)
 }
 
+/**
+ * Returns the correct Movement Modifier for targets and shooters
+ *
+ * @param {number} targetSpeed - The speed the target is moving in hexes per inch
+ * @param {number} shooterSpeed - The speed the shooter is moving in hexes per inch
+ * @param {number} range - The distance between shooter and target in hexes
+ * @return {number} - The ALM to add in to EAL calculation
+ */
 export function movingALM(targetSpeed, shooterSpeed, range) {
     let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
     let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
@@ -152,4 +160,67 @@ export function movingALM(targetSpeed, shooterSpeed, range) {
     let alm = targetALM + shooterALM
     if (alm < -10) { alm = -10 }
     return alm
+}
+
+/**
+ * Returns the correct Shot Accuracy Modifier for shooters
+ *
+ * @param {number} weaponAimMod - The aim mod imported from the shooter's weapon
+ * @param {number} skillAccuracyLevel - The SAL imported from the shooter's character sheet
+ * @return {number} - The ALM to add in to EAL calculation
+ */
+export function shotAccuracyALM(weaponAimMod, skillAccuracyLevel) {
+    return weaponAimMod + skillAccuracyLevel
+}
+
+/**
+ * Returns the Stance/Situation Modifier for shooters
+ *
+ * @param {array} list - A list of string labels of the stances/situations
+ * @return {number} - The ALM to add in to EAL calculation
+ */
+export function situationALM(list) {
+    let alm = 0
+    _.forEach(list, (item) => {
+        alm += tableLookup(situationAndStanceModifiers_4B, 'Situation', 'ALM', item)
+    })
+
+    return alm
+}
+
+/**
+ * Returns the Visibility Modifier for shooters
+ *
+ * @param {array} list - A list of string labels of the visibilities
+ * @return {number} - The ALM to add in to EAL calculation
+ */
+export function visibilityALM(list) {
+    let alm = 0
+    _.forEach(list, (item) => {
+        alm += tableLookup(visibilityModifiers_4C, 'Visibility', 'ALM', item)
+    })
+
+    return alm
+}
+
+/**
+ * Returns the Target Size Modifier based on target's size, either position or actual size
+ *
+ * @param {array} list - A list of string labels of the standard target sizes
+ * @param {string} shotType - Either 'Target Size' for single shot or 'Auto Elev' for burst
+ * @param {number} targetSize - Optional target size if there are no viable options form the list
+ * @return {number} - The ALM to add in to EAL calculation
+ */
+export function targetSizeALM(list, shotType, targetSize) {
+    let alm = 0
+
+    if (targetSize !== undefined) {
+        alm += tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', targetSize)
+    } else {
+        _.forEach(list, (item) => {
+            alm += tableLookup(standardTargetSizeModifiers_4E, 'Position', shotType, item)
+        })
+    }
+
+    return alm   
 }

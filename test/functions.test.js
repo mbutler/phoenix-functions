@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM } from '../src/functions'
 import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -111,7 +111,7 @@ describe('Time to Phases', () => {
 })
 
 describe('Accuracy Level Modifiers', () => {
-    it('test the range ALM function', () => {
+    it('tests the range ALM function', () => {
         expect(rangeALM(10)).to.equal(17)
         expect(rangeALM(1250)).to.equal(-18)
     })
@@ -121,5 +121,19 @@ describe('Accuracy Level Modifiers', () => {
         expect(movingALM(10, 0, '100')).to.equal(-8)
         expect(movingALM(0, 2, '40')).to.equal(-6)
         expect(movingALM(2, 2, '40')).to.equal(-10)
+    })
+    it('tests shot accuracy ALM', () => {
+        expect(shotAccuracyALM(-17, 5)).to.equal(-12)
+    })
+    it('tests firing stance/situation ALM', () => {
+        expect(situationALM(['Kneeling & Braced', 'Firing Rifle with One Hand'])).to.equal(-2)
+    })
+    it('tests visibility ALM', () => {
+        expect(visibilityALM(['Night - 1/2 Moon', 'Smoke, Haze, Fog'])).to.equal(-12)
+    })
+    it('tests target size ALM', () => {
+        expect(targetSizeALM(['Look Over/Around'], 'Target Size')).to.equal(-4)
+        expect(targetSizeALM(['Low Crouch'], 'Auto Elev')).to.equal(11)
+        expect(targetSizeALM([], 'Target Size', 1)).to.equal(2)
     })
 })

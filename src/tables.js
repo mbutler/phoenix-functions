@@ -7582,3 +7582,133 @@ export const movementModifiers_4D = [
     ]
   }
 ]
+
+export const situationAndStanceModifiers_4B = [
+  {
+    "Situation": "Standing",
+    "ALM": 0
+  },
+  {
+    "Situation": "Standing & Braced",
+    "ALM": 4
+  },
+  {
+    "Situation": "Kneeling",
+    "ALM": 3
+  },
+  {
+    "Situation": "Kneeling & Braced",
+    "ALM": 5
+  },
+  {
+    "Situation": "Prone",
+    "ALM": 6
+  },
+  {
+    "Situation": "Prone & Braced",
+    "ALM": 7
+  },
+  {
+    "Situation": "Using Sling for Support",
+    "ALM": 1
+  },
+  {
+    "Situation": "Firing from the Hip",
+    "ALM": -6
+  },
+  {
+    "Situation": "Firing Rifle with One Hand",
+    "ALM": -7
+  },
+  {
+    "Situation": "Firing Pistol with One Hand",
+    "ALM": -4
+  },
+  {
+    "Situation": "Folding Stock Not Used",
+    "ALM": -4
+  },
+  {
+    "Situation": "Firing Pistol Double Action",
+    "ALM": -3
+  },
+  {
+    "Situation": "Deployed Bipod Not Braced",
+    "ALM": -2
+  },
+  {
+    "Situation": "Bipod Mounted Weapon",
+    "ALM": 3
+  },
+  {
+    "Situation": "Tripod Mounted Weapon",
+    "ALM": 5
+  },
+  {
+    "Situation": "Turret Mounted Weapon",
+    "ALM": 11
+  },
+  {
+    "Situation": "Pistol with Shoulder Stock",
+    "ALM": 3
+  }
+]
+
+export const visibilityModifiers_4C = [
+  {
+    "Visibility": "Good Visibility",
+    "ALM": 0
+  },
+  {
+    "Visibility": "Dusk",
+    "ALM": -2
+  },
+  {
+    "Visibility": "Night - Full Moon",
+    "ALM": -4
+  },
+  {
+    "Visibility": "Night - 1/2 Moon",
+    "ALM": -6
+  },
+  {
+    "Visibility": "Night - No Moon",
+    "ALM": -12
+  },
+  {
+    "Visibility": "Firing at Muzzle Flash",
+    "ALM": -10
+  },
+  {
+    "Visibility": "Smoke, Haze, Fog",
+    "ALM": -6
+  },
+  {
+    "Visibility": "Looking into a Light",
+    "ALM": -8
+  },
+  {
+    "Visibility": "Optical Scope under 8 hexes",
+    "ALM": -6
+  },
+  {
+    "Visibility": "Optical Scope Broken",
+    "ALM": -4
+  },
+  {
+    "Visibility": "Advanced Aiming System Broken",
+    "ALM": -8
+  },
+  {
+    "Visibility": "Weapon Sights Broken",
+    "ALM": -4
+  },
+  {
+    "Visibility": "Firing from Teargas, No Mask",
+    "ALM": -8
+  },
+  {
+    "Visibility": "Shooter Not Looking",
+    "ALM": -14
+  }
+]
