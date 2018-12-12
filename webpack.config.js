@@ -1,12 +1,23 @@
 const path = require("path")
 
 module.exports = {
-  mode: 'development',
-  entry: "./src/index.js",
+  mode: 'production',
+  entry: "./src/functions.js",
   output: {
-    path: path.resolve(__dirname, "dist/js"),
+    path: path.resolve(__dirname, "dist"),
     publicPath: '/dist/',
-    filename: "bundle.js"
+    filename: "phoenix-functions.js",
+    library: 'phoenixFunctions',
+    libraryTarget: 'umd',
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
+  },
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: '_'
+    }
   },
   module: {
     rules: [

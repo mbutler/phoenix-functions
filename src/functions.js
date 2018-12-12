@@ -1,5 +1,6 @@
 import _ from 'lodash'
-import { movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables';
+import { incapacitationTime_8B, medicalAidRecovery_8A, hitLocationDamage_6A, shotScatter_5C, oddsOfHitting_4G, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables'
+import { weapons } from './weapons'
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
