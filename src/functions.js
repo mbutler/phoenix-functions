@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { movementModifiers_4D } from './tables';
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
@@ -141,4 +142,14 @@ export function rangeALM(distance) {
     alm = -193.0515 + (186.8799 + 193.0515) / (1 + Math.pow((distance / 154.6719), 0.07601861))
 
     return _.round(alm)
+}
+
+export function movingALM(targetSpeed, shooterSpeed, range) {
+    let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
+    let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
+    if (shooterSpeed === 0) { shooterALM = 0 }
+    if (targetSpeed === 0) { targetALM = 0 }
+    let alm = targetALM + shooterALM
+    if (alm < -10) { alm = -10 }
+    return alm
 }

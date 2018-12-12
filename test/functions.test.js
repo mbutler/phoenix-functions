@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM } from '../src/functions'
 import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -110,9 +110,16 @@ describe('Time to Phases', () => {
     })
 })
 
-describe('Range Equation', () => {
+describe('Accuracy Level Modifiers', () => {
     it('test the range ALM function', () => {
         expect(rangeALM(10)).to.equal(17)
         expect(rangeALM(1250)).to.equal(-18)
+    })
+    it('tests the moving ALM', () => {
+        expect(movingALM(0.25, 0, '20')).to.equal(-5)
+        expect(movingALM(0, 0, '20')).to.equal(0)
+        expect(movingALM(10, 0, '100')).to.equal(-8)
+        expect(movingALM(0, 2, '40')).to.equal(-6)
+        expect(movingALM(2, 2, '40')).to.equal(-10)
     })
 })
