@@ -1,5 +1,5 @@
-# skeleton
-A barebones starter project for modern javascript development
+# Phoenix Functions
+A small library for working with Phoenix Command RPG lookup tables.
 
 babel + webpack + mocha + chai + documentationjs
 
