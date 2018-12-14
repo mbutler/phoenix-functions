@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { equipmentWeight, calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM } from '../src/functions'
-import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment } from '../src/tables'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel } from '../src/functions'
+import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -41,8 +41,23 @@ describe('Calculate Action Time', () => {
 })
 
 describe('Table Lookup', () => {
-    it('tests equipment', () => {
-        expect(equipmentWeight('Clothing')).to.equal(5)
+    it('tests Equipment table', () => {
+        expect(tableLookup(equipment, 'Equipment', 'Weight', 'Bayonet')).to.equal(1)
+    })
+    it('tests Base Speed - 1A table', () => {
+        expect(tableLookup(baseSpeed_1A, 'STR', '10', 20)).to.equal(4.5)
+    })
+    it('tests Maximum Speed - 1B table', () => {
+        expect(tableLookup(maxSpeed_1B, 'AGI', '3', 21)).to.equal(9)
+    })
+    it('tests Skill Accuracy - 1C table', () => {
+        expect(tableLookup(skillAccuracy_1C, 'Skill Level', 'SAL', 9)).to.equal(15)
+    })
+    it('tests Combat Actions - 1D table', () => {
+        expect(tableLookup(combatActions_1D, 'MS', '7', 7)).to.equal(3)
+    })
+    it('tests Combat Actions Per Impulse - 1E table', () => {
+        expect(tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 4', 11)).to.equal(3)
     })
     it('tests Standard Target Size Modifiers - 4E table', () => {
         expect(tableLookup(standardTargetSizeModifiers_4E, 'Position', 'Target Size', 'Look Over/Around')).to.equal(-4)
@@ -138,5 +153,17 @@ describe('Accuracy Level Modifiers', () => {
         expect(targetSizeALM(['Look Over/Around'], 'Target Size')).to.equal(-4)
         expect(targetSizeALM(['Low Crouch'], 'Auto Elev')).to.equal(11)
         expect(targetSizeALM([], 'Target Size', 1)).to.equal(2)
+    })
+})
+
+describe('Calculations', () => {
+    it('tests equipmentWeight()', () => {
+        expect(equipmentWeight('Field Radio')).to.equal(12)
+    })
+    it('tests skillAccuracyLevel()', () => {
+        expect(skillAccuracyLevel(3)).to.equal(9)
+    })
+    it('test combatActionsPerImpulse()', () => {
+        expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
     })
 })

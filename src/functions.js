@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, incapacitationTime_8B, medicalAidRecovery_8A, hitLocationDamage_6A, shotScatter_5C, oddsOfHitting_4G, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -235,4 +235,40 @@ export function targetSizeALM(list, shotType, targetSize) {
 export function equipmentWeight(item) {
     let weight = tableLookup(equipment, "Equipment", "Weight", item)
     return weight
+}
+
+/**
+ * Returns the Skill Accuracy Level
+ *
+ * @param {number} skillLevel - The set skill level of the character
+ * @return {number} - The Skill Accuracy Level
+ */
+export function skillAccuracyLevel(skillLevel) {
+    let sal = tableLookup(skillAccuracy_1C, 'Skill Level', 'SAL', skillLevel)
+    return sal
+}
+
+/**
+ * Returns the number of combat actions per impulse
+ *
+ * @param {number} strength - The set strength attribute
+ * @param {number} agility - The set agility attribute
+ * @param {number} intelligence - The set intelligence attribute
+ * @param {number} skillLevel - The set skill level
+ * @param {number} encumbrance - The encumbrance level
+ * @return {object} - The combat actions per impulse object
+ */
+export function combatActionsPerImpulse(strength, agility, intelligence, skillLevel, encumbrance) {
+    let capi = {}, i1, i2, i3, i4
+    let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
+    let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
+    let sal = skillAccuracyLevel(skillLevel)
+    let isf = intelligence + sal
+    let combatActions = tableLookup(combatActions_1D, 'MS', isf, maxSpeed)
+    i1 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 1', combatActions)
+    i2 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 2', combatActions)
+    i3 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 3', combatActions)
+    i4 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 4', combatActions)
+    capi = {"1": i1, "2": i2, "3": i3, "4": i4}
+    return capi    
 }
