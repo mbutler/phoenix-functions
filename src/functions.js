@@ -260,10 +260,13 @@ export function skillAccuracyLevel(skillLevel) {
  */
 export function combatActionsPerImpulse(strength, agility, intelligence, skillLevel, encumbrance) {
     let capi = {}, i1, i2, i3, i4
+    if (encumbrance < 10) {encumbrance = 10}
+    if (encumbrance > 200) {encumbrance = 200}
     let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
     let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
     let sal = skillAccuracyLevel(skillLevel)
     let isf = intelligence + sal
+    isf = 2 * Math.floor(isf / 2) - 1
     let combatActions = tableLookup(combatActions_1D, 'MS', isf, maxSpeed)
     i1 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 1', combatActions)
     i2 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 2', combatActions)

@@ -166,4 +166,8 @@ describe('Calculations', () => {
     it('test combatActionsPerImpulse()', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
     })
+    it('test combatActionsPerImpulse()', () => {
+        expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
+        expect(combatActionsPerImpulse(3, 3, 3, 3, 0)).to.eql({"1": 1, "2": 0, "3": 1, "4": 0})
+    })
 })
