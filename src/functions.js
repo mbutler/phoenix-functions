@@ -159,7 +159,7 @@ export function movingALM(targetSpeed, shooterSpeed, range) {
     if (shooterSpeed === 0) { shooterALM = 0 }
     if (targetSpeed === 0) { targetALM = 0 }
     let alm = targetALM + shooterALM
-    if (alm < -10) { alm = -10 }
+    alm = _.clamp(alm, -10, 0)
     return alm
 }
 
@@ -248,7 +248,36 @@ export function intelligenceSkillFactor(int, skillLevel) {
     let sal = skillAccuracyLevel(skillLevel)
     let isf = int + sal
     isf = 2 * Math.floor(isf / 2) - 1
+    isf = _.clamp(isf, 7, 39)
     return isf
+}
+
+/**
+ * Returns the knockout value
+ *
+ * @param {number} will - The set will attribute
+ * @param {number} skillLevel - The set skill level
+ * @return {number} - The total combined encumbrance
+ */
+export function knockoutValue(will, skillLevel) {
+    if (skillLevel === 0) { skillLevel = 1}
+    let kv = _.round(0.5 * will) * skillLevel
+    return kv
+}
+
+/**
+ * Returns the number of hexes or inches a character can move each phase
+ *
+ * @param {number} strength - The set strength attribute
+ * @param {number} agility - The set agility level
+ * @param {number} encumbrance - The calculated encumbrance
+ * @return {number} - The total hexes or inches per phase
+ */
+export function movementSpeed(strength, agility, encumbrance) {
+    let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
+    let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
+    let spd = _.round(maxSpeed / 2)
+    return spd
 }
 
 /**
@@ -267,8 +296,7 @@ export function encumbranceCalculator(gear, guns) {
         encumbrance += weapons[item]['W']    
     })
     encumbrance = Math.ceil(encumbrance/5) * 5
-    if (encumbrance < 10) {encumbrance = 10}
-    if (encumbrance > 200) {encumbrance = 200}
+    encumbrance = _.clamp(encumbrance, 10, 200)
     return encumbrance
 }
 

@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed } from '../src/functions'
 import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -157,6 +157,14 @@ describe('Accuracy Level Modifiers', () => {
 })
 
 describe('Calculations', () => {
+    it('tests knockoutValue function', () => {
+        expect(knockoutValue(10, 3)).to.equal(15)
+        expect(knockoutValue(15, 0)).to.equal(8)
+    })
+    it('tests movementSpeed function', () => {
+        expect(movementSpeed(10, 10, 10)).to.equal(3)
+        expect(movementSpeed(11, 11, 15)).to.equal(3)
+    })
     it('tests encumbranceCalculator function', () => {
         expect(encumbranceCalculator(['Field Radio', 'Holster'], ['Uzi', 'FN Mk 1'])).to.equal(25)
         expect(encumbranceCalculator([], [])).to.equal(10)
@@ -164,13 +172,12 @@ describe('Calculations', () => {
     it('tests skillAccuracyLevel function', () => {
         expect(skillAccuracyLevel(3)).to.equal(9)
     })
-    it('test combatActionsPerImpulse function', () => {
-        expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
-    })
     it('tests intelligenceSKillFactor function', () => {
         expect(intelligenceSkillFactor(11, 3)).to.equal(19)
+        expect(intelligenceSkillFactor(18, 20)).to.equal(39)
+        expect(intelligenceSkillFactor(3, 0)).to.equal(7)
     })
-    it('test combatActionsPerImpulse function', () => {
+    it('tests combatActionsPerImpulse function', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
         expect(() => combatActionsPerImpulse(3, 3, 3, 3, 0)).to.throw(Error)
     })
