@@ -1,3 +1,62 @@
+export const equipment = [
+  {
+    "Equipment": "Bayonet",
+    "Weight": 1
+  },
+  {
+    "Equipment": "Binoculars",
+    "Weight": 2
+  },
+  {
+    "Equipment": "Bipod",
+    "Weight": 1
+  },
+  {
+    "Equipment": "Canteen",
+    "Weight": 2.5
+  },
+  {
+    "Equipment": "Clothing",
+    "Weight": 5
+  },
+  {
+    "Equipment": "Entrenching Tool",
+    "Weight": 1.5
+  },
+  {
+    "Equipment": "Field Radio",
+    "Weight": 12
+  },
+  {
+    "Equipment": "Fighting Harness",
+    "Weight": 0.6
+  },
+  {
+    "Equipment": "Headset Communications",
+    "Weight": 1
+  },
+  {
+    "Equipment": "Holster",
+    "Weight": 0.4
+  },
+  {
+    "Equipment": "Magazine Pouch (2 Mags)",
+    "Weight": 0.2
+  },
+  {
+    "Equipment": "Optical Scope",
+    "Weight": 2.5
+  },
+  {
+    "Equipment": "Sling",
+    "Weight": 0.4
+  },
+  {
+    "Equipment": "Smoke Grenade",
+    "Weight": 1
+  }
+]
+
 export const oddsOfHitting_4G = [
   {
     "EAL": 28,

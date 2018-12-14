@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM } from '../src/functions'
-import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B } from '../src/tables'
+import { equipmentWeight, calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM } from '../src/functions'
+import { oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -41,6 +41,9 @@ describe('Calculate Action Time', () => {
 })
 
 describe('Table Lookup', () => {
+    it('tests equipment', () => {
+        expect(equipmentWeight('Clothing')).to.equal(5)
+    })
     it('tests Standard Target Size Modifiers - 4E table', () => {
         expect(tableLookup(standardTargetSizeModifiers_4E, 'Position', 'Target Size', 'Look Over/Around')).to.equal(-4)
     })

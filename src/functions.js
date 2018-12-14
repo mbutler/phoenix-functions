@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { incapacitationTime_8B, medicalAidRecovery_8A, hitLocationDamage_6A, shotScatter_5C, oddsOfHitting_4G, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables'
+import { equipment, incapacitationTime_8B, medicalAidRecovery_8A, hitLocationDamage_6A, shotScatter_5C, oddsOfHitting_4G, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -224,4 +224,15 @@ export function targetSizeALM(list, shotType, targetSize) {
     }
 
     return alm   
+}
+
+/**
+ * Returns the weight for a given piece of equipment
+ *
+ * @param {string} item - An item of equipment
+ * @return {number} - The weight of the item
+ */
+export function equipmentWeight(item) {
+    let weight = tableLookup(equipment, "Equipment", "Weight", item)
+    return weight
 }
