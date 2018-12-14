@@ -227,17 +227,6 @@ export function targetSizeALM(list, shotType, targetSize) {
 }
 
 /**
- * Returns the weight for a given piece of equipment
- *
- * @param {string} item - An item of equipment
- * @return {number} - The weight of the item
- */
-export function equipmentWeight(item) {
-    let weight = tableLookup(equipment, "Equipment", "Weight", item)
-    return weight
-}
-
-/**
  * Returns the Skill Accuracy Level
  *
  * @param {number} skillLevel - The set skill level of the character
@@ -246,6 +235,41 @@ export function equipmentWeight(item) {
 export function skillAccuracyLevel(skillLevel) {
     let sal = tableLookup(skillAccuracy_1C, 'Skill Level', 'SAL', skillLevel)
     return sal
+}
+
+/**
+ * Returns the Intelligence Skill Factor
+ *
+ * @param {number} int - The set intelligence level of the character
+ * @param {number} skillLevel - The set skill level level of the character
+ * @return {number} - The Intelligence Skill Factor rounded to and odd number
+ */
+export function intelligenceSkillFactor(int, skillLevel) {
+    let sal = skillAccuracyLevel(skillLevel)
+    let isf = int + sal
+    isf = 2 * Math.floor(isf / 2) - 1
+    return isf
+}
+
+/**
+ * Returns the total encumbrance for equipment and weapons
+ *
+ * @param {array} gear - A list of all equipment
+ * @param {array} guns - A list of all weapons
+ * @return {number} - The total combined encumbrance
+ */
+export function encumbranceCalculator(gear, guns) {
+    let encumbrance = 0
+    _.forEach(gear, (item) => {
+        encumbrance += tableLookup(equipment, "Equipment", "Weight", item)       
+    })
+    _.forEach(guns, (item) => {
+        encumbrance += weapons[item]['W']    
+    })
+    encumbrance = Math.ceil(encumbrance/5) * 5
+    if (encumbrance < 10) {encumbrance = 10}
+    if (encumbrance > 200) {encumbrance = 200}
+    return encumbrance
 }
 
 /**
@@ -260,13 +284,10 @@ export function skillAccuracyLevel(skillLevel) {
  */
 export function combatActionsPerImpulse(strength, agility, intelligence, skillLevel, encumbrance) {
     let capi = {}, i1, i2, i3, i4
-    if (encumbrance < 10) {encumbrance = 10}
-    if (encumbrance > 200) {encumbrance = 200}
     let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
     let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
     let sal = skillAccuracyLevel(skillLevel)
-    let isf = intelligence + sal
-    isf = 2 * Math.floor(isf / 2) - 1
+    let isf = intelligenceSkillFactor(intelligence, skillLevel)
     let combatActions = tableLookup(combatActions_1D, 'MS', isf, maxSpeed)
     i1 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 1', combatActions)
     i2 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 2', combatActions)

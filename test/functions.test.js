@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator } from '../src/functions'
 import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -157,17 +157,21 @@ describe('Accuracy Level Modifiers', () => {
 })
 
 describe('Calculations', () => {
-    it('tests equipmentWeight()', () => {
-        expect(equipmentWeight('Field Radio')).to.equal(12)
+    it('tests encumbranceCalculator function', () => {
+        expect(encumbranceCalculator(['Field Radio', 'Holster'], ['Uzi', 'FN Mk 1'])).to.equal(25)
+        expect(encumbranceCalculator([], [])).to.equal(10)
     })
-    it('tests skillAccuracyLevel()', () => {
+    it('tests skillAccuracyLevel function', () => {
         expect(skillAccuracyLevel(3)).to.equal(9)
     })
-    it('test combatActionsPerImpulse()', () => {
+    it('test combatActionsPerImpulse function', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
     })
-    it('test combatActionsPerImpulse()', () => {
+    it('tests intelligenceSKillFactor function', () => {
+        expect(intelligenceSkillFactor(11, 3)).to.equal(19)
+    })
+    it('test combatActionsPerImpulse function', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
-        expect(combatActionsPerImpulse(3, 3, 3, 3, 0)).to.eql({"1": 1, "2": 0, "3": 1, "4": 0})
+        expect(() => combatActionsPerImpulse(3, 3, 3, 3, 0)).to.throw(Error)
     })
 })
