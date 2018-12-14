@@ -54,6 +54,30 @@ export const equipment = [
   {
     "Equipment": "Smoke Grenade",
     "Weight": 1
+  },
+  {
+    "Equipment": "Light Flexible",
+    "Weight": 2
+  },
+  {
+    "Equipment": "Medium Flexible",
+    "Weight": 2.6
+  },
+  {
+    "Equipment": "Heavy Flexible",
+    "Weight": 3.2
+  },
+  {
+    "Equipment": "Light Rigid",
+    "Weight": 10.9
+  },
+  {
+    "Equipment": "Medium Rigid",
+    "Weight": 19.8
+  },
+  {
+    "Equipment": "Heavy Rigid",
+    "Weight": 24
   }
 ]
 
