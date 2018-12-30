@@ -154,6 +154,7 @@ export function rangeALM(distance) {
  * @return {number} - The ALM to add in to EAL calculation
  */
 export function movingALM(targetSpeed, shooterSpeed, range) {
+    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
     let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
     let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
     if (shooterSpeed === 0) { shooterALM = 0 }
@@ -314,7 +315,6 @@ export function combatActionsPerImpulse(strength, agility, intelligence, skillLe
     let capi = {}, i1, i2, i3, i4
     let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
     let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
-    let sal = skillAccuracyLevel(skillLevel)
     let isf = intelligenceSkillFactor(intelligence, skillLevel)
     let combatActions = tableLookup(combatActions_1D, 'MS', isf, maxSpeed)
     i1 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 1', combatActions)
@@ -323,4 +323,31 @@ export function combatActionsPerImpulse(strength, agility, intelligence, skillLe
     i4 = tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 4', combatActions)
     capi = {"1": i1, "2": i2, "3": i3, "4": i4}
     return capi    
+}
+
+
+/**
+ * Returns the closest number in a list of numbers without going over
+ *
+ * @param {number} value - The number to change
+ * @param {array} numberList - A list of numbers with arbitrary space between
+ * @return {number} - The closest number from NumberList without going over
+ */
+export function snapToValue(value, numberList) {
+    value = _.clamp(value, _.head(numberList), _.last(numberList))
+    let newValue
+    _.forEach(_.tail(numberList), num => {
+        let prevIndex = _.indexOf(numberList, num) - 1
+        prevIndex = _.clamp(prevIndex, 0, numberList.length)
+        let prevNum = numberList[prevIndex]
+        if (prevIndex !== 0) {prevNum++}
+        num++
+        if (_.inRange(value, prevNum, num)) {
+            newValue = num - 1
+        }
+        if (value === 0) {
+            newValue = 0
+        }
+    })
+    return newValue
 }

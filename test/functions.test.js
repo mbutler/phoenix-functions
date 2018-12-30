@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue } from '../src/functions'
 import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -139,6 +139,7 @@ describe('Accuracy Level Modifiers', () => {
         expect(movingALM(10, 0, '100')).to.equal(-8)
         expect(movingALM(0, 2, '40')).to.equal(-6)
         expect(movingALM(2, 2, '40')).to.equal(-10)
+        expect(movingALM(2, 2, '44')).to.equal(-10)
     })
     it('tests shot accuracy ALM', () => {
         expect(shotAccuracyALM(-17, 5)).to.equal(-12)
@@ -157,6 +158,13 @@ describe('Accuracy Level Modifiers', () => {
 })
 
 describe('Calculations', () => {
+    it('tests snap to value function', () => {
+        expect(snapToValue(511, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(600)
+        expect(snapToValue(0, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(0)
+        expect(snapToValue(10, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(10)
+        expect(snapToValue(11, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(20)
+        expect(snapToValue(1600, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(1500)
+    })
     it('tests knockoutValue function', () => {
         expect(knockoutValue(10, 3)).to.equal(15)
         expect(knockoutValue(15, 0)).to.equal(8)
