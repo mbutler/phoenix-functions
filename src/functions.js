@@ -140,6 +140,7 @@ export function timeToPhases(time) {
  */
 export function rangeALM(distance) {
     let alm
+    //using equations for continuous values such as size and range
     alm = -193.0515 + (186.8799 + 193.0515) / (1 + Math.pow((distance / 154.6719), 0.07601861))
 
     return _.round(alm)
@@ -210,14 +211,19 @@ export function visibilityALM(list) {
  *
  * @param {array} list - A list of string labels of the standard target sizes
  * @param {string} shotType - Either 'Target Size' for single shot or 'Auto Elev' for burst
- * @param {number} targetSize - Optional target size if there are no viable options form the list
+ * @param {number} targetSize - Optional target size if there are no viable options from the list
  * @return {number} - The ALM to add in to EAL calculation
  */
 export function targetSizeALM(list, shotType, targetSize) {
     let alm = 0
+    if (shotType === 'Single Shot') {shotType = 'Target Size'}
+    if (shotType === 'Burst') {shotType = 'Auto Elev'}
 
     if (targetSize !== undefined) {
-        alm += tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', targetSize)
+        //using equations for continuous values such as size and range
+        //alm += tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', targetSize)
+        targetSize = 603.5065 + (-1251.667 - 603.5065) / (1 + Math.pow((targetSize / 1.200853e-18), 0.01778392))
+        alm += _.round(targetSize)
     } else {
         _.forEach(list, (item) => {
             alm += tableLookup(standardTargetSizeModifiers_4E, 'Position', shotType, item)
@@ -359,14 +365,14 @@ export function snapToValue(value, numberList) {
  * @return {number} - The effective accuracy level
  */
 export function effectiveAccuracyLevel(mods) {
-    let targetSizeType = 'Target Size'
-    if (mods.shotType === 'Burst') {targetSizeType = 'Auto Elev'}
+    let targetDiameter
+    if (mods.targetDiameter > 0) {targetDiameter = mods.targetDiameter}
     let aimTimeMod = shotAccuracyALM(mods.weaponAimMod, mods.sal)    
     let movingMod = movingALM(mods.targetSpeed, mods.shooterSpeed, mods.range)
     let rangeMod = rangeALM(mods.range)
     let situationMod = situationALM(mods.situational)
     let visibilityMod = visibilityALM(mods.visibility)
-    let targetSizeMod = targetSizeALM(mods.targetSize, targetSizeType)
+    let targetSizeMod = targetSizeALM(mods.targetSize, mods.shotType, targetDiameter)
     let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + targetSizeMod
     alm = _.clamp(alm, -10, 28)
 

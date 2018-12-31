@@ -12,6 +12,7 @@ const oneAP = {"1": 1, "2": 0, "3": 0, "4": 0}
 const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23}
 const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
 const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
+const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1}
 
 describe('Calculate Action Time', () => {
     it('tests next phase with no remainder actions', () => {
@@ -154,9 +155,10 @@ describe('Accuracy Level Modifiers', () => {
         expect(visibilityALM(['Night - 1/2 Moon', 'Smoke, Haze, Fog'])).to.equal(-12)
     })
     it('tests target size ALM', () => {
-        expect(targetSizeALM(['Look Over/Around'], 'Target Size')).to.equal(-4)
-        expect(targetSizeALM(['Low Crouch'], 'Auto Elev')).to.equal(11)
-        expect(targetSizeALM([], 'Target Size', 1)).to.equal(2)
+        expect(targetSizeALM(['Look Over/Around'], 'Single Shot')).to.equal(-4)
+        expect(targetSizeALM(['Low Crouch'], 'Burst')).to.equal(11)
+        expect(targetSizeALM([], 'Single Shot', 2.8)).to.equal(9)
+        expect(targetSizeALM([], 'Single Shot', 1)).to.equal(2)
     })
 })
 
@@ -196,10 +198,11 @@ describe('Calculations', () => {
         expect(effectiveAccuracyLevel(mods)).to.equal(-7)
         expect(effectiveAccuracyLevel(mods2)).to.equal(-10)
         expect(effectiveAccuracyLevel(mods3)).to.equal(-10)
+        expect(effectiveAccuracyLevel(mods4)).to.equal(-5)
     })
     it('tests oddsOfHitting function', () => {
         expect(oddsOfHitting(-7, 'Single Shot')).to.equal(0)
-        expect(oddsOfHitting(16, 'Burst Elevation')).to.equal(62)
+        expect(oddsOfHitting(16, 'Burst')).to.equal(62)
         expect(oddsOfHitting(30, 'Single Shot')).to.equal(99)
         expect(oddsOfHitting(-45, 'Single Shot')).to.equal(0)
     })
