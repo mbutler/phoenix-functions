@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -243,7 +243,7 @@ export function skillAccuracyLevel(skillLevel) {
  *
  * @param {number} int - The set intelligence level of the character
  * @param {number} skillLevel - The set skill level level of the character
- * @return {number} - The Intelligence Skill Factor rounded to and odd number
+ * @return {number} - The Intelligence Skill Factor rounded to an odd number
  */
 export function intelligenceSkillFactor(int, skillLevel) {
     let sal = skillAccuracyLevel(skillLevel)
@@ -350,4 +350,39 @@ export function snapToValue(value, numberList) {
         }
     })
     return newValue
+}
+
+/**
+ * Returns the EAL given all modifiers
+ *
+ * @param {object} mods - The collection of mods
+ * @return {number} - The effective accuracy level
+ */
+export function effectiveAccuracyLevel(mods) {
+    let targetSizeType = 'Target Size'
+    if (mods.shotType === 'Burst') {targetSizeType = 'Auto Elev'}
+    let aimTimeMod = shotAccuracyALM(mods.weaponAimMod, mods.sal)    
+    let movingMod = movingALM(mods.targetSpeed, mods.shooterSpeed, mods.range)
+    let rangeMod = rangeALM(mods.range)
+    let situationMod = situationALM(mods.situational)
+    let visibilityMod = visibilityALM(mods.visibility)
+    let targetSizeMod = targetSizeALM(mods.targetSize, targetSizeType)
+    let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + targetSizeMod
+    alm = _.clamp(alm, -10, 28)
+
+    return alm
+}
+
+/**
+ * Returns the chance of hitting
+ *
+ * @param {number} eal - The effective accuracy level
+ * @param {string} shotType - Either Single Shot or Burst Elevation
+ * @return {number} - The effective accuracy level
+ */
+export function oddsOfHitting(eal, shotType) {
+    eal = _.clamp(eal, -10, 28)
+    if (shotType === 'Burst') {shotType = 'Burst Elevation'}
+    let chance = tableLookup(oddsOfHitting_4G, 'EAL', shotType, eal)
+    return chance
 }

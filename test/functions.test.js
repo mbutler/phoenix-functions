@@ -1,14 +1,17 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting } from '../src/functions'
 import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
 import { weapons } from '../src/weapons'
 
-let fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
-let sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
-let twelveAP = {"1": 5, "2": 4, "3": 3, "4": 0}
-let oneAP = {"1": 1, "2": 0, "3": 0, "4": 0}
-let time = {"impulse" : 1, "phase" : 1}
+const fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
+const sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
+const twelveAP = {"1": 5, "2": 4, "3": 3, "4": 0}
+const oneAP = {"1": 1, "2": 0, "3": 0, "4": 0}
+
+const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23}
+const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
+const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
 
 describe('Calculate Action Time', () => {
     it('tests next phase with no remainder actions', () => {
@@ -158,7 +161,7 @@ describe('Accuracy Level Modifiers', () => {
 })
 
 describe('Calculations', () => {
-    it('tests snap to value function', () => {
+    it('tests snapToValue function', () => {
         expect(snapToValue(511, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(600)
         expect(snapToValue(0, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(0)
         expect(snapToValue(10, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(10)
@@ -188,5 +191,16 @@ describe('Calculations', () => {
     it('tests combatActionsPerImpulse function', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
         expect(() => combatActionsPerImpulse(3, 3, 3, 3, 0)).to.throw(Error)
+    })
+    it('tests effectiveAccuracyLevel function', () => {
+        expect(effectiveAccuracyLevel(mods)).to.equal(-7)
+        expect(effectiveAccuracyLevel(mods2)).to.equal(-10)
+        expect(effectiveAccuracyLevel(mods3)).to.equal(-10)
+    })
+    it('tests oddsOfHitting function', () => {
+        expect(oddsOfHitting(-7, 'Single Shot')).to.equal(0)
+        expect(oddsOfHitting(16, 'Burst Elevation')).to.equal(62)
+        expect(oddsOfHitting(30, 'Single Shot')).to.equal(99)
+        expect(oddsOfHitting(-45, 'Single Shot')).to.equal(0)
     })
 })
