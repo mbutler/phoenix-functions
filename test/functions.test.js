@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting } from '../src/functions'
-import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E } from '../src/tables'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, autoFireHitChance } from '../src/functions'
+import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 const fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -95,6 +95,10 @@ describe('Table Lookup', () => {
     })
     it('tests Incapacitation Time - 8B table', () => {
         expect(tableLookup(incapacitationTime_8B, 'PD Total', '3', 333)).to.equal('63m')
+    })
+    it('tests automatic fire and shrapnel - 5A table', () => {
+        expect(tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', '36', 0.8)).to.equal(6)
+        expect(tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', '36', 0)).to.equal(28)
     })
 })
 
@@ -205,5 +209,10 @@ describe('Calculations', () => {
         expect(oddsOfHitting(16, 'Burst')).to.equal(62)
         expect(oddsOfHitting(30, 'Single Shot')).to.equal(99)
         expect(oddsOfHitting(-45, 'Single Shot')).to.equal(0)
+    })
+    it('tests autoFireHitChance function', () => {
+        expect(autoFireHitChance(20, 8, 7)).to.include.keys('target 7')
+        expect(autoFireHitChance(20, 8, 7)).to.include.keys('Hit Chance')
+        expect(autoFireHitChance(6, 18, 10)).to.be.an('object')
     })
 })

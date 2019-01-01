@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -391,4 +391,19 @@ export function oddsOfHitting(eal, shotType) {
     if (shotType === 'Burst') {shotType = 'Burst Elevation'}
     let chance = tableLookup(oddsOfHitting_4G, 'EAL', shotType, eal)
     return chance
+}
+
+export function autoFireHitChance(arc, rate, targets) {
+    let result = {}
+    let shot = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rate), arc)
+    result['Hit Chance'] = shot
+    for (let i = 1; i <= targets; i++) {
+        let rand = _.random(0,99)
+        let hit = false        
+        if (rand <= shot) {
+            hit = true
+        }
+        result[`target ${i}`] = hit
+    }
+    return result
 }
