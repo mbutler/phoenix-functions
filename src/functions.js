@@ -393,17 +393,40 @@ export function oddsOfHitting(eal, shotType) {
     return chance
 }
 
-export function autoFireHitChance(arc, rate, targets) {
+/**
+ * Returns the targets hit in burst fire
+ *
+ * @param {number} arc - The arc of fire chosen by user
+ * @param {number} rate - The rate of fire listed on the weapon
+ * @param {number} targets - The number of targets as chosen by user
+ * @return {object} - The targets object with booleans for hit success
+ */
+export function burstFire(arc, rate, targets) {
     let result = {}
     let shot = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rate), arc)
     result['Hit Chance'] = shot
     for (let i = 1; i <= targets; i++) {
-        let rand = _.random(0,99)
+        let roll = _.random(0,99)
         let hit = false        
-        if (rand <= shot) {
+        if (roll <= shot) {
             hit = true
         }
         result[`target ${i}`] = hit
     }
     return result
+}
+
+/**
+ * Returns the hit success for single shot
+ *
+ * @param {number} chance - The percent chance of hitting
+ * @return {boolean} - Whether it hit or not
+ */
+export function singleShotFire(chance) {
+    let roll = _.random(0,99)
+    let hit = false
+    if (roll <= chance) {
+        hit = true
+    }
+    return hit
 }
