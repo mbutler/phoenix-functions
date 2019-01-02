@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck } from '../src/functions'
 import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -216,6 +216,12 @@ describe('Calculations', () => {
         expect(burstFire(6, 18, 10)).to.be.an('object')
     })
     it('tests singleShotFire function', () => {
-        expect(singleShotFire(20)).to.be.a('boolean')
+        expect(singleShotFire(20)).to.include.keys('target 1')
+        expect(singleShotFire(99)).to.be.an('object')
+    })
+    it('tests the multipleHitCheck function', () => {
+        expect(multipleHitCheck(5, 54, 1)).to.equal(true)
+        expect(multipleHitCheck(0.4, 3, 89)).to.equal(false)
+        expect(multipleHitCheck(2, 7, 33)).to.equal(false)
     })
 })

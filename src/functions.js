@@ -403,12 +403,12 @@ export function oddsOfHitting(eal, shotType) {
  */
 export function burstFire(arc, rate, targets) {
     let result = {}
-    let shot = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rate), arc)
-    result['Hit Chance'] = shot
+    let chance = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rate), arc)
+    result['Hit Chance'] = chance
     for (let i = 1; i <= targets; i++) {
         let roll = _.random(0,99)
         let hit = false        
-        if (roll <= shot) {
+        if (roll <= chance) {
             hit = true
         }
         result[`target ${i}`] = hit
@@ -423,10 +423,31 @@ export function burstFire(arc, rate, targets) {
  * @return {boolean} - Whether it hit or not
  */
 export function singleShotFire(chance) {
+    let result = {}
+    result['Hit Chance'] = chance
     let roll = _.random(0,99)
-    let hit = false
+    result[`target 1`] = false
     if (roll <= chance) {
-        hit = true
+        result[`target 1`] = true
     }
-    return hit
+    return result
+}
+
+/**
+ * Returns the asterisks numbers in auto chance
+ * @param {number} arc - The chosen arc of fire
+ * @param {number} rof - The weapon's rate of fire
+ * @param {number} chance - The percent chance of hitting
+ * @return {boolean} - Whether it is a multiple hit
+ */
+export function multipleHitCheck(arc, rof, chance) {
+    let star = false
+    if (arc < 0.5) {star = true}
+    if (arc <= 3 && chance < 10) {star = true}
+    if (arc <= 17 && rof === 144) {star = true}
+    if (arc <= 8 && rof === 72) {star = true}
+    if (arc <= 6 && rof === 54) {star = true}
+    if (arc === 4 && chance === 1) {star = true}
+    if (arc === 0.4 && chance === 89) {star = false}
+    return star
 }
