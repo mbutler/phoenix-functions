@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck } from '../src/functions'
-import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A } from '../src/tables'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction } from '../src/functions'
+import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 const fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -68,29 +68,28 @@ describe('Table Lookup', () => {
     })
     it('tests Odds of Hitting - 4G table', () => {
         expect(tableLookup(oddsOfHitting_4G, 'EAL', 'Single Shot', 13)).to.equal(22)
+        expect(() => tableLookup(oddsOfHitting_4G, "EAL", "Single Shot", 29)).to.throw(Error)
     })
     it('tests Target Size Modifiers - 4F table', () => {
         expect(tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', 0.5)).to.equal(-3)
     })
-    it('tests values out of range', () => {
-        expect(() => tableLookup(oddsOfHitting_4G, "EAL", "Single Shot", 29)).to.throw(Error)
-    })
-    it('tests number between range values', () => {
+
+    it('tests Shot Scatter - 5C table', () => {
         expect(tableLookup(shotScatter_5C, 'Difference in SA', 'Scatter (hexes)', 8)).to.equal(2)
     })
-    it('tests fire on DC 1 of Hit Location and Damage - 6A table', () => {
+    it('tests Hit Location and Damage - 6A table', () => {
         expect(tableLookup(hitLocationDamage_6A['DC 1'], 'Fire', "2", 6)).to.equal(2000)
-    })
-    it('tests open on DC 10 of Hit Location and Damage - 6A table', () => {
         expect(tableLookup(hitLocationDamage_6A['DC 10'], 'Open', "3", 3)).to.equal(2000000)
-    })
-    it('tests non-value on DC 6 of Hit Location and Damage - 6A table', () => {
         expect(() => tableLookup(hitLocationDamage_6A['DC 6'], 'Fire', "2.5", 3)).to.throw(Error)
+    })
+    it('tests Effective Armor Penetration Factor - 6D table', () => {
+        expect(tableLookup(effectiveArmorProtectionFactor_6D, 'PF', '2', 2)).to.equal(3)
+    })
+    it('tests cover protection factors - 7C table', () => {
+        expect(tableLookup(coverProtectionFactors_7C, 'Armor', 'PF', 'Heavy Flexible')).to.equal(9)
     })
     it('tests Medical Aid and Recovery - 8A table', () => {
         expect(tableLookup(medicalAidRecovery_8A, 'Damage Total', 'First Aid - CTP', 66)).to.equal('25d')
-    })
-    it('tests out-of-range on Medical Aid and Recovery - 8A table', () => {
         expect(() => tableLookup(medicalAidRecovery_8A, 'Damage Total', 'First Aid - CTP', 20000000)).to.throw(Error)
     })
     it('tests Incapacitation Time - 8B table', () => {
@@ -171,7 +170,7 @@ describe('Calculations', () => {
         expect(snapToValue(511, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(600)
         expect(snapToValue(0, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(0)
         expect(snapToValue(10, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(10)
-        expect(snapToValue(11, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(20)
+        expect(snapToValue(11, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(10)
         expect(snapToValue(1600, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])).to.equal(1500)
     })
     it('tests knockoutValue function', () => {
@@ -214,6 +213,8 @@ describe('Calculations', () => {
         expect(burstFire(20, 8, 7)).to.include.keys('target 7')
         expect(burstFire(20, 8, 7)).to.include.keys('Hit Chance')
         expect(burstFire(6, 18, 10)).to.be.an('object')
+        expect(burstFire(0.4, 144, 10)).to.be.an('object')
+        expect(burstFire(0.5, 18, 100)).to.not.include.keys('target 101')
     })
     it('tests singleShotFire function', () => {
         expect(singleShotFire(20)).to.include.keys('target 1')
@@ -223,5 +224,32 @@ describe('Calculations', () => {
         expect(multipleHitCheck(5, 54, 1)).to.equal(true)
         expect(multipleHitCheck(0.4, 3, 89)).to.equal(false)
         expect(multipleHitCheck(2, 7, 33)).to.equal(false)
+        expect(multipleHitCheck(9, 4, 12)).to.be.an('boolean')
+    })
+    it('tests damageClass function', () => {
+        expect(damageClass(weapons['Uzi'], 20, 'FMJ')).to.equal(3)
+        expect(damageClass(weapons['FN Mk 1'], 70, 'AP')).to.equal(2)
+    })
+    it('tests penetration function', () => {
+        expect(penetration(weapons['Uzi'], 20, 'FMJ')).to.equal(2.3)
+        expect(penetration(weapons['Uzi'], 30, 'FMJ')).to.equal(2)
+    })
+    it('tests hitDamage function', () => {
+        expect(hitDamage(3, false, 3, 11, 23)).to.equal(0)
+        expect(hitDamage(19, true, 3, 7, 4)).to.equal(3000)
+        expect(hitDamage(73, true, 3, 17, 4)).to.equal(81)
+    })
+    it('tests hitLocation function', () => {
+        expect(hitLocation(95, true)).to.equal('Weapon Critical')
+        expect(hitLocation(95, false)).to.equal('Ankle - Foot')
+    })
+    it('tests effectivePenetrationFactor function', () => {
+        expect(effectivePenetrationFactor(3, 'Medium Rigid')).to.equal(23)
+        expect(effectivePenetrationFactor(3, 'Heavy Flexible')).to.equal(14)
+    })
+    it('tests damageReduction function', () => {
+        expect(damageReduction(11, 23)).to.equal('no penetration')
+        expect(damageReduction(7, 4)).to.equal('low velocity penetration')
+        expect(damageReduction(17, 4)).to.equal('high velocity penetration')
     })
 })

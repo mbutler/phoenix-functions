@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -339,23 +339,14 @@ export function combatActionsPerImpulse(strength, agility, intelligence, skillLe
  * @param {array} numberList - A list of numbers with arbitrary space between
  * @return {number} - The closest number from NumberList without going over
  */
-export function snapToValue(value, numberList) {
-    value = _.clamp(value, _.head(numberList), _.last(numberList))
-    let newValue
-    _.forEach(_.tail(numberList), num => {
-        let prevIndex = _.indexOf(numberList, num) - 1
-        prevIndex = _.clamp(prevIndex, 0, numberList.length)
-        let prevNum = numberList[prevIndex]
-        if (prevIndex !== 0) {prevNum++}
-        num++
-        if (_.inRange(value, prevNum, num)) {
-            newValue = num - 1
-        }
-        if (value === 0) {
-            newValue = 0
-        }
+export function snapToValue(target, array) {
+    let tuples = _.map(array, val => {
+        return [val, Math.abs(val - target)]
     })
-    return newValue
+
+    return _.reduce(tuples, (memo, val) => {
+        return (memo[1] < val[1]) ? memo : val
+    }, [-1, 999])[0]
 }
 
 /**
@@ -397,21 +388,40 @@ export function oddsOfHitting(eal, shotType) {
  * Returns the targets hit in burst fire
  *
  * @param {number} arc - The arc of fire chosen by user
- * @param {number} rate - The rate of fire listed on the weapon
+ * @param {number} rof - The rate of fire listed on the weapon
  * @param {number} targets - The number of targets as chosen by user
- * @return {object} - The targets object with booleans for hit success
+ * @return {object} - The targets object with booleans for hit success plus bullets
  */
-export function burstFire(arc, rate, targets) {
+export function burstFire(arc, rof, targets) {
     let result = {}
-    let chance = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rate), arc)
+    let bullets = rof
+    let chance = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rof), arc)
+    let multipleHit = multipleHitCheck(arc, rof, chance)
     result['Hit Chance'] = chance
     for (let i = 1; i <= targets; i++) {
-        let roll = _.random(0,99)
-        let hit = false        
-        if (roll <= chance) {
-            hit = true
+        let hit = false
+        if (bullets > 0) {
+            let roll = _.random(0,99)
+            if (roll <= chance) {
+                hit = true
+                if (multipleHit === true) {
+                    if (bullets < chance) {
+                        result[`target ${i}`] = {"hit": hit, "bullets": bullets}
+                        bullets = 0
+                    } else {
+                        result[`target ${i}`] = {"hit": hit, "bullets": chance}
+                        bullets = bullets - chance
+                    }                    
+                } else if (multipleHit === false) {
+                    result[`target ${i}`] = {"hit": hit, "bullets": 1}
+                    bullets = bullets - 1
+                }
+            } else {
+                result[`target ${i}`] = {"hit": hit, "bullets": 0}
+            }
+        } else if (bullets <= 0) {
+            result[`target ${i}`] = {"hit": hit, "bullets": 0}
         }
-        result[`target ${i}`] = hit
     }
     return result
 }
@@ -426,9 +436,9 @@ export function singleShotFire(chance) {
     let result = {}
     result['Hit Chance'] = chance
     let roll = _.random(0,99)
-    result[`target 1`] = false
+    result[`target 1`] = {"hit": false, "bullets": 0}
     if (roll <= chance) {
-        result[`target 1`] = true
+        result[`target 1`] = {"hit": true, "bullets": 1}
     }
     return result
 }
@@ -450,4 +460,118 @@ export function multipleHitCheck(arc, rof, chance) {
     if (arc === 4 && chance === 1) {star = true}
     if (arc === 0.4 && chance === 89) {star = false}
     return star
+}
+
+/**
+ * Returns the DC for a weapon firing specific ammo at range
+ * @param {object} weapon - The database weapon
+ * @param {number} range - The range in hexes
+ * @param {string} ammo - One of three ammo types
+ * @return {number} - The correct damage class
+ */
+export function damageClass(weapon, range, ammo) {
+    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    range = _.clamp(range, 0, 400)
+    let dc = weapon[_.toString(range)][ammo]['DC']
+    return dc
+}
+
+/**
+ * Returns the PEN for a weapon firing specific ammo at range
+ * @param {object} weapon - The database weapon
+ * @param {number} range - The range in hexes
+ * @param {string} ammo - One of three ammo types
+ * @return {number} - The correct penetration value
+ */
+export function penetration(weapon, range, ammo) {
+    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    range = _.clamp(range, 0, 400)
+    let pen = weapon[_.toString(range)][ammo]['PEN']
+    return pen
+}
+
+/**
+ * Returns the Effective Penetration Factor value
+ * @param {number} roll - A random number generated externally
+ * @param {string} armor - The name of the armor or material
+ * @return {number} - The correct EPF
+ */
+export function effectivePenetrationFactor(roll, armor) {
+    let pf = tableLookup(coverProtectionFactors_7C, 'Armor', 'PF', armor)
+    pf = snapToValue(pf, [0,2,4,6,10,16,20,30,40,50,60,70,80,90,100,120,140,180,200])
+    let epf = tableLookup(effectiveArmorProtectionFactor_6D, 'PF', _.toString(roll), pf)
+    return epf
+}
+
+/**
+ * Returns the correct message for which type of reduction, if any
+ * @param {number} pen - The PEN value of the weapon
+ * @param {number} epf - The effective penetration factor
+ * @return {string} - The correct reduction message
+ */
+export function damageReduction(pen, epf) {
+    let result = ''
+    let epen = pen - epf
+
+    //no penetration
+    if (epen <= 0) {
+        result = 'no penetration'
+    }
+
+    //low velocity penetration
+    if (epen > 0 && epen < epf) {
+        result = 'low velocity penetration'
+    }
+
+    if (epen > epf) {
+        result = 'high velocity penetration'
+    }
+    return result
+}
+
+/**
+ * Returns the correct damage value
+ * @param {number} roll - A random number generated externally
+ * @param {boolean} cover - If there is cover or not
+ * @param {number} dc - The damage class of the weapon ammo
+ * @param {number} pen - The penetration of the wapon ammo
+ * @param {number} epf - The effective penetration factor
+ * @return {number} - The correct damage value
+ */
+export function hitDamage(roll, cover, dc, pen, epf) {
+    let epen = pen - epf
+    let firingAt = 'Open'
+    if (cover === true) {firingAt = 'Fire'}
+    if (cover === false) {firingAt = 'Open'}
+
+    if (damageReduction(pen, epf) === 'low velocity penetration') {
+        dc = 1
+    }
+
+    if (dc === 1) {epen = snapToValue(epen, [0.5, 1, 1.5, 2, 3, 5, 10])}
+    if (dc === 2 || dc === 3) {epen = snapToValue(epen, [1, 1.5, 2, 2.5, 3, 5, 10])}
+    if (dc === 4) {epen = snapToValue(epen, [1, 2, 2.5, 3, 5, 10])}
+    if (dc >= 5 && dc <= 7) {epen = snapToValue(epen, [1, 2, 3, 5, 10])}
+    if (dc >= 8) {epen = snapToValue(epen, [1, 3, 5, 10])}
+
+    let damage = tableLookup(hitLocationDamage_6A[`DC ${dc}`], firingAt, epen, roll)
+
+    if (damageReduction(pen, epf) === 'no penetration') {
+        damage = 0
+    }
+    return damage
+}
+
+/**
+ * Returns the correct hit location
+ * @param {number} roll - A random number generated externally
+ * @param {boolean} cover - If there is cover or not
+ * @return {string} - The correct location
+ */
+export function hitLocation(roll, cover) {
+    let firingAt = 'Open'
+    if (cover === true) {firingAt = 'Fire'}
+    if (cover === false) {firingAt = 'Open'}
+    let location = tableLookup(hitLocationDamage_6A['DC 1'], firingAt, 'Hit Location', roll)
+    return location
 }
