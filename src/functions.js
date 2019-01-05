@@ -155,7 +155,7 @@ export function rangeALM(distance) {
  * @return {number} - The ALM to add in to EAL calculation
  */
 export function movingALM(targetSpeed, shooterSpeed, range) {
-    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    range = snapToValue(range, [10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
     let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
     let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
     if (shooterSpeed === 0) { shooterALM = 0 }
@@ -210,7 +210,7 @@ export function visibilityALM(list) {
  * Returns the Target Size Modifier based on target's size, either position or actual size
  *
  * @param {array} list - A list of string labels of the standard target sizes
- * @param {string} shotType - Either 'Target Size' for single shot or 'Auto Elev' for burst
+ * @param {string} shotType - Either 'Single Shot' or 'Burst'
  * @param {number} targetSize - Optional target size if there are no viable options from the list
  * @return {number} - The ALM to add in to EAL calculation
  */
@@ -302,7 +302,7 @@ export function encumbranceCalculator(gear, guns) {
     _.forEach(guns, (item) => {
         encumbrance += weapons[item]['W']    
     })
-    encumbrance = Math.ceil(encumbrance/5) * 5
+    encumbrance = Math.ceil(encumbrance / 5) * 5
     encumbrance = _.clamp(encumbrance, 10, 200)
     return encumbrance
 }
@@ -333,10 +333,10 @@ export function combatActionsPerImpulse(strength, agility, intelligence, skillLe
 
 
 /**
- * Returns the closest number in a list of numbers without going over
+ * Returns the closest number in a list of numbers
  *
- * @param {number} value - The number to change
- * @param {array} numberList - A list of numbers with arbitrary space between
+ * @param {number} target - The number to change
+ * @param {array} array - A list of numbers with arbitrary space between
  * @return {number} - The closest number from NumberList without going over
  */
 export function snapToValue(target, array) {
@@ -397,7 +397,6 @@ export function burstFire(arc, rof, targets) {
     let bullets = rof
     let chance = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rof), arc)
     let multipleHit = multipleHitCheck(arc, rof, chance)
-    result['Hit Chance'] = chance
     for (let i = 1; i <= targets; i++) {
         let hit = false
         if (bullets > 0) {
@@ -406,21 +405,21 @@ export function burstFire(arc, rof, targets) {
                 hit = true
                 if (multipleHit === true) {
                     if (bullets < chance) {
-                        result[`target ${i}`] = {"hit": hit, "bullets": bullets}
+                        result[`target ${i}`] = {"hit": hit, "bullets": bullets, "chance": chance}
                         bullets = 0
                     } else {
-                        result[`target ${i}`] = {"hit": hit, "bullets": chance}
+                        result[`target ${i}`] = {"hit": hit, "bullets": chance, "chance": chance}
                         bullets = bullets - chance
                     }                    
                 } else if (multipleHit === false) {
-                    result[`target ${i}`] = {"hit": hit, "bullets": 1}
+                    result[`target ${i}`] = {"hit": hit, "bullets": 1, "chance": chance}
                     bullets = bullets - 1
                 }
             } else {
-                result[`target ${i}`] = {"hit": hit, "bullets": 0}
+                result[`target ${i}`] = {"hit": hit, "bullets": 0, "chance": chance}
             }
         } else if (bullets <= 0) {
-            result[`target ${i}`] = {"hit": hit, "bullets": 0}
+            result[`target ${i}`] = {"hit": hit, "bullets": 0, "chance": chance}
         }
     }
     return result
@@ -523,6 +522,7 @@ export function damageReduction(pen, epf) {
         result = 'low velocity penetration'
     }
 
+    //default
     if (epen > epf) {
         result = 'high velocity penetration'
     }

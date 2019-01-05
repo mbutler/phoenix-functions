@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
 import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction } from '../src/functions'
-import { maxSpeed_1B, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
+import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 const fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -62,6 +62,9 @@ describe('Table Lookup', () => {
     })
     it('tests Combat Actions Per Impulse - 1E table', () => {
         expect(tableLookup(combatActionsPerImpulse_1E, 'Combat Actions', 'Impulse 4', 11)).to.equal(3)
+    })
+    it('tests Movement Modifiers - 4D table', () => {
+        expect(tableLookup(movementModifiers_4D, 'Speed HPI', '20', 10)).to.equal(-10)
     })
     it('tests Standard Target Size Modifiers - 4E table', () => {
         expect(tableLookup(standardTargetSizeModifiers_4E, 'Position', 'Target Size', 'Look Over/Around')).to.equal(-4)
@@ -147,6 +150,7 @@ describe('Accuracy Level Modifiers', () => {
         expect(movingALM(0, 2, '40')).to.equal(-6)
         expect(movingALM(2, 2, '40')).to.equal(-10)
         expect(movingALM(2, 2, '44')).to.equal(-10)
+        expect(movingALM(0, 0, '2')).to.equal(0)
     })
     it('tests shot accuracy ALM', () => {
         expect(shotAccuracyALM(-17, 5)).to.equal(-12)
@@ -211,7 +215,6 @@ describe('Calculations', () => {
     })
     it('tests burstFire function', () => {
         expect(burstFire(20, 8, 7)).to.include.keys('target 7')
-        expect(burstFire(20, 8, 7)).to.include.keys('Hit Chance')
         expect(burstFire(6, 18, 10)).to.be.an('object')
         expect(burstFire(0.4, 144, 10)).to.be.an('object')
         expect(burstFire(0.5, 18, 100)).to.not.include.keys('target 101')
