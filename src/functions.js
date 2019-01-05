@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -155,7 +155,7 @@ export function rangeALM(distance) {
  * @return {number} - The ALM to add in to EAL calculation
  */
 export function movingALM(targetSpeed, shooterSpeed, range) {
-    range = snapToValue(range, [10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    range = snapToValue(range, [10,20,40,70,100,200,300,400])
     let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
     let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
     if (shooterSpeed === 0) { shooterALM = 0 }
@@ -433,11 +433,10 @@ export function burstFire(arc, rof, targets) {
  */
 export function singleShotFire(chance) {
     let result = {}
-    result['Hit Chance'] = chance
     let roll = _.random(0,99)
-    result[`target 1`] = {"hit": false, "bullets": 0}
+    result[`target 1`] = {"hit": false, "bullets": 0, "chance": chance}
     if (roll <= chance) {
-        result[`target 1`] = {"hit": true, "bullets": 1}
+        result[`target 1`] = {"hit": true, "bullets": 1, "chance": chance}
     }
     return result
 }
@@ -574,4 +573,21 @@ export function hitLocation(roll, cover) {
     if (cover === false) {firingAt = 'Open'}
     let location = tableLookup(hitLocationDamage_6A['DC 1'], firingAt, 'Hit Location', roll)
     return location
+}
+
+/**
+ * Returns the recovery chance and time
+ * @param {number} damage - The total damage
+ * @param {string} aid - The type of aid chosen
+ * @return {string} - The recovery message
+ */
+export function medicalAid(damage, aid) {
+    let damageTotal = _.toNumber(_.clamp(damage, 0, 10000000))
+    let aidType = aid + ' - CTP'
+    let aidRoll = aid + ' - RR'
+    let time = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidType, damageTotal)
+    let rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidRoll, damageTotal)
+    let healing = tableLookup(medicalAidRecovery_8A, 'Damage Total', 'Healing Time', damageTotal)
+    let result = `${rr}% survival chance in ${time}. Healed in ${healing}.`
+    return result
 }
