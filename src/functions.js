@@ -582,12 +582,21 @@ export function hitLocation(roll, cover) {
  * @return {string} - The recovery message
  */
 export function medicalAid(damage, aid) {
+    let result = ''
+    let rr
     let damageTotal = _.toNumber(_.clamp(damage, 0, 10000000))
     let aidType = aid + ' - CTP'
     let aidRoll = aid + ' - RR'
     let time = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidType, damageTotal)
-    let rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidRoll, damageTotal)
+    if (aid === 'Trauma Center') {
+        rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', 'Trauma Center - 16', damageTotal)
+    } else {
+        rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidRoll, damageTotal)
+    }    
     let healing = tableLookup(medicalAidRecovery_8A, 'Damage Total', 'Healing Time', damageTotal)
-    let result = `${rr}% survival chance in ${time}. Healed in ${healing}.`
+    result = `${rr}% survival chance in ${time}. Healed in ${healing}.`
+    if (damage === 0) {
+        result = 'No recovery needed.'
+    }
     return result
 }

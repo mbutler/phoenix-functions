@@ -257,5 +257,7 @@ describe('Calculations', () => {
     })
     it('tests medicalAid function', () => {
         expect(medicalAid(200, 'First Aid')).to.equal('21% survival chance in 23d. Healed in 61d.')
+        expect(medicalAid(0, 'First Aid')).to.equal('No recovery needed.')
+        expect(medicalAid(1, 'Trauma Center')).to.equal('99% survival chance in 25d. Healed in 17d.')
     })
 })
