@@ -9,10 +9,10 @@ const sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
 const twelveAP = {"1": 5, "2": 4, "3": 3, "4": 0}
 const oneAP = {"1": 1, "2": 0, "3": 0, "4": 0}
 
-const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23}
-const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
-const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23}
-const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1}
+const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23, "sab": 0}
+const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0}
+const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0}
+const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1, "sab": -4}
 
 describe('Calculate Action Time', () => {
     it('tests next phase with no remainder actions', () => {
@@ -216,7 +216,7 @@ describe('Calculations', () => {
         expect(effectiveAccuracyLevel(mods)).to.equal(-7)
         expect(effectiveAccuracyLevel(mods2)).to.equal(-10)
         expect(effectiveAccuracyLevel(mods3)).to.equal(-10)
-        expect(effectiveAccuracyLevel(mods4)).to.equal(-5)
+        expect(effectiveAccuracyLevel(mods4)).to.equal(-9)
     })
     it('tests oddsOfHitting function', () => {
         expect(oddsOfHitting(-7, 'Single Shot')).to.equal(0)

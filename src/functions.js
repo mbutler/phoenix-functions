@@ -364,7 +364,7 @@ export function effectiveAccuracyLevel(mods) {
     let situationMod = situationALM(mods.situational)
     let visibilityMod = visibilityALM(mods.visibility)
     let targetSizeMod = targetSizeALM(mods.targetSize, mods.shotType, targetDiameter)
-    let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + targetSizeMod
+    let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + targetSizeMod + mods.sab
     alm = _.clamp(alm, -10, 28)
 
     return alm
