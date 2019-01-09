@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire } from '../src/functions'
 import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -9,10 +9,10 @@ const sevenAP = {"1": 2, "2": 1, "3": 2, "4": 2}
 const twelveAP = {"1": 5, "2": 4, "3": 3, "4": 0}
 const oneAP = {"1": 1, "2": 0, "3": 0, "4": 0}
 
-const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23, "sab": 0}
-const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0}
-const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0}
-const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1, "sab": -4}
+const mods = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Fire Over/Around"],"weaponAimMod":-23, "sab": 0, "salm": 0}
+const mods2 = {"sal":9,"shotType":"Single Shot","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0, "salm": -4}
+const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Dusk"],"targetSize":["Look Over/Around"],"weaponAimMod":-23, "sab": 0, "salm": -4}
+const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1, "sab": 4, "salm": 0}
 
 describe('Calculate Action Time', () => {
     it('tests next phase with no remainder actions', () => {
@@ -127,10 +127,24 @@ describe('Weapons Test', () => {
     })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
-        expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['12', 'APS', 'Shot'])
+        expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
     })
     it('tests getWeaponByName function', () => {
         expect(getWeaponByName('AKM 47')).to.be.an('object')
+    })
+    it('tests burstFire function', () => {
+        expect(burstFire(20, 8, 7)).to.include.keys('target 7')
+        expect(burstFire(6, 18, 10)).to.be.an('object')
+        expect(burstFire(0.4, 144, 10)).to.be.an('object')
+        expect(burstFire(0.5, 18, 100)).to.not.include.keys('target 101')
+    })
+    it('tests singleShotFire function', () => {
+        expect(singleShotFire(20)).to.include.keys('target 1')
+        expect(singleShotFire(99)).to.be.an('object')
+    })
+    it('tests shotgunFire function', () => {
+        expect(shotgunFire(11, 'Shot', 2)).to.include.keys('target 1')
+        expect(shotgunFire(99, 'APS', 20)).to.be.an('object')
     })
 })
 
@@ -177,6 +191,7 @@ describe('Accuracy Level Modifiers', () => {
         expect(targetSizeALM(['Low Crouch'], 'Burst')).to.equal(11)
         expect(targetSizeALM([], 'Single Shot', 2.8)).to.equal(9)
         expect(targetSizeALM([], 'Single Shot', 1)).to.equal(2)
+        expect(targetSizeALM([], 'Single Shot', 0)).to.equal(-15)
     })
 })
 
@@ -223,16 +238,6 @@ describe('Calculations', () => {
         expect(oddsOfHitting(16, 'Burst')).to.equal(62)
         expect(oddsOfHitting(30, 'Single Shot')).to.equal(99)
         expect(oddsOfHitting(-45, 'Single Shot')).to.equal(0)
-    })
-    it('tests burstFire function', () => {
-        expect(burstFire(20, 8, 7)).to.include.keys('target 7')
-        expect(burstFire(6, 18, 10)).to.be.an('object')
-        expect(burstFire(0.4, 144, 10)).to.be.an('object')
-        expect(burstFire(0.5, 18, 100)).to.not.include.keys('target 101')
-    })
-    it('tests singleShotFire function', () => {
-        expect(singleShotFire(20)).to.include.keys('target 1')
-        expect(singleShotFire(99)).to.be.an('object')
     })
     it('tests the multipleHitCheck function', () => {
         expect(multipleHitCheck(5, 54, 1)).to.equal(true)

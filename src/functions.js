@@ -220,6 +220,7 @@ export function targetSizeALM(list, shotType, targetSize) {
     if (shotType === 'Burst') {shotType = 'Auto Elev'}
 
     if (targetSize !== undefined) {
+        targetSize = _.clamp(targetSize, 0.1, 39)
         //using equations for continuous values such as size and range
         //alm += tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', targetSize)
         targetSize = 603.5065 + (-1251.667 - 603.5065) / (1 + Math.pow((targetSize / 1.200853e-18), 0.01778392))
@@ -356,7 +357,8 @@ export function snapToValue(target, array) {
  * @return {number} - The effective accuracy level
  */
 export function effectiveAccuracyLevel(mods) {
-    let targetDiameter
+    let sab = 0 - mods.sab
+    let shotgunMod, targetDiameter
     if (mods.targetDiameter > 0) {targetDiameter = mods.targetDiameter}
     let aimTimeMod = shotAccuracyALM(mods.weaponAimMod, mods.sal)    
     let movingMod = movingALM(mods.targetSpeed, mods.shooterSpeed, mods.range)
@@ -364,7 +366,12 @@ export function effectiveAccuracyLevel(mods) {
     let situationMod = situationALM(mods.situational)
     let visibilityMod = visibilityALM(mods.visibility)
     let targetSizeMod = targetSizeALM(mods.targetSize, mods.shotType, targetDiameter)
-    let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + targetSizeMod + mods.sab
+    if (mods.salm > targetSizeMod) {
+        shotgunMod = mods.salm
+    } else {
+        shotgunMod = targetSizeMod
+    }
+    let alm = aimTimeMod + movingMod + rangeMod + situationMod + visibilityMod + sab + shotgunMod
     alm = _.clamp(alm, -10, 28)
 
     return alm
@@ -437,6 +444,31 @@ export function singleShotFire(chance) {
     result[`target 1`] = {"hit": false, "bullets": 0, "chance": chance}
     if (roll <= chance) {
         result[`target 1`] = {"hit": true, "bullets": 1, "chance": chance}
+    }
+    return result
+}
+
+/**
+ * Returns the targets hit in shotgun fire
+ * @param {string} ammoType - Either APS or Shot
+ * @param {number} range - The range being fired at
+ * @param {number} chance - The percent chance of hitting
+ * @return {object} - The targets object with booleans for hit success plus bullets (pellets)
+ */
+export function shotgunFire(ammoType, range, chance) {
+    let result = {}
+    range = snapToValue(range, [1,2,4,6,8,10,15,20,30,40,80])
+    let roll = _.random(0,99)
+    let multipleHit = false
+    if (chance <= 11 && range <= 20) {multipleHit = true}
+    if (ammoType !== 'Shot') {multipleHit = false}
+    result[`target 1`] = {"hit": false, "bullets": 1, "chance": chance}
+    if (roll <= chance) {
+        if (multipleHit === false) {
+            result[`target 1`] = {"hit": true, "bullets": 1, "chance": chance}
+        } else if (multipleHit === true) {
+            result[`target 1`] = {"hit": true, "bullets": chance, "chance": chance}
+        }
     }
     return result
 }
@@ -646,7 +678,11 @@ export function damageTotal(pd, health) {
 export function getAmmoTypes(weaponName) {
     let weapon = weapons[weaponName]
     let ammo = _.keys(weapon['10'])
-    ammo = _.take(ammo, 3)
+    if (weapon.Type === 'Shotgun') {
+        ammo = _.take(ammo, 2)
+    } else {
+        ammo = _.take(ammo, 3)
+    }
     return ammo
 }
 

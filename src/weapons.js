@@ -621,226 +621,204 @@ export const weapons = {
      }
   },
   "Franchi SPAS 12": {
-    "1": {
-      "12": {
-        "BPHC": 0,
-        "PR": 0
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 5.3,
-        "DC": 8,
-        "SALM": -13
-      },
-      "MA": 0,
-      "BA": 61,
-      "TOF": 0
-    },
-    "2": {
-      "12": {
-        "BPHC": 11,
-        "PR": 0
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.6,
-        "DC": 3,
-        "SALM": -8
-      },
-      "MA": 0,
-      "BA": 71,
-      "TOF": 0
-    },
-    "4": {
-      "12": {
-        "BPHC": 10,
-        "PR": 0
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.5,
-        "DC": 3,
-        "SALM": -3
-      },
-      "MA": 0,
-      "BA": 52,
-      "TOF": 0
-    },
-    "6": {
-      "12": {
-        "BPHC": 9,
-        "PR": 0.1
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 51.5,
-        "DC": 3,
-        "SALM": 0
-      },
-      "MA": 0,
-      "BA": 46,
-      "TOF": 0
-    },
-    "8": {
-      "12": {
-        "BPHC": 5,
-        "PR": 0.1
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.4,
-        "DC": 3,
-        "SALM": 2
-      },
-      "MA": 0,
-      "BA": 42,
-      "TOF": 0
-    },
-    "10": {
-      "12": {
-        "BPHC": 4,
-        "PR": 0.1
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.4,
-        "DC": 3,
-        "SALM": 4
-      },
-      "MA": 0,
-      "BA": 39,
-      "TOF": 0
-    },
-    "15": {
-      "12": {
-        "BPHC": 2,
-        "PR": 0.2
-      },
-      "APS": {
-        "PEN": 21,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.3,
-        "DC": 2,
-        "SALM": 7
-      },
-      "MA": 0,
-      "BA": 33,
-      "TOF": 1
-    },
-    "20": {
-      "12": {
-        "BPHC": 94,
-        "PR": 0.2
-      },
-      "APS": {
-        "PEN": 20,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.2,
-        "DC": 2,
-        "SALM": 9
-      },
-      "MA": 0,
-      "BA": 29,
-      "TOF": 1
-    },
-    "30": {
-      "12": {
-        "BPHC": 42,
-        "PR": 0.3
-      },
-      "APS": {
-        "PEN": 20,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 1.1,
-        "DC": 2,
-        "SALM": 12
-      },
-      "MA": 0,
-      "BA": 23,
-      "TOF": 1
-    },
-    "40": {
-      "12": {
-        "BPHC": 24,
-        "PR": 0.4
-      },
-      "APS": {
-        "PEN": 19,
-        "DC": 9
-      },
-      "Shot": {
-        "PEN": 0.9,
-        "DC": 2,
-        "SALM": 14
-      },
-      "MA": 0,
-      "BA": 19,
-      "TOF": 2
-    },
-    "80": {
-      "12": {
-        "BPHC": 19,
-        "PR": 0.9
-      },
-      "APS": {
-        "PEN": 18,
-        "DC": 8
-      },
-      "Shot": {
-        "PEN": 0.5,
-        "DC": 1,
-        "SALM": 19
-      },
-      "MA": 0,
-      "BA": 9,
-      "TOF": 4
-    },
-    "Name": "Franchi SPAS 12",
-    "Type": "Shotgun",
-    "Description": "Special Purpose Automatic Shotgun for police and military. The APS entry is for a special Armor Piercing Slug.",
-    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/franchi-spas-12.png?alt=media&token=d601d936-055b-493a-afc9-7be2b4a9d8a7",
-    "L": "28/37",
-    "W": 10.1,
-    "RT": 30,
-    "ROF": 1,
-    "Cap": 7,
-    "AW": "0.13 Rnd",
-    "KD": 23,
-    "SAB": 10,
-    "Aim Time": {
-      "1": -23,
-      "2": -13,
-      "3": -9,
-      "4": -7,
-      "5": -6,
-      "6": -4,
-      "7": -3,
-      "8": -2,
-      "9": -1
-    }
-  }
+   "1": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 5.3,
+       "DC": 8,
+       "SALM": -13,
+       "BPHC": 0,
+       "PR": 0
+     },
+     "MA": 0,
+     "BA": 61,
+     "TOF": 0
+   },
+   "2": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.6,
+       "DC": 3,
+       "SALM": -8,
+       "BPHC": 11,
+       "PR": 0
+     },
+     "MA": 0,
+     "BA": 71,
+     "TOF": 0
+   },
+   "4": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.5,
+       "DC": 3,
+       "SALM": -3,
+       "BPHC": 10,
+       "PR": 0
+     },
+     "MA": 0,
+     "BA": 52,
+     "TOF": 0
+   },
+   "6": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 51.5,
+       "DC": 3,
+       "SALM": 0,
+       "BPHC": 9,
+       "PR": 0.1
+     },
+     "MA": 0,
+     "BA": 46,
+     "TOF": 0
+   },
+   "8": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.4,
+       "DC": 3,
+       "SALM": 2,
+       "BPHC": 5,
+       "PR": 0.1
+     },
+     "MA": 0,
+     "BA": 42,
+     "TOF": 0
+   },
+   "10": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.4,
+       "DC": 3,
+       "SALM": 4,
+       "BPHC": 4,
+       "PR": 0.1
+     },
+     "MA": 0,
+     "BA": 39,
+     "TOF": 0
+   },
+   "15": {
+     "APS": {
+       "PEN": 21,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.3,
+       "DC": 2,
+       "SALM": 7,
+       "BPHC": 2,
+       "PR": 0.2
+     },
+     "MA": 0,
+     "BA": 33,
+     "TOF": 1
+   },
+   "20": {
+     "APS": {
+       "PEN": 20,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.2,
+       "DC": 2,
+       "SALM": 9,
+       "BPHC": 94,
+       "PR": 0.2
+     },
+     "MA": 0,
+     "BA": 29,
+     "TOF": 1
+   },
+   "30": {
+     "APS": {
+       "PEN": 20,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 1.1,
+       "DC": 2,
+       "SALM": 12,
+       "BPHC": 42,
+       "PR": 0.3
+     },
+     "MA": 0,
+     "BA": 23,
+     "TOF": 1
+   },
+   "40": {
+     "APS": {
+       "PEN": 19,
+       "DC": 9
+     },
+     "Shot": {
+       "PEN": 0.9,
+       "DC": 2,
+       "SALM": 14,
+       "BPHC": 24,
+       "PR": 0.4
+     },
+     "MA": 0,
+     "BA": 19,
+     "TOF": 2
+   },
+   "80": {
+     "APS": {
+       "PEN": 18,
+       "DC": 8
+     },
+     "Shot": {
+       "PEN": 0.5,
+       "DC": 1,
+       "SALM": 19,
+       "BPHC": 19,
+       "PR": 0.9
+     },
+     "MA": 0,
+     "BA": 9,
+     "TOF": 4
+   },
+   "Name": "Franchi SPAS 12",
+   "Type": "Shotgun",
+   "Description": "Special Purpose Automatic Shotgun for police and military. The APS entry is for a special Armor Piercing Slug.",
+   "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/franchi-spas-12.png?alt=media&token=d601d936-055b-493a-afc9-7be2b4a9d8a7",
+   "L": "28/37",
+   "W": 10.1,
+   "RT": 30,
+   "ROF": 1,
+   "Cap": 7,
+   "AW": "0.13 Rnd",
+   "KD": 23,
+   "SAB": 10,
+   "Aim Time": {
+     "1": -23,
+     "2": -13,
+     "3": -9,
+     "4": -7,
+     "5": -6,
+     "6": -4,
+     "7": -3,
+     "8": -2,
+     "9": -1
+   }
+ }
 }
