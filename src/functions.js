@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A } from './tables'
+import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -337,7 +337,7 @@ export function combatActionsPerImpulse(strength, agility, intelligence, skillLe
  *
  * @param {number} target - The number to change
  * @param {array} array - A list of numbers with arbitrary space between
- * @return {number} - The closest number from NumberList without going over
+ * @return {number} - The closest number from NumberList
  */
 export function snapToValue(target, array) {
     let tuples = _.map(array, val => {
@@ -599,4 +599,64 @@ export function medicalAid(damage, aid) {
         result = 'No recovery needed.'
     }
     return result
+}
+
+/**
+ * Returns the incapacitation chance
+ * @param {number} pd - Physical damage
+ * @param {number} kv - Knockout value
+ * @return {number} - The incapacitation percent chance
+ */
+export function incapacitationChance(pd, kv) {
+    let chance = 0
+    if (pd > (kv / 10)) {chance = 10}
+    if (pd > kv) {chance = 25}
+    if (pd > (kv * 2)) {chance = 75}
+    if (pd > (kv * 3)) {chance = 98}
+    return chance
+}
+
+/**
+ * Returns the incapacitation time
+ * @param {number} roll - Random number between 0-9 generated externally
+ * @param {number} pd - Physical damage
+ * @return {string} - The incapacitation time
+ */
+export function incapacitationTime(roll, pd) {
+    let time = tableLookup(incapacitationTime_8B, 'PD Total', _.toString(roll), pd)
+    return time
+}
+
+/**
+ * Returns the damage total
+ * @param {number} pd - Physical damage
+ * @param {number} health - The character health attribute
+ * @return {number} - The damage total
+ */
+export function damageTotal(pd, health) {
+    let dt = (pd * 10) / health
+    return _.round(dt)
+}
+
+/**
+ * Returns the ammo types for a gun
+ * @param {string} weaponName - Name of the weapon
+ * @return {array} - The array of ammo types
+ */
+export function getAmmoTypes(weaponName) {
+    let weapon = weapons[weaponName]
+    let ammo = _.keys(weapon['10'])
+    ammo = _.take(ammo, 3)
+    return ammo
+}
+
+/**
+ * Returns a weapon by its name
+ * @param {string} weaponName - The wapon's name
+ * @return {object} - The weapon object
+ */
+export function getWeaponByName(weaponName) {
+    let weapon = weapons[weaponName]
+    return weapon
+
 }

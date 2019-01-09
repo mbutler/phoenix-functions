@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName } from '../src/functions'
 import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -41,7 +41,7 @@ describe('Calculate Action Time', () => {
     }) 
     it('tests if 0 action points are spent', () => {
         expect(calculateActionTime(0, sevenAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":1},"remainder":2})
-    })    
+    })
 })
 
 describe('Table Lookup', () => {
@@ -120,6 +120,17 @@ describe('Weapons Test', () => {
     it('AKM 47', () => {
         expect(weapons['AKM 47']['20']['AP']['PEN']).to.equal(15)
         expect(weapons['AKM 47']['Aim Time']['4']).to.equal(-7)
+    })
+    it('Franchi SPAS 12', () => {
+        expect(weapons['Franchi SPAS 12']['1']['Shot']['PEN']).to.equal(5.3)
+        expect(weapons['Franchi SPAS 12']['Aim Time']['5']).to.equal(-6)
+    })
+    it('tests getting weapon ammo types', () => {
+        expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
+        expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['12', 'APS', 'Shot'])
+    })
+    it('tests getWeaponByName function', () => {
+        expect(getWeaponByName('AKM 47')).to.be.an('object')
     })
 })
 
@@ -259,5 +270,16 @@ describe('Calculations', () => {
         expect(medicalAid(200, 'First Aid')).to.equal('21% survival chance in 23d. Healed in 61d.')
         expect(medicalAid(0, 'First Aid')).to.equal('No recovery needed.')
         expect(medicalAid(1, 'Trauma Center')).to.equal('99% survival chance in 25d. Healed in 17d.')
+    })
+    it('tests incapacitationChance function', () => {
+        expect(incapacitationChance(0, 48)).to.equal(0)
+        expect(incapacitationChance(49, 48)).to.equal(25)
+        expect(incapacitationChance(145, 48)).to.equal(98)
+    })
+    it('tests incapacitationTime function', () => {
+        expect(incapacitationTime(3, 333)).to.equal('63m')
+    })
+    it('tests damageTotal function', () => {
+        expect(damageTotal(18, 12)).to.equal(15)
     })
 })
