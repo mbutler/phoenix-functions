@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire } from '../src/functions'
+import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit } from '../src/functions'
 import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -136,7 +136,6 @@ describe('Weapons Test', () => {
         expect(burstFire(20, 8, 7)).to.include.keys('target 7')
         expect(burstFire(6, 18, 10)).to.be.an('object')
         expect(burstFire(0.4, 144, 10)).to.be.an('object')
-        expect(burstFire(0.5, 18, 100)).to.not.include.keys('target 101')
     })
     it('tests singleShotFire function', () => {
         expect(singleShotFire(20)).to.include.keys('target 1')
@@ -145,6 +144,9 @@ describe('Weapons Test', () => {
     it('tests shotgunFire function', () => {
         expect(shotgunFire(11, 'Shot', 2)).to.include.keys('target 1')
         expect(shotgunFire(99, 'APS', 20)).to.be.an('object')
+    })
+    it('tests shotgunMultipleHit function', () => {
+        expect(shotgunMultipleHit(4)).to.equal(14)
     })
 })
 

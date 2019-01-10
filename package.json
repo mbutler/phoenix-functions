@@ -1,6 +1,6 @@
 {
   "name": "phoenix-functions",
-  "version": "0.9.18",
+  "version": "0.9.21",
   "description": "equations for phoenix command",
   "main": "dist/phoenix-functions.js",
   "scripts": {
@@ -19,14 +19,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
-    "documentation": "^8.0.0",
+    "chai": "^4.2.0",
+    "documentation": "^8.1.2",
     "mocha": "^5.2.0",
-    "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.10"
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   },
   "babel": {
     "presets": [

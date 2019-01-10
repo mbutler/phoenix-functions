@@ -405,28 +405,26 @@ export function burstFire(arc, rof, targets) {
     let chance = tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', _.toString(rof), arc)
     let multipleHit = multipleHitCheck(arc, rof, chance)
     for (let i = 1; i <= targets; i++) {
-        let hit = false
-        if (bullets > 0) {
-            let roll = _.random(0,99)
-            if (roll <= chance) {
-                hit = true
-                if (multipleHit === true) {
-                    if (bullets < chance) {
-                        result[`target ${i}`] = {"hit": hit, "bullets": bullets, "chance": chance}
-                        bullets = 0
-                    } else {
-                        result[`target ${i}`] = {"hit": hit, "bullets": chance, "chance": chance}
-                        bullets = bullets - chance
-                    }                    
-                } else if (multipleHit === false) {
-                    result[`target ${i}`] = {"hit": hit, "bullets": 1, "chance": chance}
-                    bullets = bullets - 1
-                }
-            } else {
-                result[`target ${i}`] = {"hit": hit, "bullets": 0, "chance": chance}
+        let roll = _.random(0,99)
+        if (bullets > 0) {            
+            if (multipleHit === true) {
+                if (bullets < chance) {
+                    result[`target ${i}`] = {"hit": true, "bullets": bullets, "chance": chance}
+                    bullets = 0
+                } else {
+                    result[`target ${i}`] = {"hit": true, "bullets": chance, "chance": chance}
+                    bullets = bullets - chance
+                }                                                    
+            } else if (multipleHit === false) {
+                if (roll <= chance) {
+                    result[`target ${i}`] = {"hit": true, "bullets": 1, "chance": chance}
+                } else {
+                    result[`target ${i}`] = {"hit": false, "bullets": 0, "chance": chance}
+                }                
+                bullets = bullets - 1
             }
         } else if (bullets <= 0) {
-            result[`target ${i}`] = {"hit": hit, "bullets": 0, "chance": chance}
+            result[`target ${i}`] = {"hit": false, "bullets": 0, "chance": chance}
         }
     }
     return result
@@ -452,23 +450,22 @@ export function singleShotFire(chance) {
  * Returns the targets hit in shotgun fire
  * @param {string} ammoType - Either APS or Shot
  * @param {number} range - The range being fired at
- * @param {number} chance - The percent chance of hitting
+ * @param {number} bphc - The Burst Pellet Hit Chance of the weapon ammo at range
  * @return {object} - The targets object with booleans for hit success plus bullets (pellets)
  */
-export function shotgunFire(ammoType, range, chance) {
+export function shotgunFire(ammoType, range, bphc) {
     let result = {}
     range = snapToValue(range, [1,2,4,6,8,10,15,20,30,40,80])
     let roll = _.random(0,99)
     let multipleHit = false
-    if (chance <= 11 && range <= 20) {multipleHit = true}
+    if (bphc <= 11 && range <= 20) {multipleHit = true}
     if (ammoType !== 'Shot') {multipleHit = false}
-    result[`target 1`] = {"hit": false, "bullets": 1, "chance": chance}
-    if (roll <= chance) {
-        if (multipleHit === false) {
-            result[`target 1`] = {"hit": true, "bullets": 1, "chance": chance}
-        } else if (multipleHit === true) {
-            result[`target 1`] = {"hit": true, "bullets": chance, "chance": chance}
-        }
+    result[`target 1`] = {"hit": true, "bullets": 1, "chance": bphc}
+    if (multipleHit === true) {        
+        result[`target 1`] = {"hit": true, "bullets": bphc, "chance": bphc}
+    }
+    if (roll <= bphc && multipleHit === false) {
+        result[`target 1`] = {"hit": true, "bullets": 1, "chance": bphc}
     }
     return result
 }
@@ -495,12 +492,14 @@ export function multipleHitCheck(arc, rof, chance) {
 /**
  * Returns the DC for a weapon firing specific ammo at range
  * @param {object} weapon - The database weapon
- * @param {number} range - The range in hexes
+ * @param {number} rangeVal - The range in hexes
  * @param {string} ammo - One of three ammo types
  * @return {number} - The correct damage class
  */
-export function damageClass(weapon, range, ammo) {
-    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+export function damageClass(weapon, rangeVal, ammo) {
+    let range
+    range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
     range = _.clamp(range, 0, 400)
     let dc = weapon[_.toString(range)][ammo]['DC']
     return dc
@@ -509,12 +508,14 @@ export function damageClass(weapon, range, ammo) {
 /**
  * Returns the PEN for a weapon firing specific ammo at range
  * @param {object} weapon - The database weapon
- * @param {number} range - The range in hexes
+ * @param {number} rangeVal - The range in hexes
  * @param {string} ammo - One of three ammo types
  * @return {number} - The correct penetration value
  */
-export function penetration(weapon, range, ammo) {
-    range = snapToValue(range, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+export function penetration(weapon, rangeVal, ammo) {
+    let range
+    range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
+    if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
     range = _.clamp(range, 0, 400)
     let pen = weapon[_.toString(range)][ammo]['PEN']
     return pen
@@ -695,4 +696,14 @@ export function getWeaponByName(weaponName) {
     let weapon = weapons[weaponName]
     return weapon
 
+}
+
+/**
+ * Returns the hit location spacing for a shotgun hit
+ * @param {number} salm - The shotgun alm
+ * @return {number} - The spacing to add or subtract from hit location
+ */
+export function shotgunMultipleHit(salm) {
+    let hls = 7.568175 + 1.125479 * salm + 0.1049714 * Math.pow(salm, 2) + 0.00483802 * Math.pow(salm, 3)
+    return _.round(hls)
 }
