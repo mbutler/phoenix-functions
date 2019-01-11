@@ -7,16 +7,16 @@ import { weapons } from './weapons'
  *
  * @param {number} actionPoints - A number of action points 
  * @param {object} actionsPerImpulse - An object of distributed action points (e.g. {"1": 2, "2": 1, "3": 2, "4": 2})
- * @param {number} currentImpulseRemainder - The amount of actions remaining this impulse in case of previous remainders
  * @param {object} time - A game time object (e.g. {"impulse" : 1, "phase" : 1})
+ * @param {number} currentImpulseRemainder - The amount of actions remaining this impulse in case of previous remainders
  * @return {object} - Returns an object with a correct time object as well as remaining actions {time: next, remaining: actions}
  */
 export function calculateActionTime(actionPoints, actionsPerImpulse, time, currentImpulseRemainder) {
     let actions = actionPoints
     let ca = actionsPerImpulse
     let next = time
-    let phase = time.phase
-    let impulse = time.impulse
+    let phase = _.toNumber(time.phase)
+    let impulse = _.toNumber(time.impulse)
     let i = impulse    
 
     //while there are still total actions at each impulse
@@ -64,6 +64,94 @@ export function calculateActionTime(actionPoints, actionsPerImpulse, time, curre
 }
 
 /**
+ * Returns a time object one impulse in the future
+ *
+ * @param {object} time - A phase and impulse object 
+ * @return {object} - A time object incremented one impulse
+ */
+export function nextImpulse(time) {
+    let phase = time.phase
+    let impulse = time.impulse
+    let next = {}
+    if (impulse === 4) {
+        phase += 1
+        impulse = 1
+    } else {
+        impulse += 1
+    }
+    next.impulse = _.toNumber(impulse)
+    next.phase = _.toNumber(phase)
+    return next
+}
+
+/**
+ * Returns a time object one impulse in the past
+ *
+ * @param {object} time - A phase and impulse object 
+ * @return {object} - A time object decremented one impulse
+ */
+export function previousImpulse(time) {
+    let phase = time.phase
+    let impulse = time.impulse
+    let next = {}
+    if (impulse === 1) {
+        phase -= 1
+        impulse = 4
+    } else {
+        impulse -= 1
+    }
+    if (phase < 1) {phase = 1; impulse = 1}
+    next.impulse = _.toNumber(impulse)
+    next.phase = _.toNumber(phase)
+    return next
+}
+
+/**
+ * Returns a time some amount of phases in the future
+ *
+ * @param {number} phases - A number of phases
+ * @param {object} time - A game time object 
+ * @return {object} - The future time object
+ */
+export function phasesToTime(phases, time) {
+    let futurePhase = _.toNumber(time.phase) + _.toNumber(phases)
+    let impulse = _.toNumber(time.impulse)
+    let next = {"phase": futurePhase, "impulse": impulse}
+    return next
+}
+
+/**
+ * Converts time to phases
+ *
+ * @param {string} time - A length of time in the Incapacitation Table format 
+ * @return {number} - The total number of phases
+ */
+export function incapacitationTimeToPhases(time) {
+    let phases
+    if (_.endsWith(time, 'h') === true) {
+        let amount = _.trimEnd(time, 'h')
+        phases = (amount * 3600) / 2
+    }
+
+    if (_.endsWith(time, 'm') === true) {
+        let amount = _.trimEnd(time, 'm')
+        phases = (amount * 60) / 2
+    }
+
+    if (_.endsWith(time, 'd') === true) {
+        let amount = _.trimEnd(time, 'd')
+        phases = (amount * 86400) / 2
+    }
+
+    if (_.endsWith(time, 'p') === true) {
+        let amount = _.trimEnd(time, 'p')
+        phases = amount * 1
+    }
+
+    return _.toNumber(phases)
+}
+
+/**
  * Looks up results on a two-dimensional data table
  *
  * @param {array} table - A json representation of the book's lookup table 
@@ -99,37 +187,6 @@ export function tableLookup(table, inputName, columnName, inputValue) {
     } else {
         throw Error('Value not found or malformed argument(s).')
     }    
-}
-
-/**
- * Converts time to phases
- *
- * @param {string} time - A length of time in the Incapacitation Table format 
- * @return {number} - The total number of phases
- */
-export function timeToPhases(time) {
-    let phases
-    if (_.endsWith(time, 'h') === true) {
-        let amount = _.trimEnd(time, 'h')
-        phases = (amount * 3600) / 2
-    }
-
-    if (_.endsWith(time, 'm') === true) {
-        let amount = _.trimEnd(time, 'm')
-        phases = (amount * 60) / 2
-    }
-
-    if (_.endsWith(time, 'd') === true) {
-        let amount = _.trimEnd(time, 'd')
-        phases = (amount * 86400) / 2
-    }
-
-    if (_.endsWith(time, 'p') === true) {
-        let amount = _.trimEnd(time, 'p')
-        phases = amount * 1
-    }
-
-    return phases
 }
 
 /**
@@ -184,7 +241,7 @@ export function shotAccuracyALM(weaponAimMod, skillAccuracyLevel) {
  */
 export function situationALM(list) {
     let alm = 0
-    _.forEach(list, (item) => {
+    _.forEach(list, item => {
         alm += tableLookup(situationAndStanceModifiers_4B, 'Situation', 'ALM', item)
     })
 
@@ -199,7 +256,7 @@ export function situationALM(list) {
  */
 export function visibilityALM(list) {
     let alm = 0
-    _.forEach(list, (item) => {
+    _.forEach(list, item => {
         alm += tableLookup(visibilityModifiers_4C, 'Visibility', 'ALM', item)
     })
 
@@ -536,7 +593,7 @@ export function effectivePenetrationFactor(roll, armor) {
 
 /**
  * Returns the correct message for which type of reduction, if any
- * @param {number} pen - The PEN value of the weapon
+ * @param {number} pen - The penetration value of the weapon
  * @param {number} epf - The effective penetration factor
  * @return {string} - The correct reduction message
  */

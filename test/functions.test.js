@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { calculateActionTime, tableLookup, timeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit } from '../src/functions'
+import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit, phasesToTime } from '../src/functions'
 import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -41,6 +41,22 @@ describe('Calculate Action Time', () => {
     }) 
     it('tests if 0 action points are spent', () => {
         expect(calculateActionTime(0, sevenAP, {"impulse" : 1, "phase" : 1}, 2)).to.eql({"time":{"impulse":1,"phase":1},"remainder":2})
+    })
+    it('tests next phase with no remainder actions', () => {
+        expect(calculateActionTime(13, fourAP, {"impulse" : 1, "phase" : 1}, 1)).to.eql({"time":{"impulse":1,"phase":4},"remainder":0})
+    })
+    it('tests nextImpulse function', () => {
+        expect(nextImpulse({"phase": 1, "impulse": 1})).to.eql({"phase": 1, "impulse": 2})
+        expect(nextImpulse({"phase": 17, "impulse": 4})).to.eql({"phase": 18, "impulse": 1})
+    })
+    it('tests previousImpulse function', () => {
+        expect(previousImpulse({"phase": 2, "impulse": 1})).to.eql({"phase": 1, "impulse": 4})
+        expect(previousImpulse({"phase": 17, "impulse": 4})).to.eql({"phase": 17, "impulse": 3})
+        expect(previousImpulse({"phase": 1, "impulse": 1})).to.eql({"phase": 1, "impulse": 1})
+    })
+    it('tests phasesToTime function', () => {
+        expect(phasesToTime(1, {"phase": 1, "impulse": 1})).to.eql({"phase": 2, "impulse": 1})
+        expect(phasesToTime(4, {"phase": 2, "impulse": 3})).to.eql({"phase": 6, "impulse": 3})
     })
 })
 
@@ -136,6 +152,7 @@ describe('Weapons Test', () => {
         expect(burstFire(20, 8, 7)).to.include.keys('target 7')
         expect(burstFire(6, 18, 10)).to.be.an('object')
         expect(burstFire(0.4, 144, 10)).to.be.an('object')
+        expect(burstFire(0.4, 10, 1)).to.eql({ 'target 1': { hit: true, bullets: 3, chance: 3 } })
     })
     it('tests singleShotFire function', () => {
         expect(singleShotFire(20)).to.include.keys('target 1')
@@ -150,18 +167,18 @@ describe('Weapons Test', () => {
     })
 })
 
-describe('Time to Phases', () => {
+describe('Incapacitation Time to Phases', () => {
     it('tests hours', () => {
-        expect(timeToPhases('1h')).to.equal(1800)
+        expect(incapacitationTimeToPhases('1h')).to.equal(1800)
     })
     it('tests minutes', () => {
-        expect(timeToPhases('7m')).to.equal(210)
+        expect(incapacitationTimeToPhases('7m')).to.equal(210)
     })
     it('tests days', () => {
-        expect(timeToPhases('3d')).to.equal(129600)
+        expect(incapacitationTimeToPhases('3d')).to.equal(129600)
     })
     it('tests phases', () => {
-        expect(timeToPhases('15p')).to.equal(15)
+        expect(incapacitationTimeToPhases('15p')).to.equal(15)
     })
 })
 

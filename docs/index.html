@@ -36,9 +36,9 @@
               
                 
                 <li><a
-                  href='#tablelookup'
+                  href='#nextimpulse'
                   class="">
-                  tableLookup
+                  nextImpulse
                   
                 </a>
                 
@@ -46,9 +46,39 @@
               
                 
                 <li><a
-                  href='#timetophases'
+                  href='#previousimpulse'
                   class="">
-                  timeToPhases
+                  previousImpulse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#phasestotime'
+                  class="">
+                  phasesToTime
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#incapacitationtimetophases'
+                  class="">
+                  incapacitationTimeToPhases
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#tablelookup'
+                  class="">
+                  tableLookup
                   
                 </a>
                 
@@ -486,6 +516,295 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='nextimpulse'>
+      nextImpulse
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns a time object one impulse in the future</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>nextImpulse(time: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    A phase and impulse object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        A time object incremented one impulse
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='previousimpulse'>
+      previousImpulse
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns a time object one impulse in the past</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>previousImpulse(time: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    A phase and impulse object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        A time object decremented one impulse
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='phasestotime'>
+      phasesToTime
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns a time some amount of phases in the future</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>phasesToTime(phases: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, time: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>phases</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    A number of phases
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    A game time object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The future time object
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='incapacitationtimetophases'>
+      incapacitationTimeToPhases
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Converts time to phases</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>incapacitationTimeToPhases(time: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    A length of time in the Incapacitation Table format
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The total number of phases
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='tablelookup'>
       tableLookup
     </h3>
@@ -559,76 +878,6 @@
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>any</code>:
         The resulting lookup
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='timetophases'>
-      timeToPhases
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Converts time to phases</p>
-
- 
-  
-    <div class='pre p1 fill-light mt0'>timeToPhases(time: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
-   
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    A length of time in the Incapacitation Table format
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
-        The total number of phases
 
       
     
@@ -2466,7 +2715,7 @@
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>pen</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    The PEN value of the weapon
+	    The penetration value of the weapon
 
           </div>
           
