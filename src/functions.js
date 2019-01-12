@@ -444,6 +444,7 @@ export function effectiveAccuracyLevel(mods) {
 export function oddsOfHitting(eal, shotType) {
     eal = _.clamp(eal, -10, 28)
     if (shotType === 'Burst') {shotType = 'Burst Elevation'}
+    if (shotType === 'Shotgun' || shotType === 'Explosive') {shotType = 'Single Shot'}
     let chance = tableLookup(oddsOfHitting_4G, 'EAL', shotType, eal)
     return chance
 }
