@@ -275,6 +275,8 @@ export function targetSizeALM(list, shotType, targetSize) {
     let alm = 0
     if (shotType === 'Single Shot') {shotType = 'Target Size'}
     if (shotType === 'Burst') {shotType = 'Auto Elev'}
+    if (shotType === 'Shotgun') {shotType = 'Target Size'}
+    if (shotType === 'Explosive') {shotType = 'Target Size'}
 
     if (targetSize !== undefined) {
         targetSize = _.clamp(targetSize, 0.1, 39)
