@@ -14,7 +14,7 @@ import { weapons } from './weapons'
 export function calculateActionTime(actionPoints, actionsPerImpulse, time, currentImpulseRemainder) {
     let actions = actionPoints
     let ca = actionsPerImpulse
-    let next = time
+    let next = _.cloneDeep(time)
     let phase = _.toNumber(time.phase)
     let impulse = _.toNumber(time.impulse)
     let i = impulse    
