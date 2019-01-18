@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit, phasesToTime } from '../src/functions'
+import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement } from '../src/functions'
 import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -305,5 +305,19 @@ describe('Calculations', () => {
     })
     it('tests damageTotal function', () => {
         expect(damageTotal(18, 12)).to.equal(15)
+    })
+    it('tests ealToHit function', () => {
+        expect(ealToHit(82, 'Single Shot')).to.equal(23)
+        expect(ealToHit(67, 'Burst')).to.equal(17)
+        expect(ealToHit(99, 'Single Shot')).to.equal(28)
+    })
+    it('tests shotScatter function', () => {
+        expect(shotScatter(14, 23)).to.equal(2)
+        expect(shotScatter(1, 23)).to.equal(10)
+    })
+    it('tests missedShotPlacement function', () => {
+        expect(missedShotPlacement(3, 2)).to.equal('Short')
+        expect(missedShotPlacement(9, 4)).to.equal('Long')
+        expect(missedShotPlacement(3, 1)).to.be.oneOf(['N','NE','SE','S','SW','NW'])
     })
 })

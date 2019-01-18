@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
+import { shotScatter_5C, equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -449,6 +449,56 @@ export function oddsOfHitting(eal, shotType) {
     if (shotType === 'Shotgun' || shotType === 'Explosive') {shotType = 'Single Shot'}
     let chance = tableLookup(oddsOfHitting_4G, 'EAL', shotType, eal)
     return chance
+}
+
+/**
+ * Returns the minimum EAL required to succeed given a rolled to-hit
+ *
+ * @param {number} roll - The to-hit roll generated externally
+ * @param {string} shotType - Either Single Shot or Burst Elevation
+ * @return {number} - The minimum effective accuracy level
+ */
+export function ealToHit(roll, shotType) {
+    let eal
+    for (let i = -11; i <= 28; i++) {
+        let chance = oddsOfHitting(i, shotType)
+        if (roll <= chance) {
+            eal = i
+            break
+        }
+    }
+    return eal
+}
+
+/**
+ * Returns the number of hexes away on a missed shot
+ *
+ * @param {number} actualEAL - The generated EAL
+ * @param {number} requiredEAL - The minimum EAL required to hit
+ * @return {number} - The number of hexes away the shot hits
+ */
+export function shotScatter(actualEAL, requiredEAL) {
+    let diff = requiredEAL - actualEAL
+    diff = _.clamp(diff, 1, 28)
+    let scatter = tableLookup(shotScatter_5C, 'Difference in SA', 'Scatter (hexes)', diff)
+    return scatter
+}
+
+/**
+ * Returns the placement of a missed shot
+ *
+ * @param {number} roll - A random roll of 0-9 generated externally
+ * @param {number} scatter - The number of hexes away the missed shot hit
+ * @return {string} - The description of the shot placement
+ */
+export function missedShotPlacement(roll, scatter) {
+    let place
+    let direction = ['N','NE','SE','S','SW','NW']
+    let dirRoll = _.random(0,6)
+    if (_.inRange(roll, 0, 5) === true) { place = 'Short'}
+    if (_.inRange(roll, 5, 10) === true) { place = 'Long'}
+    if (scatter === 1) { place = direction[dirRoll]}
+    return place
 }
 
 /**
