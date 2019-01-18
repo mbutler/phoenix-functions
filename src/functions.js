@@ -495,8 +495,8 @@ export function missedShotPlacement(roll, scatter) {
     let place
     let direction = ['N','NE','SE','S','SW','NW']
     let dirRoll = _.random(0,6)
-    if (_.inRange(roll, 0, 5) === true) { place = 'Short'}
-    if (_.inRange(roll, 5, 10) === true) { place = 'Long'}
+    if (_.inRange(roll, 0, 5) === true) { place = 'short'}
+    if (_.inRange(roll, 5, 10) === true) { place = 'long'}
     if (scatter === 1) { place = direction[dirRoll]}
     return place
 }
@@ -580,6 +580,23 @@ export function shotgunFire(ammoType, range, bphc) {
     return result
 }
 
+export function explosiveFire(chance) {
+    let result = {}
+    //range 0
+    result[`0`] = {"hit": true, "bullets": 1, "chance": chance}
+    //range 1
+    result[`1`] = {"hit": true, "bullets": 1, "chance": chance}
+    //range 2
+    result[`2`] = {"hit": true, "bullets": 1, "chance": chance}
+    //range 3
+    result[`3`] = {"hit": true, "bullets": 1, "chance": chance}
+    //range 5
+    result[`5`] = {"hit": true, "bullets": 1, "chance": chance}
+    //range 10
+    result[`10`] = {"hit": true, "bullets": 1, "chance": chance}
+    return result
+}
+
 /**
  * Returns the asterisks numbers in auto chance
  * @param {number} arc - The chosen arc of fire
@@ -610,6 +627,7 @@ export function damageClass(weapon, rangeVal, ammo) {
     let range
     range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
     if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
+    if (weapon.Type === 'Explosive') {range = snapToValue(rangeVal, [40,100,200,400])}
     range = _.clamp(range, 0, 400)
     let dc = weapon[_.toString(range)][ammo]['DC']
     return dc
@@ -626,6 +644,7 @@ export function penetration(weapon, rangeVal, ammo) {
     let range
     range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
     if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
+    if (weapon.Type === 'Explosive') {range = snapToValue(rangeVal, [40,100,200,400])}
     range = _.clamp(range, 0, 400)
     let pen = weapon[_.toString(range)][ammo]['PEN']
     return pen
