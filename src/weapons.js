@@ -820,5 +820,80 @@ export const weapons = {
      "8": -2,
      "9": -1
    }
+ },
+ "M79": {
+   "40": {
+     "HEAT": {
+       "PEN": 288,
+       "DC": 10
+     },
+     "HE": {
+       "PEN": 2.1,
+       "DC": 10
+     },
+     "AOI": 0,
+     "BA": 23,
+     "TOF": 11
+   },
+   "100": {
+     "HEAT": {
+       "PEN": 288,
+       "DC": 10
+     },
+     "HE": {
+       "PEN": 2.1,
+       "DC": 10
+     },
+     "AOI": 1,
+     "BA": 10,
+     "TOF": 33
+   },
+   "200": {
+     "HEAT": {
+       "PEN": 288,
+       "DC": 10
+     },
+     "HE": {
+       "PEN": 2.1,
+       "DC": 10
+     },
+     "AOI": 4,
+     "BA": 1,
+     "TOF": 80
+   },
+   "400": {
+     "HEAT": {
+       "PEN": 288,
+       "DC": 10
+     },
+     "HE": {
+       "PEN": 2.1,
+       "DC": 10
+     },
+     "AOI": 4,
+     "BA": 1,
+     "TOF": 80
+   },
+   "Name": "M79",
+   "Type": "Explosive",
+   "Description": "Accurate breech loading grenade launcher which has been replaced by the M203.",
+   "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m79.png?alt=media&token=fb77cd6c-3731-417d-8926-f5b3623de195",
+   "L": 29,
+   "W": 6.5,
+   "RT": 10,
+   "ROF": 1,
+   "Cap": 1,
+   "AW": "0.51 Rnd",
+   "MR": 200,
+   "SAB": 11,
+   "Aim Time": {
+     "1": -21,
+     "2": -11,
+     "3": -8,
+     "4": -7,
+     "5": -5,
+     "6": -4,
+     "7": -3
+   }
  }
 }
