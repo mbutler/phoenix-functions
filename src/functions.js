@@ -212,7 +212,7 @@ export function rangeALM(distance) {
  * @return {number} - The ALM to add in to EAL calculation
  */
 export function movingALM(targetSpeed, shooterSpeed, range) {
-    range = snapToValue(range, [10,20,40,70,100,200,300,400])
+    range = snapToValue(range, [10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
     let targetALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, targetSpeed)
     let shooterALM = tableLookup(movementModifiers_4D, 'Speed HPI', range, shooterSpeed)
     if (shooterSpeed === 0) { shooterALM = 0 }
@@ -406,7 +406,7 @@ export function snapToValue(target, array) {
 
     return _.reduce(tuples, (memo, val) => {
         return (memo[1] < val[1]) ? memo : val
-    }, [-1, 999])[0]
+    }, [-1, 9999999])[0]
 }
 
 /**
@@ -494,7 +494,7 @@ export function shotScatter(actualEAL, requiredEAL) {
 export function missedShotPlacement(roll, scatter) {
     let place
     let direction = ['N','NE','SE','S','SW','NW']
-    let dirRoll = _.random(0,6)
+    let dirRoll = _.random(0,5)
     if (_.inRange(roll, 0, 5) === true) { place = 'short'}
     if (_.inRange(roll, 5, 10) === true) { place = 'long'}
     if (scatter === 1) { place = direction[dirRoll]}

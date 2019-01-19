@@ -200,6 +200,7 @@ describe('Accuracy Level Modifiers', () => {
         expect(movingALM(2, 2, '40')).to.equal(-10)
         expect(movingALM(2, 2, '44')).to.equal(-10)
         expect(movingALM(0, 0, '2')).to.equal(0)
+        expect(movingALM(0, 0, '1400')).to.equal(0)
     })
     it('tests shot accuracy ALM', () => {
         expect(shotAccuracyALM(-17, 5)).to.equal(-12)
