@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement } from '../src/functions'
-import { maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
+import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement, explosiveFire, blastModifier } from '../src/functions'
+import { blastModifiers_5B, maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
 const fourAP = {"1": 1, "2": 1, "3": 1, "4": 1}
@@ -92,7 +92,9 @@ describe('Table Lookup', () => {
     it('tests Target Size Modifiers - 4F table', () => {
         expect(tableLookup(targetSizeModifiers_4F, 'Size', 'ALM', 0.5)).to.equal(-3)
     })
-
+    it('tests Blast Modifiers - 5B table', () => {
+        expect(tableLookup(blastModifiers_5B, 'Target', 'BM', 'In Open Trench')).to.equal(3)
+    })
     it('tests Shot Scatter - 5C table', () => {
         expect(tableLookup(shotScatter_5C, 'Difference in SA', 'Scatter (hexes)', 8)).to.equal(2)
     })
@@ -161,6 +163,9 @@ describe('Weapons Test', () => {
     it('tests shotgunFire function', () => {
         expect(shotgunFire(11, 'Shot', 2)).to.include.keys('target 1')
         expect(shotgunFire(99, 'APS', 20)).to.be.an('object')
+    })
+    it('tests explosiveFire function', () => {
+        expect(explosiveFire(weapons['M79'], 'HEAT')).to.be.an('object')
     })
     it('tests shotgunMultipleHit function', () => {
         expect(shotgunMultipleHit(4)).to.equal(14)
@@ -316,8 +321,11 @@ describe('Calculations', () => {
         expect(shotScatter(1, 23)).to.equal(10)
     })
     it('tests missedShotPlacement function', () => {
-        expect(missedShotPlacement(3, 2)).to.equal('Short')
-        expect(missedShotPlacement(9, 4)).to.equal('Long')
+        expect(missedShotPlacement(3, 2)).to.equal('short')
+        expect(missedShotPlacement(9, 4)).to.equal('long')
         expect(missedShotPlacement(3, 1)).to.be.oneOf(['N','NE','SE','S','SW','NW'])
+    })
+    it('tests blastModifier function', () => {
+        expect(blastModifier('In Power Armor')).to.equal(0.01)
     })
 })

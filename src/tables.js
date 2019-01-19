@@ -1720,6 +1720,45 @@ export const targetSizeModifiers_4F = [
   }
 ]
 
+export const blastModifiers_5B = [
+  {
+    "BM": 10,
+    "Target": "Underwater"
+  },
+  {
+    "BM": 5,
+    "Target": "In Small Room (10')"
+  },
+  {
+    "BM": 3,
+    "Target": "In Open Trench"
+  },
+  {
+    "BM": 1,
+    "Target": "In the Open"
+  },
+  {
+    "BM": 0.75,
+    "Target": "Prone"
+  },
+  {
+    "BM": 0.5,
+    "Target": "Under Partial Cover"
+  },
+  {
+    "BM": 0.25,
+    "Target": "In Combat Suit"
+  },
+  {
+    "BM": 0.01,
+    "Target": "In Power Armor"
+  },
+  {
+    "BM": 0,
+    "Target": "Behind Solid Cover"
+  }
+]
+
 export const shotScatter_5C = [
   {
     "Difference in SA": [
@@ -7549,7 +7588,6 @@ export const hitLocationDamage_6A = {
     }
   ]
 }
-
 export const medicalAidRecovery_8A = [
   {
     "Damage Total": [

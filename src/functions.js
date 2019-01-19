@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { shotScatter_5C, equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
+import { blastModifiers_5B, shotScatter_5C, equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
 import { weapons } from './weapons'
 
 /**
@@ -580,21 +580,37 @@ export function shotgunFire(ammoType, range, bphc) {
     return result
 }
 
-export function explosiveFire(chance) {
+/**
+ * Returns the targets hit in explosive fire
+ * @param {object} weapon - The weapon object
+ * @param {string} ammoType - The type of ammo used
+ * @return {object} - The targets object with booleans for hit success plus bullets (shrapnel)
+ */
+export function explosiveFire(weapon, ammoType) {
     let result = {}
-    //range 0
-    result[`0`] = {"hit": true, "bullets": 1, "chance": chance}
-    //range 1
-    result[`1`] = {"hit": true, "bullets": 1, "chance": chance}
-    //range 2
-    result[`2`] = {"hit": true, "bullets": 1, "chance": chance}
-    //range 3
-    result[`3`] = {"hit": true, "bullets": 1, "chance": chance}
-    //range 5
-    result[`5`] = {"hit": true, "bullets": 1, "chance": chance}
-    //range 10
-    result[`10`] = {"hit": true, "bullets": 1, "chance": chance}
+    let range = [0,1,2,3,5,10]
+
+    _.forEach(range, val => {
+        let radius = _.toString(val)
+        let roll = _.random(0,99)
+        let bshc = weapon[radius][ammoType]['BSHC']
+        if (roll <= bshc) {
+            result[radius] = {"hit": true, "bullets": 1, "chance": bshc}
+        } else {
+            result[radius] = {"hit": false, "bullets": 0, "chance": bshc}
+        }
+    })
     return result
+}
+
+/**
+ * Returns the blast modifier for vaious conditions
+ * @param {string} mod - The condition description
+ * @return {number} - The mod to multipy damage by
+ */
+export function blastModifier(mod) {
+    let bm = tableLookup(blastModifiers_5B, 'Target', 'BM', mod)
+    return bm
 }
 
 /**
