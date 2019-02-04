@@ -962,5 +962,169 @@ export const weapons = {
      "6": -4,
      "7": -3
    }
+ },
+ "FR F2": {
+   "10": {
+     "FMJ": {
+       "PEN": 20,
+       "DC": 8
+     },
+     "JHP": {
+       "PEN": 19,
+       "DC": 9
+     },
+     "AP": {
+       "PEN": 28,
+       "DC": 8
+     },
+     "MA": 0,
+     "BA": 68,
+     "TOF": 0
+   },
+   "20": {
+     "FMJ": {
+       "PEN": 19,
+       "DC": 8
+     },
+     "JHP": {
+       "PEN": 18,
+       "DC": 9
+     },
+     "AP": {
+       "PEN": 27,
+       "DC": 8
+     },
+     "MA": 0,
+     "BA": 59,
+     "TOF": 0
+   },
+   "40": {
+     "FMJ": {
+       "PEN": 18,
+       "DC": 8
+     },
+     "JHP": {
+       "PEN": 17,
+       "DC": 9
+     },
+     "AP": {
+       "PEN": 25,
+       "DC": 7
+     },
+     "MA": 0,
+     "BA": 50,
+     "TOF": 1
+   },
+   "70": {
+     "FMJ": {
+       "PEN": 16,
+       "DC": 7
+     },
+     "JHP": {
+       "PEN": 16,
+       "DC": 9
+     },
+     "AP": {
+       "PEN": 23,
+       "DC": 7
+     },
+     "MA": 0,
+     "BA": 43,
+     "TOF": 2
+   },
+   "100": {
+     "FMJ": {
+       "PEN": 15,
+       "DC": 7
+     },
+     "JHP": {
+       "PEN": 14,
+       "DC": 9
+     },
+     "AP": {
+       "PEN": 21,
+       "DC": 7
+     },
+     "MA": 0,
+     "BA": 38,
+     "TOF": 2
+   },
+   "200": {
+     "FMJ": {
+       "PEN": 11,
+       "DC": 7
+     },
+     "JHP": {
+       "PEN": 10,
+       "DC": 8
+     },
+     "AP": {
+       "PEN": 15,
+       "DC": 6
+     },
+     "MA": 0,
+     "BA": 28,
+     "TOF": 5
+   },
+   "300": {
+     "FMJ": {
+       "PEN": 7.6,
+       "DC": 6
+     },
+     "JHP": {
+       "PEN": 7.3,
+       "DC": 8
+     },
+     "AP": {
+       "PEN": 11,
+       "DC": 6
+     },
+     "MA": 0,
+     "BA": 22,
+     "TOF": 8
+   },
+   "400": {
+     "FMJ": {
+       "PEN": 5.5,
+       "DC": 5
+     },
+     "JHP": {
+       "PEN": 5.3,
+       "DC": 7
+     },
+     "AP": {
+       "PEN": 7,
+       "DC": 5
+     },
+     "MA": 0,
+     "BA": 18,
+     "TOF": 11
+   },
+   "Name": "FR F2",
+   "Type": "Assault Rifle",
+   "Description": "French sniper rifle with optical scope and bipod chambered in 7.62 mm NATO.",
+   "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/fr-f2.png?alt=media&token=5358f00a-d112-48e9-80d6-88c6504c88e5",
+   "L": 45,
+   "W": 12.5,
+   "RT": 8,
+   "ROF": 3,
+   "Cap": 10,
+   "AW": "1.1 Mag",
+   "KD": 10,
+   "SAB": 5,
+   "Aim Time": {
+     "1": -24,
+     "2": -14,
+     "3": -7,
+     "4": -5,
+     "5": -4,
+     "6": -2,
+     "7": 0,
+     "8": 1,
+     "9": 2,
+     "10": 3,
+     "11": 4,
+     "12": 5
+   }
  }
 }
