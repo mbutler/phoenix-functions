@@ -439,7 +439,7 @@ export const weapons = {
      "Name":"Uzi",
      "Type":"Sub-Machinegun",
      "Description":"Sturdy, reliable weapon popular with police and secret service.",
-     "Image":"https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/uzi.png?alt=media&token=402af485-e66a-484e-b6cc-5c7fb0b01b7d",
+     "Image":"https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/uzi.png?alt=media&token=20e6d819-8d4c-4730-9350-8322f11c6275",
      "L":"19/26",
      "W":9,
      "RT":8,
@@ -1125,6 +1125,332 @@ export const weapons = {
      "10": 3,
      "11": 4,
      "12": 5
+   }
+ },
+ "M16A2": {
+    "10": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 24,
+        "DC": 6
+      },
+      "MA": 0.4,
+      "BA": 61,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 16,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 15,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 23,
+        "DC": 6
+      },
+      "MA": 0.8,
+      "BA": 61,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 15,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 14,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 21,
+        "DC": 6
+      },
+      "MA": 2,
+      "BA": 44,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 5
+      },
+      "MA": 3,
+      "BA": 37,
+      "TOF": 1
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 12,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 11,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 16,
+        "DC": 5
+      },
+      "MA": 4,
+      "BA": 32,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 7.7,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 7.4,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 11,
+        "DC": 4
+      },
+      "MA": 8,
+      "BA": 22,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 5.1,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 4.9,
+        "DC": 5
+      },
+      "AP": {
+        "PEN": 7.2,
+        "DC": 3
+      },
+      "MA": 11,
+      "BA": 17,
+      "TOF": 7
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 3.4,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 3.2,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 4.8,
+        "DC": 2
+      },
+      "MA": 15,
+      "BA": 13,
+      "TOF": 11
+    },
+    "Name": "M16A2",
+    "Type": "Assault Rifle",
+    "Description": "Late version of the M16A1 with three round burst capability.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m16a2.png?alt=media&token=0337b191-f97d-4aaf-acb5-07781bd7a5f5",
+    "L": 39,
+    "W": 8.5,
+    "RT": 8,
+    "ROF": 7,
+    "Cap": 30,
+    "AW": "1.0 Mag",
+    "KD": 4,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -22,
+      "2": -12,
+      "3": -9,
+      "4": -7,
+      "5": -6,
+      "6": -5,
+      "7": -4,
+      "8": -3,
+      "9": -2,
+      "10": -1,
+      "11": 0
+    }
+  },
+  "M16A2":   {
+   "10": {
+     "FMJ": {
+       "PEN": 17,
+       "DC": 6
+     },
+     "JHP": {
+       "PEN": 16,
+       "DC": 8
+     },
+     "AP": {
+       "PEN": 24,
+       "DC": 6
+     },
+     "MA": 0.4,
+     "BA": 61,
+     "TOF": 0
+   },
+   "20": {
+     "FMJ": {
+       "PEN": 16,
+       "DC": 6
+     },
+     "JHP": {
+       "PEN": 15,
+       "DC": 8
+     },
+     "AP": {
+       "PEN": 23,
+       "DC": 6
+     },
+     "MA": 0.8,
+     "BA": 61,
+     "TOF": 0
+   },
+   "40": {
+     "FMJ": {
+       "PEN": 15,
+       "DC": 6
+     },
+     "JHP": {
+       "PEN": 14,
+       "DC": 8
+     },
+     "AP": {
+       "PEN": 21,
+       "DC": 6
+     },
+     "MA": 2,
+     "BA": 44,
+     "TOF": 1
+   },
+   "70": {
+     "FMJ": {
+       "PEN": 13,
+       "DC": 6
+     },
+     "JHP": {
+       "PEN": 13,
+       "DC": 7
+     },
+     "AP": {
+       "PEN": 18,
+       "DC": 5
+     },
+     "MA": 3,
+     "BA": 37,
+     "TOF": 1
+   },
+   "100": {
+     "FMJ": {
+       "PEN": 12,
+       "DC": 5
+     },
+     "JHP": {
+       "PEN": 11,
+       "DC": 7
+     },
+     "AP": {
+       "PEN": 16,
+       "DC": 5
+     },
+     "MA": 4,
+     "BA": 32,
+     "TOF": 2
+   },
+   "200": {
+     "FMJ": {
+       "PEN": 7.7,
+       "DC": 4
+     },
+     "JHP": {
+       "PEN": 7.4,
+       "DC": 6
+     },
+     "AP": {
+       "PEN": 11,
+       "DC": 4
+     },
+     "MA": 8,
+     "BA": 22,
+     "TOF": 5
+   },
+   "300": {
+     "FMJ": {
+       "PEN": 5.1,
+       "DC": 3
+     },
+     "JHP": {
+       "PEN": 4.9,
+       "DC": 5
+     },
+     "AP": {
+       "PEN": 7.2,
+       "DC": 3
+     },
+     "MA": 11,
+     "BA": 17,
+     "TOF": 7
+   },
+   "400": {
+     "FMJ": {
+       "PEN": 3.4,
+       "DC": 3
+     },
+     "JHP": {
+       "PEN": 3.2,
+       "DC": 4
+     },
+     "AP": {
+       "PEN": 4.8,
+       "DC": 2
+     },
+     "MA": 15,
+     "BA": 13,
+     "TOF": 11
+   },
+   "Name": "M16A2",
+   "Type": "Assault Rifle",
+   "Description": "Late version of the M16A1 with three round burst capability.",
+   "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m16a2.png?alt=media&token=0337b191-f97d-4aaf-acb5-07781bd7a5f5",
+   "L": 39,
+   "W": 8.5,
+   "RT": 8,
+   "ROF": 7,
+   "Cap": 30,
+   "AW": "1.0 Mag",
+   "KD": 4,
+   "SAB": 3,
+   "Aim Time": {
+     "1": -22,
+     "2": -12,
+     "3": -9,
+     "4": -7,
+     "5": -6,
+     "6": -5,
+     "7": -4,
+     "8": -3,
+     "9": -2,
+     "10": -1,
+     "11": 0
    }
  }
 }
