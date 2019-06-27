@@ -844,6 +844,15 @@ export function getWeaponByName(weaponName) {
 }
 
 /**
+ * 
+ * @return {object} - The entire weapons object 
+ */
+
+ export function getAllWeapons() {
+     return weapons
+ }
+
+/**
  * Returns the hit location spacing for a shotgun hit
  * @param {number} salm - The shotgun alm
  * @return {number} - The spacing to add or subtract from hit location
