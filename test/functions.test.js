@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, getAllWeapons, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement, explosiveFire, blastModifier } from '../src/functions'
+import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, getAllWeapons, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement, explosiveFire, blastModifier, getAllTables } from '../src/functions'
 import { blastModifiers_5B, maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -120,6 +120,9 @@ describe('Table Lookup', () => {
         expect(tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', '36', 0.8)).to.equal(6)
         expect(tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', '36', 0)).to.equal(28)
     })
+    it('test all tables export', () => {
+        expect(getAllTables()).to.be.an('object')
+    })
 })
 
 describe('Weapons Test', () => {
@@ -152,7 +155,6 @@ describe('Weapons Test', () => {
     })
     it('tests getting all weapons', () => {
         expect(getAllWeapons()).to.be.an('object')
-        console.log(getAllWeapons())
     })
     it('tests burstFire function', () => {
         expect(burstFire(20, 8, 7)).to.include.keys('target 7')

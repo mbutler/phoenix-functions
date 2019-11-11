@@ -1,6 +1,6 @@
 {
   "name": "phoenix-functions",
-  "version": "0.9.39",
+  "version": "0.9.40",
   "description": "equations for phoenix command",
   "main": "dist/phoenix-functions.js",
   "scripts": {
@@ -44,6 +44,6 @@
     ]
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   }
 }

@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import { blastModifiers_5B, shotScatter_5C, equipment, movementModifiers_4D, situationAndStanceModifiers_4B, visibilityModifiers_4C, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, combatActionsPerImpulse_1E, baseSpeed_1A, maxSpeed_1B, skillAccuracy_1C, combatActions_1D, oddsOfHitting_4G, automaticFireAndShrapnel_5A, hitLocationDamage_6A, effectiveArmorProtectionFactor_6D, coverProtectionFactors_7C, medicalAidRecovery_8A, incapacitationTime_8B } from './tables'
 import { weapons } from './weapons'
+import * as tables from './tables'
 
 /**
  * Adds a specified number of actions to a game time to determine the correct phase and impulse in the future
@@ -851,6 +852,15 @@ export function getWeaponByName(weaponName) {
  export function getAllWeapons() {
      return weapons
  }
+
+ /**
+ * 
+ * @return {object} - All tables 
+ */
+
+export function getAllTables() {
+    return tables
+}
 
 /**
  * Returns the hit location spacing for a shotgun hit
