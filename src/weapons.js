@@ -1127,169 +1127,6 @@ export const weapons = {
      "12": 5
    }
  },
- "M16A2": {
-    "10": {
-      "FMJ": {
-        "PEN": 17,
-        "DC": 6
-      },
-      "JHP": {
-        "PEN": 16,
-        "DC": 8
-      },
-      "AP": {
-        "PEN": 24,
-        "DC": 6
-      },
-      "MA": 0.4,
-      "BA": 61,
-      "TOF": 0
-    },
-    "20": {
-      "FMJ": {
-        "PEN": 16,
-        "DC": 6
-      },
-      "JHP": {
-        "PEN": 15,
-        "DC": 8
-      },
-      "AP": {
-        "PEN": 23,
-        "DC": 6
-      },
-      "MA": 0.8,
-      "BA": 61,
-      "TOF": 0
-    },
-    "40": {
-      "FMJ": {
-        "PEN": 15,
-        "DC": 6
-      },
-      "JHP": {
-        "PEN": 14,
-        "DC": 8
-      },
-      "AP": {
-        "PEN": 21,
-        "DC": 6
-      },
-      "MA": 2,
-      "BA": 44,
-      "TOF": 1
-    },
-    "70": {
-      "FMJ": {
-        "PEN": 13,
-        "DC": 6
-      },
-      "JHP": {
-        "PEN": 13,
-        "DC": 7
-      },
-      "AP": {
-        "PEN": 18,
-        "DC": 5
-      },
-      "MA": 3,
-      "BA": 37,
-      "TOF": 1
-    },
-    "100": {
-      "FMJ": {
-        "PEN": 12,
-        "DC": 5
-      },
-      "JHP": {
-        "PEN": 11,
-        "DC": 7
-      },
-      "AP": {
-        "PEN": 16,
-        "DC": 5
-      },
-      "MA": 4,
-      "BA": 32,
-      "TOF": 2
-    },
-    "200": {
-      "FMJ": {
-        "PEN": 7.7,
-        "DC": 4
-      },
-      "JHP": {
-        "PEN": 7.4,
-        "DC": 6
-      },
-      "AP": {
-        "PEN": 11,
-        "DC": 4
-      },
-      "MA": 8,
-      "BA": 22,
-      "TOF": 5
-    },
-    "300": {
-      "FMJ": {
-        "PEN": 5.1,
-        "DC": 3
-      },
-      "JHP": {
-        "PEN": 4.9,
-        "DC": 5
-      },
-      "AP": {
-        "PEN": 7.2,
-        "DC": 3
-      },
-      "MA": 11,
-      "BA": 17,
-      "TOF": 7
-    },
-    "400": {
-      "FMJ": {
-        "PEN": 3.4,
-        "DC": 3
-      },
-      "JHP": {
-        "PEN": 3.2,
-        "DC": 4
-      },
-      "AP": {
-        "PEN": 4.8,
-        "DC": 2
-      },
-      "MA": 15,
-      "BA": 13,
-      "TOF": 11
-    },
-    "Name": "M16A2",
-    "Type": "Assault Rifle",
-    "Description": "Late version of the M16A1 with three round burst capability.",
-    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m16a2.png?alt=media&token=0337b191-f97d-4aaf-acb5-07781bd7a5f5",
-    "L": 39,
-    "W": 8.5,
-    "RT": 8,
-    "ROF": 7,
-    "Cap": 30,
-    "AW": "1.0 Mag",
-    "KD": 4,
-    "SAB": 3,
-    "Aim Time": {
-      "1": -22,
-      "2": -12,
-      "3": -9,
-      "4": -7,
-      "5": -6,
-      "6": -5,
-      "7": -4,
-      "8": -3,
-      "9": -2,
-      "10": -1,
-      "11": 0
-    }
-  },
   "M16A2":   {
    "10": {
      "FMJ": {
@@ -1452,5 +1289,166 @@ export const weapons = {
      "10": -1,
      "11": 0
    }
- }
+ },
+  "HK 53": {
+    "10": {
+      "FMJ": {
+        "PEN": 10,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 10,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 15,
+        "DC": 5
+      },
+      "MA": 3,
+      "BA": 61,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 9.9,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 9.5,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 14,
+        "DC": 5
+      },
+      "MA": 5,
+      "BA": 52,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 9,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 8.7,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 13,
+        "DC": 4
+      },
+      "MA": 1,
+      "BA": 44,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 7.9,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 7.5,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 11,
+        "DC": 4
+      },
+      "MA": 2,
+      "BA": 36,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 6.9,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 6.6,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 9.7,
+        "DC": 4
+      },
+      "MA": 3,
+      "BA": 31,
+      "TOF": 3
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 4.4,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 4.2,
+        "DC": 5
+      },
+      "AP": {
+        "PEN": 6.1,
+        "DC": 3
+      },
+      "MA": 5,
+      "BA": 22,
+      "TOF": 6
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 2.8,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 2.7,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 3.9,
+        "DC": 2
+      },
+      "MA": 8,
+      "BA": 16,
+      "TOF": 10
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 1.8,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 1.7,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 2.5,
+        "DC": 1
+      },
+      "MA": 11,
+      "BA": 12,
+      "TOF": 14
+    },
+    "Name": "Heckler & Koch 53",
+    "Type": "Sub-Machinegun",
+    "Description": "Short version of the HK 33 which can be used as n SMG or rifle.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/hk53.png?alt=media&token=2d2ce6ad-4b27-43d3-9953-bd21c207b5f0",
+    "L": "22/30",
+    "W": 8.1,
+    "RT": 8,
+    "ROF": 6,
+    "Cap": 40,
+    "AW": "1.4 Mag",
+    "KD": 4,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -21,
+      "2": -11,
+      "3": -8,
+      "4": -7,
+      "5": -5,
+      "6": -4,
+      "7": -3,
+      "8": -2,
+      "9": -1
+    }
+  }
 }
