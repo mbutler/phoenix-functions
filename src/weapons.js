@@ -1427,7 +1427,7 @@ export const weapons = {
       "BA": 12,
       "TOF": 14
     },
-    "Name": "Heckler & Koch 53",
+    "Name": "HK 53",
     "Type": "Sub-Machinegun",
     "Description": "Short version of the HK 33 which can be used as n SMG or rifle.",
     "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/hk53.png?alt=media&token=2d2ce6ad-4b27-43d3-9953-bd21c207b5f0",
