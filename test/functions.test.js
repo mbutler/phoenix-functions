@@ -146,6 +146,14 @@ describe('Weapons Test', () => {
         expect(weapons['Franchi SPAS 12']['1']['Shot']['PEN']).to.equal(5.3)
         expect(weapons['Franchi SPAS 12']['Aim Time']['5']).to.equal(-6)
     })
+    it('HK 53', () => {
+        expect(weapons['HK 53']['20']['AP']['PEN']).to.equal(14)
+        expect(weapons['HK 53']['Aim Time']['4']).to.equal(-7)
+    })
+    it('M60', () => {
+        expect(weapons['M60']['20']['AP']['PEN']).to.equal(27)
+        expect(weapons['M60']['Aim Time']['4']).to.equal(-10)
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
