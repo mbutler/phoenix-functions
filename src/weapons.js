@@ -1304,7 +1304,7 @@ export const weapons = {
         "PEN": 15,
         "DC": 5
       },
-      "MA": 3,
+      "MA": 0.3,
       "BA": 61,
       "TOF": 0
     },
@@ -1321,7 +1321,7 @@ export const weapons = {
         "PEN": 14,
         "DC": 5
       },
-      "MA": 5,
+      "MA": 0.5,
       "BA": 52,
       "TOF": 0
     },
@@ -1449,6 +1449,169 @@ export const weapons = {
       "7": -3,
       "8": -2,
       "9": -1
+    }
+  },
+  "M60": {
+    "10": {
+      "FMJ": {
+        "PEN": 20,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 28,
+        "DC": 8
+      },
+      "MA": 0.3,
+      "BA": 61,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 19,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 27,
+        "DC": 8
+      },
+      "MA": 0.5,
+      "BA": 53,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 17,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 25,
+        "DC": 7
+      },
+      "MA": 1,
+      "BA": 45,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 16,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 23,
+        "DC": 7
+      },
+      "MA": 2,
+      "BA": 37,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 15,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 14,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 21,
+        "DC": 7
+      },
+      "MA": 3,
+      "BA": 32,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 11,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 10,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 15,
+        "DC": 6
+      },
+      "MA": 5,
+      "BA": 23,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 7.7,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 7.4,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 11,
+        "DC": 6
+      },
+      "MA": 8,
+      "BA": 17,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 5.5,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 5.3,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 7.8,
+        "DC": 5
+      },
+      "MA": 10,
+      "BA": 13,
+      "TOF": 11
+    },
+    "Name": "M60",
+    "Type": "Machine Gun",
+    "Description": "Adopted in the 1950s, this is the standard GPMG of US forces.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m60.png?alt=media&token=ea00bd5c-06ce-490c-9081-c084186fdb94",
+    "L": "44",
+    "W": 29.7,
+    "RT": 12,
+    "ROF": 5,
+    "Cap": 100,
+    "AW": "6.5 Blt",
+    "KD": 10,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -30,
+      "2": -20,
+      "3": -14,
+      "4": -10,
+      "5": -8,
+      "6": -6,
+      "7": -5,
+      "8": -4,
+      "9": -3,
+      "10": -2,
+      "12": 0
     }
   }
 }
