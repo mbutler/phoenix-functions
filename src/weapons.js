@@ -1613,5 +1613,163 @@ export const weapons = {
       "10": -2,
       "12": 0
     }
+  },
+  "MAB PA15": {
+    "10": {
+      "FMJ": {
+        "PEN": 2.1,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 2,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 2.9,
+        "DC": 3
+      },
+      "MA": 0,
+      "BA": 46,
+      "TOF": 1
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 1.9,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 1.8,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 2.7,
+        "DC": 3
+      },
+      "MA": 0,
+      "BA": 38,
+      "TOF": 1
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 1.6,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 1.6,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 2.3,
+        "DC": 2
+      },
+      "MA": 0,
+      "BA": 29,
+      "TOF": 2
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 1.3,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 1.2,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 1.8,
+        "DC": 2
+      },
+      "MA": 0,
+      "BA": 22,
+      "TOF": 4
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 1,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 1,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 1.4,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 17,
+      "TOF": 6
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 0.4,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.4,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.6,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 8,
+      "TOF": 15
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.3,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 2,
+      "TOF": 24
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": -1,
+      "TOF": 35
+    },
+    "Name": "MAB PA15",
+    "Type": "Pistol",
+    "Description": "Modern, high capacity pistol. Standard pistol of the French army.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/mab-pa15.png?alt=media&token=bb3ec665-85d7-462b-8739-ec7a8b787106",
+    "L": "8",
+    "W": 2.8,
+    "RT": 4,
+    "ROF": 1,
+    "Cap": 15,
+    "AW": ".60 Mag",
+    "KD": 3,
+    "SAB": 4,
+    "Aim Time": {
+      "1": -18,
+      "2": -11,
+      "3": -10,
+      "4": -9,
+      "5": -8,
+      "6": -7
+    }
   }
 }
