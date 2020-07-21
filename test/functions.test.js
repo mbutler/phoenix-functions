@@ -154,6 +154,10 @@ describe('Weapons Test', () => {
         expect(weapons['M60']['20']['AP']['PEN']).to.equal(27)
         expect(weapons['M60']['Aim Time']['4']).to.equal(-10)
     })
+    it('MAB PA15', () => {
+        expect(weapons['MAB PA15']['20']['AP']['PEN']).to.equal(2.7)
+        expect(weapons['MAB PA15']['Aim Time']['4']).to.equal(-9)
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
