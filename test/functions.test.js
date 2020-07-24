@@ -129,34 +129,147 @@ describe('Weapons Test', () => {
     it('FN Mk 1', () => {
         expect(weapons['FN Mk 1']['20']['AP']['PEN']).to.equal(2.7)
         expect(weapons['FN Mk 1']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['FN Mk 1']['Name']).to.equal('FN Mk 1')
     })
     it('Type 51', () => {
         expect(weapons['Type 51']['20']['AP']['PEN']).to.equal(3.6)
         expect(weapons['Type 51']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Type 51']['Name']).to.equal('Type 51')
     })
     it('Uzi', () => {
         expect(weapons['Uzi']['20']['AP']['PEN']).to.equal(3.3)
         expect(weapons['Uzi']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['Uzi']['Name']).to.equal('Uzi')
     })
     it('AKM 47', () => {
         expect(weapons['AKM 47']['20']['AP']['PEN']).to.equal(15)
         expect(weapons['AKM 47']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['AKM 47']['Name']).to.equal('AKM 47')
     })
     it('Franchi SPAS 12', () => {
         expect(weapons['Franchi SPAS 12']['1']['Shot']['PEN']).to.equal(5.3)
         expect(weapons['Franchi SPAS 12']['Aim Time']['5']).to.equal(-6)
+        expect(weapons['Franchi SPAS 12']['Name']).to.equal('Franchi SPAS 12')
     })
     it('HK 53', () => {
         expect(weapons['HK 53']['20']['AP']['PEN']).to.equal(14)
         expect(weapons['HK 53']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['HK 53']['Name']).to.equal('HK 53')
     })
     it('M60', () => {
         expect(weapons['M60']['20']['AP']['PEN']).to.equal(27)
         expect(weapons['M60']['Aim Time']['4']).to.equal(-10)
+        expect(weapons['M60']['Name']).to.equal('M60')
     })
     it('MAB PA15', () => {
         expect(weapons['MAB PA15']['20']['AP']['PEN']).to.equal(2.7)
         expect(weapons['MAB PA15']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['MAB PA15']['Name']).to.equal('MAB PA15')
+    })
+    it('Walther PPK', () => {
+        expect(weapons['Walther PPK']['20']['AP']['PEN']).to.equal(1.2)
+        expect(weapons['Walther PPK']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Walther PPK']['Name']).to.equal('Walther PPK')
+    })
+    it('Walther P1', () => {
+        expect(weapons['Walther P1']['20']['AP']['PEN']).to.equal(2.5)
+        expect(weapons['Walther P1']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Walther P1']['Name']).to.equal('Walther P1')
+    })
+    it('HK P7M13', () => {
+        expect(weapons['HK P7M13']['20']['AP']['PEN']).to.equal(2.5)
+        expect(weapons['HK P7M13']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['HK P7M13']['Name']).to.equal('HK P7M13')
+    })
+    it('PA3-DM', () => {
+        expect(weapons['PA3-DM']['20']['AP']['PEN']).to.equal(3.3)
+        expect(weapons['PA3-DM']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['PA3-DM']['Name']).to.equal('PA3-DM')
+    })
+    it('F1', () => {
+        expect(weapons['F1']['20']['AP']['PEN']).to.equal(2.7)
+        expect(weapons['F1']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['F1']['Name']).to.equal('F1')
+    })
+    it('Steyr MPi 81', () => {
+        expect(weapons['Steyr MPi 81']['20']['AP']['PEN']).to.equal(3.0)
+        expect(weapons['Steyr MPi 81']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['Steyr MPi 81']['Name']).to.equal('Steyr MPi 81')
+    })
+    it('M61 Skorpion', () => {
+        expect(weapons['M61 Skorpion']['20']['AP']['PEN']).to.equal(1.5)
+        expect(weapons['M61 Skorpion']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['M61 Skorpion']['Name']).to.equal('M61 Skorpion')
+    })
+    it('MAT 49', () => {
+        expect(weapons['MAT 49']['20']['AP']['PEN']).to.equal(3.1)
+        expect(weapons['MAT 49']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['MAT 49']['Name']).to.equal('MAT 49')
+    })
+    it('HK MP5', () => {
+        expect(weapons['HK MP5']['20']['AP']['PEN']).to.equal(3.3)
+        expect(weapons['HK MP5']['Aim Time']['4']).to.equal(-6)
+        expect(weapons['HK MP5']['Name']).to.equal('HK MP5')
+    })
+    it('L1A1-F1', () => {
+        expect(weapons['L1A1-F1']['20']['AP']['PEN']).to.equal(25)
+        expect(weapons['L1A1-F1']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['L1A1-F1']['Name']).to.equal('L1A1-F1')
+    })
+    it('Steyr AUG', () => {
+        expect(weapons['Steyr AUG']['20']['AP']['PEN']).to.equal(20)
+        expect(weapons['Steyr AUG']['Aim Time']['4']).to.equal(-6)
+        expect(weapons['Steyr AUG']['Name']).to.equal('Steyr AUG')
+    })
+    it('FN FAL', () => {
+        expect(weapons['FN FAL']['20']['AP']['PEN']).to.equal(26)
+        expect(weapons['FN FAL']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['FN FAL']['Name']).to.equal('FN FAL')
+    })
+    it('FN FNC', () => {
+        expect(weapons['FN FNC']['20']['AP']['PEN']).to.equal(21)
+        expect(weapons['FN FNC']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['FN FNC']['Name']).to.equal('FN FNC')
+    })
+    it('M1949-56', () => {
+        expect(weapons['M1949-56']['20']['AP']['PEN']).to.equal(25)
+        expect(weapons['M1949-56']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['M1949-56']['Name']).to.equal('M1949-56')
+    })
+    it('FA MAS', () => {
+        expect(weapons['FA MAS']['20']['AP']['PEN']).to.equal(21)
+        expect(weapons['FA MAS']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['FA MAS']['Name']).to.equal('FA MAS')
+    })
+    it('Steyr LSW', () => {
+        expect(weapons['Steyr LSW']['20']['AP']['PEN']).to.equal(22)
+        expect(weapons['Steyr LSW']['Aim Time']['4']).to.equal(-6)
+        expect(weapons['Steyr LSW']['Name']).to.equal('Steyr LSW')
+    })
+    it('FN MAG', () => {
+        expect(weapons['FN MAG']['20']['AP']['PEN']).to.equal(26)
+        expect(weapons['FN MAG']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['FN MAG']['Name']).to.equal('FN MAG')
+    })
+    it('Type 67', () => {
+        expect(weapons['Type 67']['20']['AP']['PEN']).to.equal(32)
+        expect(weapons['Type 67']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Type 67']['Name']).to.equal('Type 67')
+    })
+    it('AA 7.62', () => {
+        expect(weapons['AA 7.62']['20']['AP']['PEN']).to.equal(26)
+        expect(weapons['AA 7.62']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['AA 7.62']['Name']).to.equal('AA 7.62')
+    })
+    it('HK 13E', () => {
+        expect(weapons['HK 13E']['20']['AP']['PEN']).to.equal(23)
+        expect(weapons['HK 13E']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['HK 13E']['Name']).to.equal('HK 13E')
+    })
+    it('HK 11E', () => {
+        expect(weapons['HK 11E']['20']['AP']['PEN']).to.equal(24)
+        expect(weapons['HK 11E']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['HK 11E']['Name']).to.equal('HK 11E')
     })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
