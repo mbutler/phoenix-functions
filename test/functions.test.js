@@ -271,6 +271,41 @@ describe('Weapons Test', () => {
         expect(weapons['HK 11E']['Aim Time']['4']).to.equal(-9)
         expect(weapons['HK 11E']['Name']).to.equal('HK 11E')
     })
+    it('Dragunov SVD', () => {
+        expect(weapons['Dragunov SVD']['20']['AP']['PEN']).to.equal(31)
+        expect(weapons['Dragunov SVD']['Aim Time']['4']).to.equal(-5)
+        expect(weapons['Dragunov SVD']['Name']).to.equal('Dragunov SVD')
+    })
+    it('M1911A1', () => {
+        expect(weapons['M1911A1']['20']['AP']['PEN']).to.equal(2.1)
+        expect(weapons['M1911A1']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['M1911A1']['Name']).to.equal('M1911A1')
+    })
+    it('AKR', () => {
+        expect(weapons['AKR']['20']['AP']['PEN']).to.equal(15)
+        expect(weapons['AKR']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['AKR']['Name']).to.equal('AKR')
+    })
+    it('Walther 2000', () => {
+        expect(weapons['Walther 2000']['20']['AP']['PEN']).to.equal(38)
+        expect(weapons['Walther 2000']['Aim Time']['4']).to.equal(-6)
+        expect(weapons['Walther 2000']['Name']).to.equal('Walther 2000')
+    })
+    it('Beretta SC 70', () => {
+        expect(weapons['Beretta SC 70']['20']['AP']['PEN']).to.equal(20)
+        expect(weapons['Beretta SC 70']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['Beretta SC 70']['Name']).to.equal('Beretta SC 70')
+    })
+    it('Bren L4', () => {
+        expect(weapons['Bren L4']['20']['AP']['PEN']).to.equal(25)
+        expect(weapons['Bren L4']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Bren L4']['Name']).to.equal('Bren L4')
+    })
+    it('Spectre', () => {
+        expect(weapons['Spectre']['20']['AP']['PEN']).to.equal(3.3)
+        expect(weapons['Spectre']['Aim Time']['4']).to.equal(-5)
+        expect(weapons['Spectre']['Name']).to.equal('Spectre')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

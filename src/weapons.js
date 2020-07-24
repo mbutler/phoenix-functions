@@ -5163,5 +5163,1135 @@ export const weapons = {
       "10": -2,
       "12": 0
     }
+  },
+  "Dragunov SVD": {
+    "10": {
+      "FMJ": {
+        "PEN": 23,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 22,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 32,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 69,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 22,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 21,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 31,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 62,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 21,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 20,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 30,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 53,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 19,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 27,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 46,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 17,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 25,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 41,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 14,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 19,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 32,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 10,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 9.9,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 15,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 26,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 7.8,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 7.5,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 11,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 22,
+      "TOF": 11
+    },
+    "Name": "Dragunov SVD",
+    "Type": "Assault Rifle",
+    "Description": "The Dragunov is equipped with a PSO-1 4x optical sight whose reticle is illuminated by a small battery. The scope is capable of detecting an infra-red source.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/dragunov-svd.png?alt=media&token=42e880e6-17f3-4822-b989-248335ff6adc",
+    "L": "48",
+    "W": 10.2,
+    "RT": 8,
+    "ROF": 1,
+    "Cap": 10,
+    "AW": ".68 Mag",
+    "KD": 12,
+    "SAB": 6,
+    "Aim Time": {
+      "1": -22,
+      "2": -12,
+      "3": -7,
+      "4": -5,
+      "5": -4,
+      "6": -2,
+      "7": 0,
+      "8": 1,
+      "9": 2,
+      "10": 3,
+      "11": 4
+    }
+  },
+  "M1911A1": {
+    "10": {
+      "FMJ": {
+        "PEN": 1.6,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 1.5,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 2.2,
+        "DC": 3
+      },
+      "MA": 0,
+      "BA": 45,
+      "TOF": 1
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 1.5,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 1.4,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 2.1,
+        "DC": 3
+      },
+      "MA": 0,
+      "BA": 36,
+      "TOF": 2
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 1.2,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 1.2,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 1.8,
+        "DC": 2
+      },
+      "MA": 0,
+      "BA": 27,
+      "TOF": 3
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 1,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.9,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 1.4,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 20,
+      "TOF": 5
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 0.8,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.7,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 1.1,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 15,
+      "TOF": 8
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 0.3,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.3,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.5,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 5,
+      "TOF": 19
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": 0,
+      "TOF": 31
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "MA": 0,
+      "BA": -4,
+      "TOF": 45
+    },
+    "Name": "M1911A1",
+    "Type": "Pistol",
+    "Description": "The Colt 45 Automatic Pistol has been the USA's standard military sidearm since WW I.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m1911a1.png?alt=media&token=7c9aa671-bcd6-4b43-b56c-ce6f0833bcc4",
+    "L": "9",
+    "W": 3,
+    "RT": 4,
+    "ROF": 1,
+    "Cap": 7,
+    "AW": ".70 Mag",
+    "KD": 5,
+    "SAB": 5,
+    "Aim Time": {
+      "1": -18,
+      "2": -11,
+      "3": -10,
+      "4": -9,
+      "5": -8,
+      "6": -7
+    }
+  },
+  "AKR": {
+    "10": {
+      "FMJ": {
+        "PEN": 11,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 10,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 15,
+        "DC": 5
+      },
+      "MA": 0.2,
+      "BA": 60,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 10,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 9.9,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 15,
+        "DC": 5
+      },
+      "MA": 0.3,
+      "BA": 52,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 9.4,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 9,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 13,
+        "DC": 4
+      },
+      "MA": 0.6,
+      "BA": 43,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 8.1,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 7.8,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 11,
+        "DC": 4
+      },
+      "MA": 1,
+      "BA": 35,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 7.1,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 6.8,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 10,
+        "DC": 4
+      },
+      "MA": 2,
+      "BA": 31,
+      "TOF": 3
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 4.4,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 4.2,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 6.2,
+        "DC": 3
+      },
+      "MA": 3,
+      "BA": 21,
+      "TOF": 6
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 2.7,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 2.6,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 3.8,
+        "DC": 2
+      },
+      "MA": 5,
+      "BA": 15,
+      "TOF": 9
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 1.7,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 1.6,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 2.4,
+        "DC": 1
+      },
+      "MA": 7,
+      "BA": 12,
+      "TOF": 13
+    },
+    "Name": "AKR",
+    "Type": "Sub-Machinegun",
+    "Description": "SMG version of the AKS 74 rifle. In service with Soviet forces.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/akr.png?alt=media&token=7626c12a-9219-4a11-a360-30b67cf61565",
+    "L": "17/27",
+    "W": 7.3,
+    "RT": 8,
+    "ROF": 7,
+    "Cap": 30,
+    "AW": "1.3 Mag",
+    "KD": 3,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -22,
+      "2": -12,
+      "3": -9,
+      "4": -7,
+      "5": -6,
+      "6": -5,
+      "7": -4,
+      "8": -3
+    }
+  },
+  "Walther 2000": {
+    "10": {
+      "FMJ": {
+        "PEN": 28,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 26,
+        "DC": 10
+      },
+      "AP": {
+        "PEN": 39,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 70,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 27,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 26,
+        "DC": 10
+      },
+      "AP": {
+        "PEN": 38,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 62,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 25,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 24,
+        "DC": 10
+      },
+      "AP": {
+        "PEN": 36,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 53,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 24,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 23,
+        "DC": 10
+      },
+      "AP": {
+        "PEN": 33,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 46,
+      "TOF": 1
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 22,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 21,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 31,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 41,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 24,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 32,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 12,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 26,
+      "TOF": 7
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 9.8,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 9.4,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 14,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 22,
+      "TOF": 10
+    },
+    "Name": "Walther 2000",
+    "Type": "Assault Rifle",
+    "Description": "Specially designed sniper rifle with optical scope and biped.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/walther-2000.png?alt=media&token=427b9229-81d9-4794-942f-f9ae1dadd1e5",
+    "L": "36",
+    "W": 18.3,
+    "RT": 10,
+    "ROF": 1,
+    "Cap": 6,
+    "AW": ".90 Mag",
+    "KD": 13,
+    "SAB": 5,
+    "Aim Time": {
+      "1": -26,
+      "2": -16,
+      "3": -8,
+      "4": -6,
+      "5": -4,
+      "6": -3,
+      "7": -1,
+      "8": 0,
+      "9": 1,
+      "10": 2,
+      "12": 5
+    }
+  },
+  "Beretta SC 70": {
+    "10": {
+      "FMJ": {
+        "PEN": 15,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 14,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 21,
+        "DC": 6
+      },
+      "MA": 0.2,
+      "BA": 60,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 14,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 14,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 20,
+        "DC": 6
+      },
+      "MA": 0.5,
+      "BA": 51,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 6
+      },
+      "MA": 1,
+      "BA": 42,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 11,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 11,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 16,
+        "DC": 5
+      },
+      "MA": 2,
+      "BA": 35,
+      "TOF": 1
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 10,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 9.5,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 14,
+        "DC": 5
+      },
+      "MA": 2,
+      "BA": 30,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 6.3,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 6,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 8.8,
+        "DC": 4
+      },
+      "MA": 5,
+      "BA": 20,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 4,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 3.8,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 5.6,
+        "DC": 3
+      },
+      "MA": 7,
+      "BA": 15,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 2.5,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 2.4,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 3.5,
+        "DC": 2
+      },
+      "MA": 10,
+      "BA": 11,
+      "TOF": 11
+    },
+    "Name": "Beretta SC 70",
+    "Type": "Assault Rifle",
+    "Description": "Folding stock version of the Beretta AR 70 rifle. This weapon is replacing the BM 59 and is in service with the Italian Special Forces.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/beretta-sc-70.png?alt=media&token=f92b02e2-f1e0-446a-9ddd-7d89324c8591",
+    "L": "29/38",
+    "W": 9.3,
+    "RT": 8,
+    "ROF": 5,
+    "Cap": 30,
+    "AW": "1.1 Mag",
+    "KD": 4,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -23,
+      "2": -12,
+      "3": -9,
+      "4": -7,
+      "5": -6,
+      "6": -5,
+      "7": -4,
+      "8": -3,
+      "9": -2,
+      "10": -1,
+      "11": 0
+    }
+  },
+  "Bren L4": {
+    "10": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 18,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 26,
+        "DC": 8
+      },
+      "MA": 0.2,
+      "BA": 61,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 17,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 25,
+        "DC": 7
+      },
+      "MA": 0.4,
+      "BA": 53,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 24,
+        "DC": 7
+      },
+      "MA": 0.8,
+      "BA": 45,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 15,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 15,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 21,
+        "DC": 7
+      },
+      "MA": 1,
+      "BA": 37,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 14,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 13,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 19,
+        "DC": 7
+      },
+      "MA": 2,
+      "BA": 32,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 9.8,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 9.4,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 14,
+        "DC": 6
+      },
+      "MA": 4,
+      "BA": 23,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 7,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 6.7,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 9.9,
+        "DC": 6
+      },
+      "MA": 6,
+      "BA": 17,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 5,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 4.8,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 7.1,
+        "DC": 5
+      },
+      "MA": 8,
+      "BA": 13,
+      "TOF": 12
+    },
+    "Name": "Bren L4",
+    "Type": "Machine Gun",
+    "Description": "L4 series Bren gun in 7.62mm NATO. Used by all British forces.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/bren-l4.png?alt=media&token=9554341c-0473-44b8-95a5-5e00859103f1",
+    "L": "45",
+    "W": 23.6,
+    "RT": 8,
+    "ROF": 4,
+    "Cap": 30,
+    "AW": "2.6 Mag",
+    "KD": 10,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -28,
+      "2": -19,
+      "3": -12,
+      "4": -9,
+      "5": -7,
+      "6": -6,
+      "7": -5,
+      "8": -4,
+      "9": -3,
+      "11": -1,
+      "13": 1
+    }
+  },
+  "Spectre": {
+    "10": {
+      "FMJ": {
+        "PEN": 2.5,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 2.4,
+        "DC": 5
+      },
+      "AP": {
+        "PEN": 3.6,
+        "DC": 3
+      },
+      "MA": 0.4,
+      "BA": 46,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 2.3,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 2.2,
+        "DC": 5
+      },
+      "AP": {
+        "PEN": 3.3,
+        "DC": 3
+      },
+      "MA": 0.8,
+      "BA": 37,
+      "TOF": 1
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 2,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 1.9,
+        "DC": 4
+      },
+      "AP": {
+        "PEN": 2.8,
+        "DC": 3
+      },
+      "MA": 2,
+      "BA": 28,
+      "TOF": 2
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 1.5,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 1.5,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 2.2,
+        "DC": 2
+      },
+      "MA": 3,
+      "BA": 21,
+      "TOF": 4
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 1.2,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 1.1,
+        "DC": 2
+      },
+      "AP": {
+        "PEN": 1.7,
+        "DC": 2
+      },
+      "MA": 4,
+      "BA": 16,
+      "TOF": 6
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 0.5,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.5,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.7,
+        "DC": 1
+      },
+      "MA": 8,
+      "BA": 7,
+      "TOF": 13
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.2,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.3,
+        "DC": 1
+      },
+      "MA": 11,
+      "BA": 1,
+      "TOF": 21
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "JHP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "AP": {
+        "PEN": 0.1,
+        "DC": 1
+      },
+      "MA": 15,
+      "BA": -2,
+      "TOF": 31
+    },
+    "Name": "Spectre",
+    "Type": "Sub-Machinegun",
+    "Description": "New SMG firing from a closed bolt using a four column magazine.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/spectre.png?alt=media&token=8cbe2953-2b5c-427f-a001-b5022f8a8837",
+    "L": "14/23",
+    "W": 7.6,
+    "RT": 8,
+    "ROF": 8,
+    "Cap": 50,
+    "AW": "1.6 Mag",
+    "KD": 4,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -20,
+      "2": -10,
+      "3": -7,
+      "4": -5,
+      "5": -4,
+      "6": -3,
+      "7": -2,
+      "8": -1
+    }
   }
 }
