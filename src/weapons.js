@@ -4675,7 +4675,7 @@ export const weapons = {
       "12": 0
     }
   },
-  "AA 7.62": {
+  "AA 762": {
     "10": {
       "FMJ": {
         "PEN": 19,
@@ -4812,7 +4812,7 @@ export const weapons = {
       "BA": 13,
       "TOF": 11
     },
-    "Name": "AA 7.62",
+    "Name": "AA 762",
     "Type": "Machine Gun",
     "Description": "Standard MG of the French army. AA 52 converted to 7.62mm NATO.",
     "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/aa-762.png?alt=media&token=2ef9467d-40dc-46bb-a1a3-732c351e936d",
