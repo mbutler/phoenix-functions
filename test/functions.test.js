@@ -256,10 +256,10 @@ describe('Weapons Test', () => {
         expect(weapons['Type 67']['Aim Time']['4']).to.equal(-9)
         expect(weapons['Type 67']['Name']).to.equal('Type 67')
     })
-    it('AA 7.62', () => {
-        expect(weapons['AA 7.62']['20']['AP']['PEN']).to.equal(26)
-        expect(weapons['AA 7.62']['Aim Time']['4']).to.equal(-9)
-        expect(weapons['AA 7.62']['Name']).to.equal('AA 7.62')
+    it('AA 762', () => {
+        expect(weapons['AA 762']['20']['AP']['PEN']).to.equal(26)
+        expect(weapons['AA 762']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['AA 762']['Name']).to.equal('AA 762')
     })
     it('HK 13E', () => {
         expect(weapons['HK 13E']['20']['AP']['PEN']).to.equal(23)
@@ -305,6 +305,11 @@ describe('Weapons Test', () => {
         expect(weapons['Spectre']['20']['AP']['PEN']).to.equal(3.3)
         expect(weapons['Spectre']['Aim Time']['4']).to.equal(-5)
         expect(weapons['Spectre']['Name']).to.equal('Spectre')
+    })
+    it('LAW 80', () => {
+        expect(weapons['LAW 80']['1']['HEAT']['PEN']).to.equal(8.2)
+        expect(weapons['LAW 80']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['LAW 80']['Name']).to.equal('LAW 80')
     })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])

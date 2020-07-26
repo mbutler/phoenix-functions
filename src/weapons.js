@@ -806,7 +806,7 @@ export const weapons = {
    "RT": 30,
    "ROF": 1,
    "Cap": 7,
-   "AW": "0.13 Rnd",
+   "AW": ".13 Rnd",
    "KD": 23,
    "SAB": 10,
    "Aim Time": {
@@ -924,23 +924,6 @@ export const weapons = {
      "BA": 23,
      "TOF": 11
    },
-   "40": {
-     "HEAT": {
-       "PEN": 0,
-       "DC": 1,
-       "BSHC": 1,
-       "BC": 1
-     },
-     "HE": {
-       "PEN": 0,
-       "DC": 1,
-       "BSHC": 1,
-       "BC": 1
-     },
-     "AOI": 0,
-     "BA": 23,
-     "TOF": 11
-   },
    "Name": "M79",
    "Type": "Explosive",
    "Description": "Accurate breech loading grenade launcher which has been replaced by the M203.",
@@ -950,7 +933,7 @@ export const weapons = {
    "RT": 10,
    "ROF": 1,
    "Cap": 1,
-   "AW": "0.51 Rnd",
+   "AW": ".51 Rnd",
    "MR": 200,
    "SAB": 11,
    "Aim Time": {
@@ -6292,6 +6275,80 @@ export const weapons = {
       "6": -3,
       "7": -2,
       "8": -1
+    }
+  },
+  "LAW 80": {
+    "0": {
+          "HEAT": {
+              "PEN": 8.3,
+              "DC": 9,
+              "BSHC": 10,
+              "BC": 2600
+          }
+    },
+    "1": {
+        "HEAT": {
+            "PEN": 8.2,
+            "DC": 9,
+            "BSHC": 2,
+            "BC": 480
+        }
+    },
+    "2": {
+        "HEAT": {
+            "PEN": 8,
+            "DC": 9,
+            "BSHC": -1,
+            "BC": 123
+        }
+    },
+    "3": {
+        "HEAT": {
+            "PEN": 7.7,
+            "DC": 9,
+            "BSHC": -4,
+            "BC": 60
+        }
+    },
+    "5": {
+        "HEAT": {
+            "PEN": 7.3,
+            "DC": 9,
+            "BSHC": -8,
+            "BC": 26
+        }
+    },
+    "10": {
+        "HEAT": {
+            "PEN": 6.2,
+            "DC": 8,
+            "BSHC": -13,
+            "BC": 9
+        }
+    },
+    "Name": "LAW 80",
+    "Type": "Explosive",
+    "Description": "One shot disposable short range anti-tank weapon which uses a built-in low velocity 9mm spotting rifle. The spotting rifle has a 5 round capacity. The bullets have a tracer and flash warhead for recording a hit on target, thus determining its range.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/law-80.png?alt=media&token=e526bb16-a24d-4e0c-b9b8-af4aea6e5fcb",
+    "L": "39/59",
+    "W": 21.2,
+    "RT": 20,
+    "ROF": 1,
+    "Cap": 1,
+    "AW": "",
+    "MR": 600,
+    "SAB": 0,
+    "Aim Time": {
+      "1": -28,
+      "2": -18,
+      "3": -11,
+      "4": -9,
+      "5": -7,
+      "6": -5,
+      "7": -4,
+      "8": -3,
+      "9": -2,
+      "10": -1
     }
   }
 }

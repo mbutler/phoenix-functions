@@ -824,7 +824,7 @@ export function damageTotal(pd, health) {
  */
 export function getAmmoTypes(weaponName) {
     let weapon = weapons[weaponName]
-    let ammo = _.keys(weapon['40'])
+    let ammo = _.keys(weapon['10'])
     if (weapon.Type === 'Shotgun' || weapon.Type === 'Explosive') {
         ammo = _.take(ammo, 2)
     } else {
