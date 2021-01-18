@@ -14,11 +14,12 @@ babel + webpack + mocha + chai + documentationjs
 2. upload png image of weapon to firebase storage
 3. add weapon image link to weapon json
 4. add resulting json to weapons.js file
-5. build phoenix functions npm project
-6. increment version number in package.json
-7. npm publish
-8. increment phoenix-functions dependency in firebird-character package.json file
-9. build firebird-character (use nvm to use older node version if getting gyp errors. v10 worked)
-10. firebase deploy
-11. push to github
+5. write weapon's test and run tests
+6. build phoenix functions npm project
+7. increment version number in package.json
+8. npm publish
+9. increment phoenix-functions dependency in firebird-character package.json file
+10. build firebird-character (use nvm to use older node version if getting gyp errors. v10 worked)
+11. firebase deploy
+12. push to github
 
