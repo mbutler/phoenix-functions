@@ -311,6 +311,11 @@ describe('Weapons Test', () => {
         expect(weapons['LAW 80']['Aim Time']['4']).to.equal(-9)
         expect(weapons['LAW 80']['Name']).to.equal('LAW 80')
     })
+    it('M1 Garand', () => {
+        expect(weapons['M1 Garand']['20']['AP']['PEN']).to.equal(30)
+        expect(weapons['M1 Garand']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['M1 Garand']['Name']).to.equal('M1 Garand')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
