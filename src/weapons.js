@@ -6350,5 +6350,169 @@ export const weapons = {
       "9": -2,
       "10": -1
     }
+  },
+  "M1 Garand": {
+    "10": {
+      "FMJ": {
+        "PEN": 22,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 21,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 31,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 62,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 21,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 30,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 54,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 20,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 28,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 45,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 18,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 26,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 38,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 24,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 33,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 12,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 24,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 9.3,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 8.9,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 18,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 6.9,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 6.6,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 9.7,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 14,
+      "TOF": 11
+    },
+    "Name": "M1 Garand",
+    "Type": "Assault Rifle",
+    "Description": "The M1 Garand was the first self-loading weapon accepted for military service. It entered service in 1936 and by 1941 was the standard US infantryman's weapon. The M1 Garand automatically ejects its ammo clip and single rounds cannot be fed to top off the clip.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m1-garand.png?alt=media&token=e8d74ddb-fb3b-464a-a4ff-fd0a2dbfecdc",
+    "L": "44",
+    "W": 10,
+    "RT": 7,
+    "ROF": 1,
+    "Cap": 8,
+    "AW": "0.52",
+    "KD": 11,
+    "SAB": 6,
+    "Aim Time": {
+      "1": -23,
+      "2": -13,
+      "3": -9,
+      "4": -8,
+      "5": -6,
+      "6": -5,
+      "7": -4,
+      "8": -3,
+      "9": -2,
+      "10": -1,
+      "11": -1,
+      "12": 0
+    }
   }
 }
