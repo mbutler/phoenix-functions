@@ -928,7 +928,7 @@ export const weapons = {
    "Type": "Explosive",
    "Description": "Accurate breech loading grenade launcher which has been replaced by the M203.",
    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m79.png?alt=media&token=fb77cd6c-3731-417d-8926-f5b3623de195",
-   "L": 29,
+   "L": "29",
    "W": 6.5,
    "RT": 10,
    "ROF": 1,
@@ -1087,7 +1087,7 @@ export const weapons = {
    "Type": "Assault Rifle",
    "Description": "French sniper rifle with optical scope and bipod chambered in 7.62 mm NATO.",
    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/fr-f2.png?alt=media&token=5358f00a-d112-48e9-80d6-88c6504c88e5",
-   "L": 45,
+   "L": "45",
    "W": 12.5,
    "RT": 8,
    "ROF": 3,
@@ -1251,7 +1251,7 @@ export const weapons = {
    "Type": "Assault Rifle",
    "Description": "Late version of the M16A1 with three round burst capability.",
    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m16a2.png?alt=media&token=0337b191-f97d-4aaf-acb5-07781bd7a5f5",
-   "L": 39,
+   "L": "39",
    "W": 8.5,
    "RT": 8,
    "ROF": 7,
@@ -6497,7 +6497,7 @@ export const weapons = {
     "RT": 7,
     "ROF": 1,
     "Cap": 8,
-    "AW": "0.52",
+    "AW": ".52",
     "KD": 11,
     "SAB": 6,
     "Aim Time": {
@@ -6513,6 +6513,81 @@ export const weapons = {
       "10": -1,
       "11": -1,
       "12": 0
+    }
+  },
+  "M9A1 Bazooka": {
+    "0": {
+          "HC": {
+              "PEN": 1400,
+              "DC": 10,
+              "BSHC": 11,
+              "BC": 5000
+          }
+    },
+    "1": {
+        "HC": {
+            "PEN": 1.5,
+            "DC": 2,
+            "BSHC": 14,
+            "BC": 360
+        }
+    },
+    "2": {
+        "HC": {
+            "PEN": 1.5,
+            "DC": 2,
+            "BSHC": 3,
+            "BC": 103
+        }
+    },
+    "3": {
+        "HC": {
+            "PEN": 1.4,
+            "DC": 2,
+            "BSHC": 0,
+            "BC": 32
+        }
+    },
+    "5": {
+        "HC": {
+            "PEN": 1.4,
+            "DC": 2,
+            "BSHC": -3,
+            "BC": 17
+        }
+    },
+    "10": {
+        "HC": {
+            "PEN": 1.2,
+            "DC": 2,
+            "BSHC": -7,
+            "BC": 7
+        }
+    },
+    "Name": "M9A1 Bazooka",
+    "Type": "Explosive",
+    "Description": "The Bazooka fired a 60mm fin stabilized rocket with a hollnw charge explosive. The rocket was loaded by an assistant into the rear of the launch tube and connected to an electric firing wire. When the trigger was pressed, two batteries in the pistol grip electrically fired the rocket motor. The bazooka was one of the most effective infantry anti-tank weapons of the war. After the war, a 3.5 inch Super-Bazooka saw service in Korea.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m9a1-bazooka.png?alt=media&token=96080176-7516-4a34-9e35-86dc74c9206b",
+    "L": "54",
+    "W": 16.7,
+    "RT": 10,
+    "ROF": 1,
+    "Cap": 1,
+    "AW": "3.4",
+    "MR": 600,
+    "SAB": 0,
+    "Aim Time": {
+      "1": -26,
+      "2": -16,
+      "3": -10,
+      "4": -8,
+      "5": -7,
+      "6": -6,
+      "7": -5,
+      "8": -4,
+      "9": -3,
+      "10": -2,
+      "11": -1
     }
   }
 }
