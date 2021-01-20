@@ -6589,5 +6589,168 @@ export const weapons = {
       "10": -2,
       "11": -1
     }
+  },
+  "M1919 A6": {
+    "10": {
+      "FMJ": {
+        "PEN": 22,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 21,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 31,
+        "DC": 8
+      },
+      "MA": 0.2,
+      "BA": 62,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 21,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 30,
+        "DC": 8
+      },
+      "MA": 0.4,
+      "BA": 54,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 20,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 28,
+        "DC": 8
+      },
+      "MA": 0.7,
+      "BA": 45,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 18,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 18,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 26,
+        "DC": 7
+      },
+      "MA": 1,
+      "BA": 38,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 24,
+        "DC": 7
+      },
+      "MA": 2,
+      "BA": 33,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 12,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 7
+      },
+      "MA": 4,
+      "BA": 24,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 9.3,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 8.9,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "MA": 5,
+      "BA": 18,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 6.9,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 6.6,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 9.7,
+        "DC": 6
+      },
+      "MA": 7,
+      "BA": 14,
+      "TOF": 11
+    },
+    "Name": "M1919 A6",
+    "Type": "Machine Gun",
+    "Description": "Developed in 1943, the M1919 A6 is a modified M1919 A4. A shoulder stock and bipod were added.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m1919-a6.png?alt=media&token=ce7145fb-905a-4976-a3c4-96541531fb18",
+    "L": "53",
+    "W": 48,
+    "RT": 12,
+    "ROF": 4,
+    "Cap": 250,
+    "AW": "15.5 Blt",
+    "KD": 11,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -33,
+      "2": -23,
+      "3": -17,
+      "4": -12,
+      "5": -9,
+      "6": -7,
+      "7": -6,
+      "8": -4,
+      "9": -3,
+      "10": -2,
+      "11": -1
+    }
   }
 }

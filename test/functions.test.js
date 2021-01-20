@@ -321,6 +321,11 @@ describe('Weapons Test', () => {
         expect(weapons['M9A1 Bazooka']['Aim Time']['4']).to.equal(-8)
         expect(weapons['M9A1 Bazooka']['Name']).to.equal('M9A1 Bazooka')
     })
+    it('M1919 A6', () => {
+        expect(weapons['M1919 A6']['10']['FMJ']['PEN']).to.equal(22)
+        expect(weapons['M1919 A6']['Aim Time']['4']).to.equal(-12)
+        expect(weapons['M1919 A6']['Name']).to.equal('M1919 A6')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
