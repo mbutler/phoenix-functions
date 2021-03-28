@@ -326,6 +326,16 @@ describe('Weapons Test', () => {
         expect(weapons['M1919 A6']['Aim Time']['4']).to.equal(-12)
         expect(weapons['M1919 A6']['Name']).to.equal('M1919 A6')
     })
+    it('Remington M700 308 Winchester', () => {
+        expect(weapons['Remington M700 308 Winchester']['10']['FMJ']['PEN']).to.equal(20)
+        expect(weapons['Remington M700 308 Winchester']['Aim Time']['4']).to.equal(-5)
+        expect(weapons['Remington M700 308 Winchester']['Name']).to.equal('Remington M700 308 Winchester')
+    })
+    it('AR-15', () => {
+        expect(weapons['AR-15']['10']['FMJ']['PEN']).to.equal(17)
+        expect(weapons['AR-15']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['AR-15']['Name']).to.equal('AR-15')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

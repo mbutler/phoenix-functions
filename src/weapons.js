@@ -6752,5 +6752,332 @@ export const weapons = {
       "10": -2,
       "11": -1
     }
+  },
+  "AR-15": {
+    "10": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 23,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 60,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 16,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 15,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 22,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 51,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 15,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 14,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 20,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 42,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "JHP": {
+        "PEN": 12,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 18,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 35,
+      "TOF": 1
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 11,
+        "DC": 5
+      },
+      "JHP": {
+        "PEN": 11,
+        "DC": 7
+      },
+      "AP": {
+        "PEN": 16,
+        "DC": 5
+      },
+      "MA": 0,
+      "BA": 30,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 7.1,
+        "DC": 4
+      },
+      "JHP": {
+        "PEN": 6.8,
+        "DC": 6
+      },
+      "AP": {
+        "PEN": 10,
+        "DC": 4
+      },
+      "MA": 0,
+      "BA": 20,
+      "TOF": 4
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 4.5,
+        "DC": 3
+      },
+      "JHP": {
+        "PEN": 4.4,
+        "DC": 5
+      },
+      "AP": {
+        "PEN": 6.4,
+        "DC": 3
+      },
+      "MA": 0,
+      "BA": 15,
+      "TOF": 7
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 2.9,
+        "DC": 2
+      },
+      "JHP": {
+        "PEN": 2.8,
+        "DC": 3
+      },
+      "AP": {
+        "PEN": 4.1,
+        "DC": 2
+      },
+      "MA": 0,
+      "BA": 11,
+      "TOF": 10
+    },
+    "Name": "AR-15",
+    "Type": "Assault Rifle",
+    "Description": "Lightweight sporting rifle based on the M16 assault rifle.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/ar-15.png?alt=media&token=48b205bd-b260-4343-b994-56db0eb4809f",
+    "L": "39",
+    "W": 8,
+    "RT": 8,
+    "ROF": 1,
+    "Cap": 30,
+    "AW": "1.0 Mag",
+    "KD": 4,
+    "SAB": 3,
+    "Aim Time": {
+      "1": -22,
+      "2": -11,
+      "3": -9,
+      "4": -7,
+      "5": -6,
+      "6": -5,
+      "7": -4,
+      "8": -3,
+      "9": -2,
+      "10": -1,
+      "11": 0
+    }
+  },
+  "Remington M700 308 Winchester": {
+    "10": {
+      "FMJ": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "JHP": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 30,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 63,
+      "TOF": 0
+    },
+    "20": {
+      "FMJ": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "JHP": {
+        "PEN": 20,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 29,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 56,
+      "TOF": 0
+    },
+    "40": {
+      "FMJ": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "JHP": {
+        "PEN": 19,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 27,
+        "DC": 8
+      },
+      "MA": 0,
+      "BA": 47,
+      "TOF": 1
+    },
+    "70": {
+      "FMJ": {
+        "PEN": 17,
+        "DC": 9
+      },
+      "JHP": {
+        "PEN": 17,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 25,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 40,
+      "TOF": 2
+    },
+    "100": {
+      "FMJ": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "JHP": {
+        "PEN": 16,
+        "DC": 9
+      },
+      "AP": {
+        "PEN": 23,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 36,
+      "TOF": 2
+    },
+    "200": {
+      "FMJ": {
+        "PEN": 12,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 12,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 17,
+        "DC": 7
+      },
+      "MA": 0,
+      "BA": 26,
+      "TOF": 5
+    },
+    "300": {
+      "FMJ": {
+        "PEN": 9.1,
+        "DC": 8
+      },
+      "JHP": {
+        "PEN": 8.9,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 13,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 21,
+      "TOF": 8
+    },
+    "400": {
+      "FMJ": {
+        "PEN": 6.8,
+        "DC": 7
+      },
+      "JHP": {
+        "PEN": 6.8,
+        "DC": 8
+      },
+      "AP": {
+        "PEN": 10,
+        "DC": 6
+      },
+      "MA": 0,
+      "BA": 17,
+      "TOF": 12
+    },
+    "Name": "Remington M700 308 Winchester",
+    "Type": "Assault Rifle",
+    "Description": "The 308 Winchester was developed in 1952 and adopted by the US military in 1954 as the 7.62 mm NATO. It was designed to replace the 30'06, and since acceptance has proven to be an extremely accurate round. Today most world class shooting records are held by this cartridge. In part this is due to the thousands of rounds fired in matches each year, but the inherent accuracy of the cartridge cannot be disputed.",
+    "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/remington-m700-308-winchester.png?alt=media&token=59f3efa1-21c8-4987-b9b0-ffe34d33c2ec",
+    "L": "44",
+    "W": 11.8,
+    "RT": 16,
+    "ROF": 3,
+    "Cap": 5,
+    "AW": "0.06",
+    "KD": 11,
+    "SAB": 6,
+    "Aim Time": {
+      "1": -23,
+      "2": -13,
+      "3": -7,
+      "4": -5,
+      "5": -4,
+      "6": -2,
+      "7": 0,
+      "8": 1,
+      "9": 2,
+      "10": 3,
+      "11": 4,
+      "12": 4
+    }
   }
 }
