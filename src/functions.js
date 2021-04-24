@@ -768,7 +768,7 @@ export function medicalAid(damage, aid) {
     let aidRoll = aid + ' - RR'
     let time = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidType, damageTotal)
     if (aid === 'Trauma Center') {
-        rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', 'Trauma Center - 16', damageTotal)
+        rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', 'Trauma Center - 14', damageTotal)
     } else {
         rr = tableLookup(medicalAidRecovery_8A, 'Damage Total', aidRoll, damageTotal)
     }    

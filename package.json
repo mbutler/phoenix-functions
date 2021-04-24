@@ -1,6 +1,6 @@
 {
   "name": "phoenix-functions",
-  "version": "0.9.57",
+  "version": "0.9.58",
   "description": "equations for phoenix command",
   "main": "dist/phoenix-functions.js",
   "scripts": {
