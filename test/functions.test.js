@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import _ from 'lodash'
-import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, getAllWeapons, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement, explosiveFire, blastModifier, getAllTables } from '../src/functions'
+import { nextImpulse, previousImpulse, calculateActionTime, tableLookup, incapacitationTimeToPhases, rangeALM, movingALM, shotAccuracyALM, situationALM, visibilityALM, targetSizeALM, equipmentWeight, combatActionsPerImpulse, skillAccuracyLevel, intelligenceSkillFactor, encumbranceCalculator, knockoutValue, movementSpeed, snapToValue, effectiveAccuracyLevel, oddsOfHitting, burstFire, singleShotFire, multipleHitCheck, damageClass, hitDamage, hitLocation, penetration, effectivePenetrationFactor, damageReduction, medicalAid, incapacitationChance, incapacitationTime, damageTotal, getAmmoTypes, getWeaponByName, getAllWeapons, shotgunFire, shotgunMultipleHit, phasesToTime, ealToHit, shotScatter, missedShotPlacement, explosiveFire, blastModifier, getAllTables, incapacitationEffect } from '../src/functions'
 import { blastModifiers_5B, maxSpeed_1B, movementModifiers_4D, oddsOfHitting_4G, standardTargetSizeModifiers_4E, targetSizeModifiers_4F, shotScatter_5C, hitLocationDamage_6A, medicalAidRecovery_8A, incapacitationTime_8B, equipment, baseSpeed_1A, skillAccuracy_1C, combatActions_1D, combatActionsPerImpulse_1E, automaticFireAndShrapnel_5A, coverProtectionFactors_7C, effectiveArmorProtectionFactor_6D } from '../src/tables'
 import { weapons } from '../src/weapons'
 
@@ -504,6 +504,11 @@ describe('Calculations', () => {
     })
     it('tests incapacitationTime function', () => {
         expect(incapacitationTime(3, 333)).to.equal('63m')
+    })
+    it('tests incapacitationEffect function', () => {
+        expect(incapacitationEffect(10, 9, 6)).to.eql({"effect": "Stunned", "timeRollMod": 0})
+        expect(incapacitationEffect(201, 9, 95)).to.eql({"effect": "Dazed", "timeRollMod": -1})
+        expect(incapacitationEffect(1, 10, 11)).to.eql({"effect": "", "timeRollMod": 0})
     })
     it('tests damageTotal function', () => {
         expect(damageTotal(18, 12)).to.equal(15)

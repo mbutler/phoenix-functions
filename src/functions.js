@@ -781,6 +781,52 @@ export function medicalAid(damage, aid) {
 }
 
 /**
+ * Returns the incapacitation effect
+ * @param {number} pd - Physical damage
+ * @param {number} kv - Knockout value
+ * @param {number} roll - random number between 0-99 generated externally
+ * @return {object} - The incapacitation effect and time
+ */
+export function incapacitationEffect(pd, kv, roll) {
+    let effect = ''
+    let timeRollMod = 0
+    if (pd > (kv / 10)) {
+        if (_.inRange(roll, 0, 1)) {effect = "Knocked Out"}
+        if (_.inRange(roll, 1, 3)) {effect = "Stunned"}
+        if (_.inRange(roll, 3, 6)) {effect = "Dazed"}
+        if (_.inRange(roll, 6, 10)) {effect = "Disoriented"}
+    }
+    if (pd > kv) {
+        if (_.inRange(roll, 0, 3)) {effect = "Knocked Out"}
+        if (_.inRange(roll, 3, 9)) {effect = "Stunned"}
+        if (_.inRange(roll, 9, 17)) {effect = "Dazed"}
+        if (_.inRange(roll, 17, 25)) {effect = "Disoriented"}
+    }
+    if (pd > (kv * 2)) {
+        if (_.inRange(roll, 0, 14)) {effect = "Knocked Out"}
+        if (_.inRange(roll, 14, 32)) {effect = "Stunned"}
+        if (_.inRange(roll, 32, 53)) {effect = "Dazed"}
+        if (_.inRange(roll, 53, 75)) {effect = "Disoriented"}
+    }
+    if (pd > (kv * 3)) {
+        if (_.inRange(roll, 0, 26)) {effect = "Knocked Out"}
+        if (_.inRange(roll, 27, 54)) {effect = "Stunned"}
+        if (_.inRange(roll, 54, 83)) {effect = "Dazed"}
+        if (_.inRange(roll, 83, 98)) {effect = "Disoriented"}
+    }
+    if (pd > 200) {
+        if (_.inRange(roll, 0, 61)) {effect = "Knocked Out"}
+        if (_.inRange(roll, 61, 95)) {effect = "Stunned"}
+        if (_.inRange(roll, 95, 97)) {effect = "Dazed"}
+        if (_.inRange(roll, 97, 98)) {effect = "Disoriented"}
+    }
+
+    if (effect === "Dazed") {timeRollMod = -1}
+    if (effect === "Disoriented") {timeRollMod = -2}
+    return {"effect": effect, "timeRollMod": timeRollMod}
+}
+
+/**
  * Returns the incapacitation chance
  * @param {number} pd - Physical damage
  * @param {number} kv - Knockout value
