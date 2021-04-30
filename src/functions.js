@@ -755,6 +755,39 @@ export function hitLocation(roll, cover) {
 }
 
 /**
+ * Returns the knocked down or delayed status
+ * @param {number} roll - A random 0-99 number generated externally
+ * @param {boolean} cover - If there is cover or not
+ * @param {weapon} weapon - The gun firing at the target
+ * @return {string} - The knocked down message
+ */
+export function knockdown(roll, cover, weapon) {
+    let area = 'Body'
+    let kd = weapon['KD']
+    let location = hitLocation(roll, cover)
+    let msg = ''
+    let head = ["Head", "head", "Eye", "Mouth", "Neck"]
+    //let body = ["Lung", "Liver", "Stomach", "Spine", "Pelvis", "Heart", "Torso", "Intestines"]
+    let arm = ["arm", "Arm", "Hand", "Elbow", "Shoulder"]
+    let leg = ["Leg", "Shin", "Ankle", "Thigh"]
+    _.forEach(head, h => {
+        if (location.includes(h)) {area = 'Head'}
+    })
+    _.forEach(arm, a => {
+        if (location.includes(a)) {area = 'Arm'}
+    })
+    _.forEach(leg, l => {
+        if (location.includes(l)) {area = 'Leg'}
+    })
+    if (area == 'Head' && kd >= 10) {msg = "Knocked down. "}
+    if (area == 'Body' && kd >= 19) {msg = "Knocked down. "}
+    if (area == 'Arm' && kd >= 16) {msg = "Knocked down. "}
+    if (area == 'Leg' && kd >= 6) {msg = "Knocked down. "}
+
+    return msg
+}
+
+/**
  * Returns the recovery chance and time
  * @param {number} damage - The total damage
  * @param {string} aid - The type of aid chosen
