@@ -630,7 +630,7 @@ export const weapons = {
        "PEN": 5.3,
        "DC": 8,
        "SALM": -13,
-       "BPHC": 0,
+       "BPHC": "*12",
        "PR": 0
      },
      "MA": 0,
@@ -646,7 +646,7 @@ export const weapons = {
        "PEN": 1.6,
        "DC": 3,
        "SALM": -8,
-       "BPHC": 11,
+       "BPHC": "*11",
        "PR": 0
      },
      "MA": 0,
@@ -662,7 +662,7 @@ export const weapons = {
        "PEN": 1.5,
        "DC": 3,
        "SALM": -3,
-       "BPHC": 10,
+       "BPHC": "*10",
        "PR": 0
      },
      "MA": 0,
@@ -678,7 +678,7 @@ export const weapons = {
        "PEN": 51.5,
        "DC": 3,
        "SALM": 0,
-       "BPHC": 9,
+       "BPHC": "*9",
        "PR": 0.1
      },
      "MA": 0,
@@ -694,7 +694,7 @@ export const weapons = {
        "PEN": 1.4,
        "DC": 3,
        "SALM": 2,
-       "BPHC": 5,
+       "BPHC": "*5",
        "PR": 0.1
      },
      "MA": 0,
@@ -710,7 +710,7 @@ export const weapons = {
        "PEN": 1.4,
        "DC": 3,
        "SALM": 4,
-       "BPHC": 4,
+       "BPHC": "*4",
        "PR": 0.1
      },
      "MA": 0,
@@ -726,7 +726,7 @@ export const weapons = {
        "PEN": 1.3,
        "DC": 2,
        "SALM": 7,
-       "BPHC": 2,
+       "BPHC": "*2",
        "PR": 0.2
      },
      "MA": 0,
@@ -742,7 +742,7 @@ export const weapons = {
        "PEN": 1.2,
        "DC": 2,
        "SALM": 9,
-       "BPHC": 94,
+       "BPHC": "94",
        "PR": 0.2
      },
      "MA": 0,
@@ -758,7 +758,7 @@ export const weapons = {
        "PEN": 1.1,
        "DC": 2,
        "SALM": 12,
-       "BPHC": 42,
+       "BPHC": "42",
        "PR": 0.3
      },
      "MA": 0,
@@ -774,7 +774,7 @@ export const weapons = {
        "PEN": 0.9,
        "DC": 2,
        "SALM": 14,
-       "BPHC": 24,
+       "BPHC": "24",
        "PR": 0.4
      },
      "MA": 0,
@@ -790,7 +790,7 @@ export const weapons = {
        "PEN": 0.5,
        "DC": 1,
        "SALM": 19,
-       "BPHC": 19,
+       "BPHC": "19",
        "PR": 0.9
      },
      "MA": 0,
@@ -6280,8 +6280,8 @@ export const weapons = {
   "LAW 80": {
     "0": {
           "HEAT": {
-              "PEN": 8.3,
-              "DC": 9,
+              "PEN": 17000,
+              "DC": 10,
               "BSHC": "10",
               "BC": 2600
           }

@@ -560,24 +560,34 @@ export function singleShotFire(chance) {
 /**
  * Returns the targets hit in shotgun fire
  * @param {string} ammoType - Either APS or Shot
- * @param {number} range - The range being fired at
  * @param {number} bphc - The Burst Pellet Hit Chance of the weapon ammo at range
  * @return {object} - The targets object with booleans for hit success plus bullets (pellets)
  */
-export function shotgunFire(ammoType, range, bphc) {
+export function shotgunFire(ammoType, bphc) {
+    if (bphc === undefined) {bphc = "-1"}
     let result = {}
-    range = snapToValue(range, [1,2,4,6,8,10,15,20,30,40,80])
     let roll = _.random(0,99)
-    let multipleHit = false
-    if (bphc <= 11 && range <= 20) {multipleHit = true}
-    if (ammoType !== 'Shot') {multipleHit = false}
-    result[`target 1`] = {"hit": true, "bullets": 1, "chance": bphc}
-    if (multipleHit === true) {        
-        result[`target 1`] = {"hit": true, "bullets": bphc, "chance": bphc}
+    let bphcRoll
+
+    if (bphc.includes('*')) {
+        let bullets = _.toNumber(_.trim(bphc, '*'))
+        result[`target 1`] = {"hit": true, "bullets": bullets, "chance": bphc}
+    } else {
+        bphcRoll = _.toNumber(bphc)
     }
-    if (roll <= bphc && multipleHit === false) {
+
+    if (roll <= bphcRoll) {
         result[`target 1`] = {"hit": true, "bullets": 1, "chance": bphc}
     }
+
+    if (roll > bphcRoll) {
+        result[`target 1`] = {"hit": false, "bullets": 0, "chance": bphc}
+    }
+
+    if (ammoType !== 'Shot') {
+        result[`target 1`] = {"hit": true, "bullets": 1, "chance": 99}
+    }
+
     return result
 }
 

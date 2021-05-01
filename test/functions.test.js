@@ -357,8 +357,8 @@ describe('Weapons Test', () => {
         expect(singleShotFire(99)).to.be.an('object')
     })
     it('tests shotgunFire function', () => {
-        expect(shotgunFire(11, 'Shot', 2)).to.include.keys('target 1')
-        expect(shotgunFire(99, 'APS', 20)).to.be.an('object')
+        expect(shotgunFire('Shot', "*7")).to.include.keys('target 1')
+        expect(shotgunFire('APS', undefined)['target 1']['bullets']).to.equal(1)
     })
     it('tests explosiveFire function', () => {
         expect(explosiveFire(weapons['M79'], 'HEAT')).to.be.an('object')
