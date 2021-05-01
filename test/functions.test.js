@@ -432,6 +432,7 @@ describe('Calculations', () => {
     it('tests movementSpeed function', () => {
         expect(movementSpeed(10, 10, 10)).to.equal(3)
         expect(movementSpeed(11, 11, 15)).to.equal(3)
+        expect(movementSpeed(12, 12, 65)).to.equal(1)
     })
     it('tests encumbranceCalculator function', () => {
         expect(encumbranceCalculator(['Field Radio', 'Holster'], ['Uzi', 'FN Mk 1'])).to.equal(25)
@@ -447,7 +448,8 @@ describe('Calculations', () => {
     })
     it('tests combatActionsPerImpulse function', () => {
         expect(combatActionsPerImpulse(10, 10, 10, 3, 10)).to.eql({"1": 2, "2": 1, "3": 2, "4": 1})
-        expect(() => combatActionsPerImpulse(3, 3, 3, 3, 0)).to.throw(Error)
+        expect(combatActionsPerImpulse(10, 10, 10, 3, 65)).to.eql({"1": 1, "2": 0, "3": 1, "4": 0})
+        expect(combatActionsPerImpulse(3, 3, 3, 3, 0)).to.eql({"1": 1, "2": 0, "3": 1, "4": 0})
     })
     it('tests effectiveAccuracyLevel function', () => {
         expect(effectiveAccuracyLevel(mods)).to.equal(-7)

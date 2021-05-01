@@ -325,7 +325,7 @@ export function intelligenceSkillFactor(int, skillLevel) {
  *
  * @param {number} will - The set will attribute
  * @param {number} skillLevel - The set skill level
- * @return {number} - The total combined encumbrance
+ * @return {number} - The knockout value
  */
 export function knockoutValue(will, skillLevel) {
     if (skillLevel === 0) { skillLevel = 1}
@@ -342,6 +342,7 @@ export function knockoutValue(will, skillLevel) {
  * @return {number} - The total hexes or inches per phase
  */
 export function movementSpeed(strength, agility, encumbrance) {
+    encumbrance = snapToValue(encumbrance, [10,15,20,25,30,35,40,45,50,55,60,70,80,90,100,125,150,200])
     let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
     let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
     let spd = _.round(maxSpeed / 2)
@@ -379,6 +380,7 @@ export function encumbranceCalculator(gear, guns) {
  * @return {object} - The combat actions per impulse object
  */
 export function combatActionsPerImpulse(strength, agility, intelligence, skillLevel, encumbrance) {
+    encumbrance = snapToValue(encumbrance, [10,15,20,25,30,35,40,45,50,55,60,70,80,90,100,125,150,200])
     let capi = {}, i1, i2, i3, i4
     let baseSpeed = tableLookup(baseSpeed_1A, 'STR', encumbrance, strength)
     let maxSpeed = tableLookup(maxSpeed_1B, 'AGI', baseSpeed, agility)
