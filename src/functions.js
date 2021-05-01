@@ -583,7 +583,7 @@ export function shotgunFire(ammoType, range, bphc) {
 
 /**
  * Returns the targets hit in explosive fire
- * @param {object} weapon - The weapon object
+ * @param {object} weapon - The weapon object with bshc as a string with optional asterisk
  * @param {string} ammoType - The type of ammo used
  * @return {object} - The targets object with booleans for hit success plus bullets (shrapnel)
  */
@@ -594,13 +594,25 @@ export function explosiveFire(weapon, ammoType) {
     _.forEach(range, val => {
         let radius = _.toString(val)
         let roll = _.random(0,99)
+        let bshcRoll
         let bshc = weapon[radius][ammoType]['BSHC']
-        if (roll <= bshc) {
-            result[radius] = {"hit": true, "bullets": 1, "chance": bshc}
+
+        if (bshc.includes("*")) {
+            let bullets = _.toNumber(_.trim(bshc, '*'))
+            result[radius] = {"hit": true, "bullets": bullets, "chance": bshc}
         } else {
+            bshcRoll = _.toNumber(bshc)
+        }
+
+        if (roll <= bshcRoll) {
+            result[radius] = {"hit": true, "bullets": 1, "chance": bshc}
+        }
+        
+        if (roll > bshcRoll) {
             result[radius] = {"hit": false, "bullets": 0, "chance": bshc}
         }
     })
+
     return result
 }
 

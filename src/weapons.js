@@ -826,13 +826,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 288,
        "DC": 10,
-       "BSHC": 99,
+       "BSHC": "*2",
        "BC": 241
      },
      "HE": {
        "PEN": 2.1,
        "DC": 10,
-       "BSHC": 99,
+       "BSHC": "*3",
        "BC": 273
      },
      "AOI": 0,
@@ -843,13 +843,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 1.4,
        "DC": 1,
-       "BSHC": 47,
+       "BSHC": "47",
        "BC": 71
      },
      "HE": {
        "PEN": 1.4,
        "DC": 1,
-       "BSHC": 62,
+       "BSHC": "62",
        "BC": 80
      },
      "AOI": 0,
@@ -860,13 +860,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 1,
        "DC": 1,
-       "BSHC": 11,
+       "BSHC": "11",
        "BC": 23
      },
      "HE": {
        "PEN": 1,
        "DC": 1,
-       "BSHC": 15,
+       "BSHC": "15",
        "BC": 25
      },
      "AOI": 0,
@@ -877,13 +877,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 0.7,
        "DC": 1,
-       "BSHC": 4,
+       "BSHC": "4",
        "BC": 12
      },
      "HE": {
        "PEN": 0.7,
        "DC": 1,
-       "BSHC": 6,
+       "BSHC": "6",
        "BC": 13
      },
      "AOI": 0,
@@ -894,13 +894,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 0.4,
        "DC": 1,
-       "BSHC": 1,
+       "BSHC": "1",
        "BC": 5
      },
      "HE": {
        "PEN": 0.4,
        "DC": 1,
-       "BSHC": 2,
+       "BSHC": "2",
        "BC": 6
      },
      "AOI": 0,
@@ -911,13 +911,13 @@ export const weapons = {
      "HEAT": {
        "PEN": 0,
        "DC": 1,
-       "BSHC": 1,
+       "BSHC": "1",
        "BC": 1
      },
      "HE": {
        "PEN": 0,
        "DC": 1,
-       "BSHC": 1,
+       "BSHC": "1",
        "BC": 1
      },
      "AOI": 0,
@@ -6282,7 +6282,7 @@ export const weapons = {
           "HEAT": {
               "PEN": 8.3,
               "DC": 9,
-              "BSHC": 10,
+              "BSHC": "10",
               "BC": 2600
           }
     },
@@ -6290,7 +6290,7 @@ export const weapons = {
         "HEAT": {
             "PEN": 8.2,
             "DC": 9,
-            "BSHC": 2,
+            "BSHC": "2",
             "BC": 480
         }
     },
@@ -6298,7 +6298,7 @@ export const weapons = {
         "HEAT": {
             "PEN": 8,
             "DC": 9,
-            "BSHC": -1,
+            "BSHC": "-1",
             "BC": 123
         }
     },
@@ -6306,7 +6306,7 @@ export const weapons = {
         "HEAT": {
             "PEN": 7.7,
             "DC": 9,
-            "BSHC": -4,
+            "BSHC": "-4",
             "BC": 60
         }
     },
@@ -6314,7 +6314,7 @@ export const weapons = {
         "HEAT": {
             "PEN": 7.3,
             "DC": 9,
-            "BSHC": -8,
+            "BSHC": "-8",
             "BC": 26
         }
     },
@@ -6322,7 +6322,7 @@ export const weapons = {
         "HEAT": {
             "PEN": 6.2,
             "DC": 8,
-            "BSHC": -13,
+            "BSHC": "-13",
             "BC": 9
         }
     },
@@ -6520,7 +6520,7 @@ export const weapons = {
           "HC": {
               "PEN": 1400,
               "DC": 10,
-              "BSHC": 11,
+              "BSHC": "11",
               "BC": 5000
           }
     },
@@ -6528,7 +6528,7 @@ export const weapons = {
         "HC": {
             "PEN": 1.5,
             "DC": 2,
-            "BSHC": 14,
+            "BSHC": "14",
             "BC": 360
         }
     },
@@ -6536,7 +6536,7 @@ export const weapons = {
         "HC": {
             "PEN": 1.5,
             "DC": 2,
-            "BSHC": 3,
+            "BSHC": "3",
             "BC": 103
         }
     },
@@ -6544,7 +6544,7 @@ export const weapons = {
         "HC": {
             "PEN": 1.4,
             "DC": 2,
-            "BSHC": 0,
+            "BSHC": "0",
             "BC": 32
         }
     },
@@ -6552,7 +6552,7 @@ export const weapons = {
         "HC": {
             "PEN": 1.4,
             "DC": 2,
-            "BSHC": -3,
+            "BSHC": "-3",
             "BC": 17
         }
     },
@@ -6560,7 +6560,7 @@ export const weapons = {
         "HC": {
             "PEN": 1.2,
             "DC": 2,
-            "BSHC": -7,
+            "BSHC": "-7",
             "BC": 7
         }
     },

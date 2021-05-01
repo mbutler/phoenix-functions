@@ -362,6 +362,7 @@ describe('Weapons Test', () => {
     })
     it('tests explosiveFire function', () => {
         expect(explosiveFire(weapons['M79'], 'HEAT')).to.be.an('object')
+        expect(explosiveFire(weapons['M79'], 'HEAT')['0']['bullets']).to.equal(2)
     })
     it('tests shotgunMultipleHit function', () => {
         expect(shotgunMultipleHit(4)).to.equal(14)
