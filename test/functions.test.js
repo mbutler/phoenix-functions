@@ -336,6 +336,12 @@ describe('Weapons Test', () => {
         expect(weapons['AR-15']['Aim Time']['4']).to.equal(-7)
         expect(weapons['AR-15']['Name']).to.equal('AR-15')
     })
+    it('M26A2', () => {
+        expect(weapons['M26A2']['1']['HE']['PEN']).to.equal(2.4)
+        expect(weapons['M26A2']['Aim Time']['4']).to.equal(-12)
+        expect(weapons['M26A2']['1']['HE']['BSHC']).to.equal("*4")
+        expect(weapons['M26A2']['Name']).to.equal('M26A2')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
@@ -363,6 +369,7 @@ describe('Weapons Test', () => {
     it('tests explosiveFire function', () => {
         expect(explosiveFire(weapons['M79'], 'HEAT')).to.be.an('object')
         expect(explosiveFire(weapons['M79'], 'HEAT')['0']['bullets']).to.equal(2)
+        expect(explosiveFire(weapons['M26A2'], 'HE')).to.be.an('object')
     })
     it('tests shotgunMultipleHit function', () => {
         expect(shotgunMultipleHit(4)).to.equal(14)
