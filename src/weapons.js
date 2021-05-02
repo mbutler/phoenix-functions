@@ -7225,5 +7225,79 @@ export const weapons = {
             "9": -1,
             "10": 0
         }
+    },
+    "M114": {
+        "0": {
+            "HE": {
+                "PEN": 28,
+                "DC": 8,
+                "BSHC": "*11",
+                "BC": 29000
+            }
+        },
+        "1": {
+            "HE": {
+                "PEN": 28,
+                "DC": 8,
+                "BSHC": "*3",
+                "BC": 3000
+            }
+        },
+        "2": {
+            "HE": {
+                "PEN": 27,
+                "DC": 8,
+                "BSHC": "71",
+                "BC": 428
+            }
+        },
+        "3": {
+            "HE": {
+                "PEN": 26,
+                "DC": 8,
+                "BSHC": "32",
+                "BC": 175
+            }
+        },
+        "5": {
+            "HE": {
+                "PEN": 24,
+                "DC": 8,
+                "BSHC": "11",
+                "BC": 66
+            }
+        },
+        "10": {
+            "HE": {
+                "PEN": 21,
+                "DC": 8,
+                "BSHC": "3",
+                "BC": 20
+            }
+        },
+        "Name": "M114",
+        "Type": "Explosive",
+        "Description": "The M114 155 mm Howitzer was developed shortly after WWII. Crew of 11, reposition time of 50 phases and deploy time of 65 phases. Maximum range of 7980 hexes. Uses a forward observer for accuracy.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m114.png?alt=media&token=a1b529a1-6718-4976-a8d3-9b56812d655d",
+        "L": "288",
+        "W": 12790,
+        "RT": 120,
+        "ROF": 1,
+        "Cap": 1,
+        "AW": "94.6",
+        "MR": 3090,
+        "SAB": 0,
+        "Aim Time": {
+            "1": -21,
+            "2": -11,
+            "3": -8,
+            "4": -7,
+            "5": -5,
+            "6": -4,
+            "7": -3,
+            "8": -2,
+            "9": -1,
+            "10": 0
+        }
     }
 }
