@@ -342,6 +342,12 @@ describe('Weapons Test', () => {
         expect(weapons['M26A2']['1']['HE']['BSHC']).to.equal("*4")
         expect(weapons['M26A2']['Name']).to.equal('M26A2')
     })
+    it('M29A1', () => {
+        expect(weapons['M29A1']['1']['HE']['PEN']).to.equal(8.9)
+        expect(weapons['M29A1']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['M29A1']['1']['HE']['BSHC']).to.equal("*2")
+        expect(weapons['M29A1']['Name']).to.equal('M29A1')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
@@ -439,7 +445,7 @@ describe('Calculations', () => {
     it('tests movementSpeed function', () => {
         expect(movementSpeed(10, 10, 10)).to.equal(3)
         expect(movementSpeed(11, 11, 15)).to.equal(3)
-        expect(movementSpeed(12, 12, 65)).to.equal(1)
+        expect(movementSpeed(12, 12, 220)).to.equal(1)
     })
     it('tests encumbranceCalculator function', () => {
         expect(encumbranceCalculator(['Field Radio', 'Holster'], ['Uzi', 'FN Mk 1'])).to.equal(25)
