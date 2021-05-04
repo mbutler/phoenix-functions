@@ -7132,7 +7132,7 @@ export const weapons = {
         "Name": "M26A2",
         "Type": "Explosive",
         "Description": "The M26A2 was a primary fragmentation grenade used by American forces in the Vietnam War.",
-        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m26a2.png?alt=media&token=4f1e8cc6-0e88-430b-8846-49cc563ef25a",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m26a2.png?alt=media&token=d32c5161-b2c4-4260-ab70-87c1b9e1c75d",
         "L": "3.9",
         "W": 1,
         "RT": 3,
