@@ -675,7 +675,7 @@ export const weapons = {
                 "DC": 9
             },
             "Shot": {
-                "PEN": 51.5,
+                "PEN": 1.5,
                 "DC": 3,
                 "SALM": 0,
                 "BPHC": "*9",
@@ -7293,6 +7293,208 @@ export const weapons = {
             "3": -8,
             "4": -7,
             "5": -5,
+            "6": -4,
+            "7": -3,
+            "8": -2,
+            "9": -1,
+            "10": 0
+        }
+    },
+    "Remington M870": {
+        "1": {
+            "Slug": {
+                "PEN": 7.7,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 5.4,
+                "DC": 8,
+                "SALM": -14,
+                "BPHC": "*12",
+                "PR": 0
+            },
+            "MA": 0,
+            "BA": 67,
+            "TOF": 0
+        },
+        "2": {
+            "Slug": {
+                "PEN": 7.7,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.7,
+                "DC": 3,
+                "SALM": -9,
+                "BPHC": "*11",
+                "PR": 0
+            },
+            "MA": 0,
+            "BA": 58,
+            "TOF": 0
+        },
+        "4": {
+            "Slug": {
+                "PEN": 7.6,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.7,
+                "DC": 3,
+                "SALM": -4,
+                "BPHC": "*10",
+                "PR": 0
+            },
+            "MA": 0,
+            "BA": 48,
+            "TOF": 0
+        },
+        "6": {
+            "Slug": {
+                "PEN": 7.5,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.6,
+                "DC": 3,
+                "SALM": -1,
+                "BPHC": "*9",
+                "PR": 0.1
+            },
+            "MA": 0,
+            "BA": 42,
+            "TOF": 0
+        },
+        "8": {
+            "Slug": {
+                "PEN": 7.5,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.6,
+                "DC": 3,
+                "SALM": 1,
+                "BPHC": "*7",
+                "PR": 0.1
+            },
+            "MA": 0,
+            "BA": 38,
+            "TOF": 0
+        },
+        "10": {
+            "Slug": {
+                "PEN": 7.4,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.6,
+                "DC": 3,
+                "SALM": 2,
+                "BPHC": "*5",
+                "PR": 0.1
+            },
+            "MA": 0,
+            "BA": 35,
+            "TOF": 0
+        },
+        "15": {
+            "Slug": {
+                "PEN": 7.3,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.4,
+                "DC": 2,
+                "SALM": 5,
+                "BPHC": "*2",
+                "PR": 0.1
+            },
+            "MA": 0,
+            "BA": 29,
+            "TOF": 1
+        },
+        "20": {
+            "Slug": {
+                "PEN": 7.2,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.4,
+                "DC": 2,
+                "SALM": 7,
+                "BPHC": "*1",
+                "PR": 0.2
+            },
+            "MA": 0,
+            "BA": 25,
+            "TOF": 1
+        },
+        "30": {
+            "Slug": {
+                "PEN": 6.9,
+                "DC": 10
+            },
+            "Shot": {
+                "PEN": 1.2,
+                "DC": 2,
+                "SALM": 10,
+                "BPHC": "62",
+                "PR": 0.3
+            },
+            "MA": 0,
+            "BA": 19,
+            "TOF": 1
+        },
+        "40": {
+            "Slug": {
+                "PEN": 6.7,
+                "DC": 9
+            },
+            "Shot": {
+                "PEN": 1,
+                "DC": 2,
+                "SALM": 12,
+                "BPHC": "35",
+                "PR": 0.4
+            },
+            "MA": 0,
+            "BA": 15,
+            "TOF": 2
+        },
+        "80": {
+            "Slug": {
+                "PEN": 5.7,
+                "DC": 9
+            },
+            "Shot": {
+                "PEN": 0.6,
+                "DC": 1,
+                "SALM": 17,
+                "BPHC": "8",
+                "PR": 0.7
+            },
+            "MA": 0,
+            "BA": 5,
+            "TOF": 4
+        },
+        "Name": "Remington M870",
+        "Type": "Shotgun",
+        "Description": "US Marine Corps version of the Remington Model 870. It was adopted in 1966 and has a standard M7 bayonet mounting lug.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/remington-m870.png?alt=media&token=ab25c1ea-2edb-46c6-aa66-c60dd13180c3",
+        "L": "42",
+        "W": 8.8,
+        "RT": 30,
+        "ROF": 2,
+        "Cap": 7,
+        "AW": ".13 Rnd",
+        "KD": 25,
+        "SAB": 12,
+        "Aim Time": {
+            "1": -23,
+            "2": -12,
+            "3": -9,
+            "4": -7,
+            "5": -6,
             "6": -4,
             "7": -3,
             "8": -2,

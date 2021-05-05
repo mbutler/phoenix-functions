@@ -348,6 +348,11 @@ describe('Weapons Test', () => {
         expect(weapons['M29A1']['1']['HE']['BSHC']).to.equal("*2")
         expect(weapons['M29A1']['Name']).to.equal('M29A1')
     })
+    it('Remington M870', () => {
+        expect(weapons['Remington M870']['1']['Shot']['PEN']).to.equal(5.4)
+        expect(weapons['Remington M870']['Aim Time']['5']).to.equal(-6)
+        expect(weapons['Remington M870']['Name']).to.equal('Remington M870')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
