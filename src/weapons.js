@@ -6916,7 +6916,7 @@ export const weapons = {
             "11": 0
         }
     },
-    "Remington M700 308 Winchester": {
+    "Remington M700": {
         "10": {
             "FMJ": {
                 "PEN": 20,
@@ -7053,7 +7053,7 @@ export const weapons = {
             "BA": 17,
             "TOF": 12
         },
-        "Name": "Remington M700 308 Winchester",
+        "Name": "Remington M700",
         "Type": "Assault Rifle",
         "Description": "The 308 Winchester was developed in 1952 and adopted by the US military in 1954 as the 7.62 mm NATO. It was designed to replace the 30'06, and since acceptance has proven to be an extremely accurate round. Today most world class shooting records are held by this cartridge. In part this is due to the thousands of rounds fired in matches each year, but the inherent accuracy of the cartridge cannot be disputed.",
         "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/remington-m700-308-winchester.png?alt=media&token=59f3efa1-21c8-4987-b9b0-ffe34d33c2ec",

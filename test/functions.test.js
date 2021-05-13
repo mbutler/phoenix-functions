@@ -327,9 +327,9 @@ describe('Weapons Test', () => {
         expect(weapons['M1919 A6']['Name']).to.equal('M1919 A6')
     })
     it('Remington M700 308 Winchester', () => {
-        expect(weapons['Remington M700 308 Winchester']['10']['FMJ']['PEN']).to.equal(20)
-        expect(weapons['Remington M700 308 Winchester']['Aim Time']['4']).to.equal(-5)
-        expect(weapons['Remington M700 308 Winchester']['Name']).to.equal('Remington M700 308 Winchester')
+        expect(weapons['Remington M700']['10']['FMJ']['PEN']).to.equal(20)
+        expect(weapons['Remington M700']['Aim Time']['4']).to.equal(-5)
+        expect(weapons['Remington M700']['Name']).to.equal('Remington M700')
     })
     it('AR-15', () => {
         expect(weapons['AR-15']['10']['FMJ']['PEN']).to.equal(17)
