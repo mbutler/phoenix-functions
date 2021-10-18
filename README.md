@@ -1,4 +1,5 @@
 # Phoenix Functions
+
 A small library for working with Phoenix Command RPG lookup tables.
 
 babel + webpack + mocha + chai + documentationjs
@@ -9,7 +10,12 @@ babel + webpack + mocha + chai + documentationjs
 
 `npm run-script document` - generate docs for all comments in valid JSDoc format
 
-# To Add New Weapons:
+# To Submit New Weapons:
+
+Transcribe the weapon entry in your Phoenix Command book into input form: https://phoenixcommand.net/gun-form/. Save the resulting json. Upload an optimized png of the weapon to an image hosting service and add the public link to the Image field. Next, clone this repository and add the weapon object to weapons.js, making sure all unit tests pass. Submit a pull request. Alternately, you can submit a pull request with a link to your valid json and I will add it as time allows.
+
+# To Add New Weapons (admin):
+
 1. transcribe entry in Phoenix Command book into input form: https://phoenixcommand.net/gun-form/
 2. upload png image of weapon to firebase storage
 3. add weapon image link to weapon json
