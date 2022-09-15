@@ -22,7 +22,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "documentation": "^8.1.2",
+    "documentation": "^14.0.0",
     "mocha": "^5.2.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.3.12",
