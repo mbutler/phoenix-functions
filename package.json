@@ -23,7 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "documentation": "^8.1.2",
-    "mocha": "^5.2.0",
+    "mocha": "^10.1.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
