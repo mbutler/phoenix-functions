@@ -7664,5 +7664,332 @@ export const weapons = {
         "10":-1,
         "12":0
         }
-    }
+    },
+    "Colt Revolving Rifle":{
+        "10": {
+          "FMJ": {
+            "PEN": 2.6,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 47,
+          "TOF": 1
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 2.4,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 38,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 2.2,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 28,
+          "TOF": 3
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 1.8,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 20,
+          "TOF": 5
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 1.5,
+            "DC": 4
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 15,
+          "TOF": 7
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 0.9,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 5,
+          "TOF": 16
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 0.5,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 0,
+          "TOF": 26
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0.3,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": -4,
+          "TOF": 37
+        },
+        "Name": "Colt Revolving Rifle",
+        "Type": "Assault Rifle",
+        "Description": "The Colt Revolving Rifle was introduced shortly before the American Civil War. It made use of a standard revolver action and was used for a short time by Berdan's sharpshooters before before the Sharp's rifles became available.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/colt-revolving-rifle.png?alt=media&token=8a63f0ea-316a-46f1-857f-b6c540b306af",
+        "L": "56",
+        "W": 10.3,
+        "RT": 110,
+        "ROF": 2,
+        "Cap": 5,
+        "AW": "0.7 Rnd",
+        "KD": 10,
+        "SAB": 0,
+        "Aim Time": {
+          "1": -24,
+          "2": -13,
+          "3": -9,
+          "4": -7,
+          "5": -6,
+          "6": -5,
+          "7": -4,
+          "8": -3,
+          "9": -2,
+          "10": -1,
+          "11": 0,
+          "12": 0,
+          "13": 0,
+          "14": 0,
+          "15": 0,
+          "16": 0
+        }
+      },
+      "Colt Model 1851 Navy": {
+        "10": {
+          "FMJ": {
+            "PEN": 1.1,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 34,
+          "TOF": 1
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 1,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 24,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 14,
+          "TOF": 3
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 0.5,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 6,
+          "TOF": 5
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 0.4,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 1,
+          "TOF": 8
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": -8,
+          "TOF": 18
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 0,
+          "TOF": 0
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "JHP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "AP": {
+            "PEN": 0,
+            "DC": 0
+          },
+          "MA": 0,
+          "BA": 0,
+          "TOF": 0
+        },
+        "Name": "Colt Model 1851 Navy",
+        "Type": "Pistol",
+        "Description": "The revolver was used by both army and navy personnel, and saw service with both Union and Confederate forces.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/colt-model-1851-navy.png?alt=media&token=6e219e73-cf8a-40eb-bb55-d8c6ca4d2aec",
+        "L": "14",
+        "W": 2.8,
+        "RT": 120,
+        "ROF": 2,
+        "Cap": 6,
+        "AW": "0.2 Rnd",
+        "KD": 2,
+        "SAB": 0,
+        "Aim Time": {
+          "1": -18,
+          "2": -11,
+          "3": -10,
+          "4": -9,
+          "5": -8,
+          "6": -7,
+          "7": -6
+        }
+      }
 }
