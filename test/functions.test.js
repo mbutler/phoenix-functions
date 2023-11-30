@@ -368,6 +368,11 @@ describe('Weapons Test', () => {
         expect(weapons['Colt Model 1851 Navy']['Aim Time']['4']).to.equal(-9)
         expect(weapons['Colt Model 1851 Navy']['Name']).to.equal('Colt Model 1851 Navy')
     })
+    it('M2HB', () => {
+        expect(weapons['M2HB']['10']['FMJ']['PEN']).to.equal(40)
+        expect(weapons['M2HB']['Aim Time']['4']).to.equal(-17)
+        expect(weapons['M2HB']['Name']).to.equal('M2HB')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

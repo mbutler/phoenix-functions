@@ -7991,5 +7991,168 @@ export const weapons = {
           "6": -7,
           "7": -6
         }
+      },
+      "M2HB": {
+        "10": {
+          "FMJ": {
+            "PEN": 40,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 38,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 56,
+            "DC": 10
+          },
+          "MA": 0.2,
+          "BA": 64,
+          "TOF": 0
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 39,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 37,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 55,
+            "DC": 10
+          },
+          "MA": 0.3,
+          "BA": 57,
+          "TOF": 0
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 37,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 36,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 53,
+            "DC": 10
+          },
+          "MA": 0.6,
+          "BA": 49,
+          "TOF": 1
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 35,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 34,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 50,
+            "DC": 10
+          },
+          "MA": 1,
+          "BA": 42,
+          "TOF": 2
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 34,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 32,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 47,
+            "DC": 10
+          },
+          "MA": 2,
+          "BA": 37,
+          "TOF": 2
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 28,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 27,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 39,
+            "DC": 10
+          },
+          "MA": 3,
+          "BA": 28,
+          "TOF": 5
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 23,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 22,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 33,
+            "DC": 10
+          },
+          "MA": 5,
+          "BA": 22,
+          "TOF": 8
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 19,
+            "DC": 10
+          },
+          "JHP": {
+            "PEN": 19,
+            "DC": 10
+          },
+          "AP": {
+            "PEN": 27,
+            "DC": 10
+          },
+          "MA": 6,
+          "BA": 19,
+          "TOF": 11
+        },
+        "Name": "M2HB",
+        "Type": "Machine Gun",
+        "Description": "Standard US Heavy Machine Gun in service since 1933.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m2hb.png?alt=media&token=69759f08-cb2c-4d65-996a-a9458f949026",
+        "L": "65",
+        "W": 157.5,
+        "RT": 14,
+        "ROF": 5,
+        "Cap": 105,
+        "AW": "28.8",
+        "KD": 45,
+        "SAB": 2,
+        "Aim Time": {
+          "1": -37,
+          "2": -27,
+          "3": -21,
+          "4": -17,
+          "5": -14,
+          "6": -10,
+          "7": -8,
+          "8": -6,
+          "10": -4,
+          "12": -2,
+          "14": 0
+        }
       }
 }
