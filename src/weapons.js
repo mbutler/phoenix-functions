@@ -8154,5 +8154,173 @@ export const weapons = {
           "12": -2,
           "14": 0
         }
+      },
+      "Thompson M1928A1": {
+        "10": {
+          "FMJ": {
+            "PEN": 1.7,
+            "DC": 3
+          },
+          "JHP": {
+            "PEN": 1.6,
+            "DC": 5
+          },
+          "AP": {
+            "PEN": 2.3,
+            "DC": 3
+          },
+          "MA": 0.3,
+          "BA": 45,
+          "TOF": 1
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 1.5,
+            "DC": 3
+          },
+          "JHP": {
+            "PEN": 1.5,
+            "DC": 4
+          },
+          "AP": {
+            "PEN": 2.2,
+            "DC": 3
+          },
+          "MA": 0.6,
+          "BA": 36,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 1.3,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.3,
+            "DC": 3
+          },
+          "AP": {
+            "PEN": 1.8,
+            "DC": 2
+          },
+          "MA": 1,
+          "BA": 27,
+          "TOF": 3
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 1,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 1.4,
+            "DC": 1
+          },
+          "MA": 2,
+          "BA": 20,
+          "TOF": 5
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 1.1,
+            "DC": 1
+          },
+          "MA": 3,
+          "BA": 15,
+          "TOF": 8
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 0.4,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.4,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.5,
+            "DC": 1
+          },
+          "MA": 6,
+          "BA": 5,
+          "TOF": 18
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "MA": 9,
+          "BA": 0,
+          "TOF": 30
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "MA": 12,
+          "BA": -4,
+          "TOF": 44
+        },
+        "Name": "Thompson M1928A1",
+        "Type": "Sub-Machinegun",
+        "Description": "First model of the Thompson sub-machinegun with drum magazine.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/thompson-m1928a1.png?alt=media&token=f29e6c57-70fc-4f49-af38-2c4923da10ac",
+        "L": "34",
+        "W": 14.8,
+        "RT": 12,
+        "ROF": 7,
+        "Cap": 100,
+        "AW": "5.5 Drm",
+        "KD": 5,
+        "SAB": 3,
+        "Aim Time": {
+          "1": -26,
+          "2": -16,
+          "3": -10,
+          "4": -8,
+          "5": -7,
+          "6": -6,
+          "7": -5,
+          "8": -4,
+          "9": -3,
+          "10": -2,
+          "11": -1,
+          "12": 0,
+          "13": 0,
+          "14": 0,
+          "15": 0,
+          "16": 0
+        }
       }
 }
