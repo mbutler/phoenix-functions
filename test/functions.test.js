@@ -374,9 +374,9 @@ describe('Weapons Test', () => {
         expect(weapons['M2HB']['Name']).to.equal('M2HB')
     })
     it('Thompson M1928A1', () => {
-        expect(weapons['Thompson M1928A1']['10']['FMJ']['PEN']).to.equal(40)
-        expect(weapons['Thompson M1928A1']['Aim Time']['4']).to.equal(-17)
-        expect(weapons['Thompson M1928A1']['Name']).to.equal('M2HB')
+        expect(weapons['Thompson M1928A1']['10']['FMJ']['PEN']).to.equal(1.7)
+        expect(weapons['Thompson M1928A1']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['Thompson M1928A1']['Name']).to.equal('Thompson M1928A1')
     })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
