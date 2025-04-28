@@ -378,6 +378,11 @@ describe('Weapons Test', () => {
         expect(weapons['Thompson M1928A1']['Aim Time']['4']).to.equal(-8)
         expect(weapons['Thompson M1928A1']['Name']).to.equal('Thompson M1928A1')
     })
+    it('Bren Mk1', () => {
+        expect(weapons['Bren Mk1']['10']['FMJ']['PEN']).to.equal(18)
+        expect(weapons['Bren Mk1']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Bren Mk1']['Name']).to.equal('Bren Mk1')
+    })    
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

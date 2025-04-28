@@ -8322,5 +8322,173 @@ export const weapons = {
           "15": 0,
           "16": 0
         }
+      },
+      "Bren Mk1": {
+        "10": {
+          "FMJ": {
+            "PEN": 18,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 17,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 25,
+            "DC": 7
+          },
+          "MA": 0.2,
+          "BA": 62,
+          "TOF": 0
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 17,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 16,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 24,
+            "DC": 7
+          },
+          "MA": 0.4,
+          "BA": 55,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 16,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 15,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 23,
+            "DC": 7
+          },
+          "MA": 0.8,
+          "BA": 47,
+          "TOF": 1
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 15,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 14,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 21,
+            "DC": 7
+          },
+          "MA": 2,
+          "BA": 39,
+          "TOF": 2
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 13,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 13,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 19,
+            "DC": 7
+          },
+          "MA": 2,
+          "BA": 35,
+          "TOF": 3
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 10,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 9.6,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 14,
+            "DC": 6
+          },
+          "MA": 4,
+          "BA": 25,
+          "TOF": 6
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 7.5,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 7.2,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 11,
+            "DC": 6
+          },
+          "MA": 6,
+          "BA": 20,
+          "TOF": 9
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 5.6,
+            "DC": 4
+          },
+          "JHP": {
+            "PEN": 5.4,
+            "DC": 6
+          },
+          "AP": {
+            "PEN": 7.9,
+            "DC": 4
+          },
+          "MA": 8,
+          "BA": 16,
+          "TOF": 13
+        },
+        "Name": "Bren Mk1",
+        "Type": "Machine Gun",
+        "Description": "Reliable light machine gun developed in the 1930s.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/bren-mk1.png?alt=media&token=d64a891d-acbd-49d9-9ff4-5c1551e02dc2",
+        "L": "45",
+        "W": 24.1,
+        "RT": 8,
+        "ROF": 4,
+        "Cap": 30,
+        "AW": "2.2 Mag",
+        "KD": 10,
+        "SAB": 3,
+        "Aim Time": {
+          "1": -29,
+          "2": -19,
+          "3": -12,
+          "4": -9,
+          "5": -7,
+          "6": -6,
+          "7": -5,
+          "8": -4,
+          "9": -3,
+          "10": -2,
+          "11": -1,
+          "12": 0,
+          "13": 1,
+          "14": 2,
+          "15": 3,
+          "16": 4
+        }
       }
 }
