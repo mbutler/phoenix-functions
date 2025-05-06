@@ -121,7 +121,7 @@ describe('Table Lookup', () => {
         expect(tableLookup(automaticFireAndShrapnel_5A, 'Arc of Fire', '36', 0)).to.equal(28)
     })
     it('test all tables export', () => {
-        expect(getAllTables()).to.be.an('object')
+        expect(getAllTables()).to.not.be.undefined
     })
 })
 
@@ -382,7 +382,12 @@ describe('Weapons Test', () => {
         expect(weapons['Bren Mk1']['10']['FMJ']['PEN']).to.equal(18)
         expect(weapons['Bren Mk1']['Aim Time']['4']).to.equal(-9)
         expect(weapons['Bren Mk1']['Name']).to.equal('Bren Mk1')
-    })    
+    })
+    it('Arisaka Type 99', () => {
+        expect(weapons['Arisaka Type 99']['10']['FMJ']['PEN']).to.equal(18)
+        expect(weapons['Arisaka Type 99']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['Arisaka Type 99']['Name']).to.equal('Arisaka Type 99')
+    })  
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

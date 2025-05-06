@@ -8490,5 +8490,173 @@ export const weapons = {
           "15": 3,
           "16": 4
         }
+      },
+      "Arisaka Type 99": {
+        "10": {
+          "FMJ": {
+            "PEN": 18,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 18,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 26,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 64,
+          "TOF": 0
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 18,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 17,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 25,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 56,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 17,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 16,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 24,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 48,
+          "TOF": 1
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 16,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 15,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 22,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 41,
+          "TOF": 2
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 15,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 14,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 21,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 36,
+          "TOF": 3
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 11,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 11,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 16,
+            "DC": 7
+          },
+          "MA": 0,
+          "BA": 27,
+          "TOF": 6
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 8.8,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 8.4,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 12,
+            "DC": 6
+          },
+          "MA": 0,
+          "BA": 21,
+          "TOF": 9
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 6.8,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 6.5,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 9.6,
+            "DC": 6
+          },
+          "MA": 0,
+          "BA": 17,
+          "TOF": 12
+        },
+        "Name": "Arisaka Type 99",
+        "Type": "Assault Rifle",
+        "Description": "The Type 99 rifle was essentially a Meiji 38 rechambered for the 7.7 x 58 mm cartridge. The 7.7 x 58mm replaced the 6.5 x 50mrn round which was used in the Sino-Japanese war in Manchuria.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/arisaka-type-99.png?alt=media&token=6736628f-b631-4f61-950a-fded19c07fea",
+        "L": "44",
+        "W": 9.4,
+        "RT": 8,
+        "ROF": 3,
+        "Cap": 5,
+        "AW": ".35 CS",
+        "KD": 10,
+        "SAB": 6,
+        "Aim Time": {
+          "1": -23,
+          "2": -12,
+          "3": -9,
+          "4": -7,
+          "5": -6,
+          "6": -5,
+          "7": -4,
+          "8": -3,
+          "9": -2,
+          "10": -1,
+          "11": 0,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 5
+        }
       }
 }
