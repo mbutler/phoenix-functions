@@ -8658,5 +8658,341 @@ export const weapons = {
           "15": 4,
           "16": 5
         }
+      },
+      "Kenju Type 94": {
+        "10": {
+          "FMJ": {
+            "PEN": 1.6,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.5,
+            "DC": 3
+          },
+          "AP": {
+            "PEN": 2.3,
+            "DC": 2
+          },
+          "MA": 0,
+          "BA": 47,
+          "TOF": 1
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 1.5,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.4,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 2.1,
+            "DC": 2
+          },
+          "MA": 0,
+          "BA": 39,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 1.3,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 1.2,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 1.8,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 31,
+          "TOF": 3
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.9,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 1.4,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 24,
+          "TOF": 5
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.7,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 1.1,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 19,
+          "TOF": 7
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 0.3,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.3,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.5,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 9,
+          "TOF": 17
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 4,
+          "TOF": 28
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 1,
+          "TOF": 40
+        },
+        "Name": "Kenju Type 94",
+        "Type": "Pistol",
+        "Description": "This pistol was introduced in 1937 to supplement the Taisho 14. Of poor quality, a sharp blow can cause it to fire.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/kenju-type-94.png?alt=media&token=9a7d0991-b62a-4d45-9a26-5e2bb872c541",
+        "L": "7",
+        "W": 1.9,
+        "RT": 4,
+        "ROF": 1,
+        "Cap": 6,
+        "AW": ".32 Mag",
+        "KD": 2,
+        "SAB": 3,
+        "Aim Time": {
+          "1": -16,
+          "2": -11,
+          "3": -10,
+          "4": -9,
+          "5": -8,
+          "6": -7,
+          "7": -6,
+          "8": -5,
+          "9": -4,
+          "10": -3,
+          "11": -2,
+          "12": -1,
+          "13": 0,
+          "14": 1,
+          "15": 2,
+          "16": 3
+        }
+      },
+      "Type 100": {
+        "10": {
+          "FMJ": {
+            "PEN": 1.9,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.9,
+            "DC": 3
+          },
+          "AP": {
+            "PEN": 2.7,
+            "DC": 2
+          },
+          "MA": 0.2,
+          "BA": 47,
+          "TOF": 1
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 1.8,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.7,
+            "DC": 3
+          },
+          "AP": {
+            "PEN": 2.5,
+            "DC": 2
+          },
+          "MA": 0.3,
+          "BA": 40,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 1.5,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 1.5,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 2.2,
+            "DC": 2
+          },
+          "MA": 0.5,
+          "BA": 31,
+          "TOF": 2
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 1.2,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 1.2,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 1.7,
+            "DC": 1
+          },
+          "MA": 0.9,
+          "BA": 24,
+          "TOF": 4
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 1,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 1.4,
+            "DC": 1
+          },
+          "MA": 1,
+          "BA": 19,
+          "TOF": 7
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 0.4,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.4,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.6,
+            "DC": 1
+          },
+          "MA": 3,
+          "BA": 10,
+          "TOF": 15
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.2,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.3,
+            "DC": 1
+          },
+          "MA": 4,
+          "BA": 4,
+          "TOF": 25
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 0.1,
+            "DC": 1
+          },
+          "MA": 5,
+          "BA": 1,
+          "TOF": 36
+        },
+        "Name": "Type 100",
+        "Type": "Sub-Machinegun",
+        "Description": "This SMG appeared in 1940 and used the underpowered 8mm Taisho 14 round.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/type-100.png?alt=media&token=bb476981-9de8-437c-bb86-6d4d050637c8",
+        "L": "35",
+        "W": 9.2,
+        "RT": 8,
+        "ROF": 4,
+        "Cap": 30,
+        "AW": "1.2 Mag",
+        "KD": 3,
+        "SAB": 2,
+        "Aim Time": {
+          "1": -23,
+          "2": -12,
+          "3": -9,
+          "4": -8,
+          "5": -6,
+          "6": -5,
+          "7": -4,
+          "8": -3,
+          "9": -3,
+          "10": -2,
+          "11": -1,
+          "12": 0,
+          "13": 1,
+          "14": 2,
+          "15": 3,
+          "16": 4
+        }
       }
 }

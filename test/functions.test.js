@@ -387,7 +387,17 @@ describe('Weapons Test', () => {
         expect(weapons['Arisaka Type 99']['10']['FMJ']['PEN']).to.equal(18)
         expect(weapons['Arisaka Type 99']['Aim Time']['4']).to.equal(-7)
         expect(weapons['Arisaka Type 99']['Name']).to.equal('Arisaka Type 99')
-    })  
+    })
+    it('Kenju Type 94', () => {
+        expect(weapons['Kenju Type 94']['10']['FMJ']['PEN']).to.equal(1.6)
+        expect(weapons['Kenju Type 94']['Aim Time']['4']).to.equal(-9)
+        expect(weapons['Kenju Type 94']['Name']).to.equal('Kenju Type 94')
+    })
+    it('Type 100', () => {
+        expect(weapons['Type 100']['10']['FMJ']['PEN']).to.equal(1.9)
+        expect(weapons['Type 100']['Aim Time']['4']).to.equal(-8)
+        expect(weapons['Type 100']['Name']).to.equal('Type 100')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])
