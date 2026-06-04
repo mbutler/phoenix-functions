@@ -403,6 +403,11 @@ describe('Weapons Test', () => {
         expect(weapons['BAR A2']['Aim Time']['4']).to.equal(-9)
         expect(weapons['BAR A2']['Name']).to.equal('BAR A2')
     })
+    it('M1 Carbine', () => {
+        expect(weapons['M1 Carbine']['10']['FMJ']['PEN']).to.equal(6.8)
+        expect(weapons['M1 Carbine']['Aim Time']['4']).to.equal(-7)
+        expect(weapons['M1 Carbine']['Name']).to.equal('M1 Carbine')
+    })
     it('tests getting weapon ammo types', () => {
         expect(getAmmoTypes('AKM 47')).to.include.members(['FMJ', 'AP', 'JHP'])
         expect(getAmmoTypes('Franchi SPAS 12')).to.include.members(['APS', 'Shot'])

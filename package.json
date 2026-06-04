@@ -1,6 +1,6 @@
 {
   "name": "phoenix-functions",
-  "version": "0.9.87",
+  "version": "0.9.88",
   "description": "equations for phoenix command",
   "main": "dist/phoenix-functions.js",
   "scripts": {
@@ -11,11 +11,18 @@
     "start": "webpack --watch & webpack-dev-server --open-page 'webpack-dev-server/dist'",
     "test": "mocha --require babel-core/register --require ./test/config.js --recursive",
     "test:watch": "npm test -- --watch",
-    "document": "documentation build src/** -f html -o docs --shallow"
+    "document": "documentation build src/** -f html -o docs --shallow",
+    "release": "npm test && npm run build && npm publish"
   },
   "author": "Matthew Butler",
   "license": "MIT",
-  "repository": "mbutler/phoenix-functions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbutler/phoenix-functions.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

@@ -9162,5 +9162,173 @@ export const weapons = {
           "15": 3,
           "16": 4
         }
+      },
+      "M1 Carbine": {
+        "10": {
+          "FMJ": {
+            "PEN": 6.8,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 6.5,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 9.6,
+            "DC": 6
+          },
+          "MA": 0,
+          "BA": 55,
+          "TOF": 0
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 6.4,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 6.2,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 9.1,
+            "DC": 5
+          },
+          "MA": 0,
+          "BA": 46,
+          "TOF": 1
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 5.8,
+            "DC": 5
+          },
+          "JHP": {
+            "PEN": 5.5,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 8.1,
+            "DC": 5
+          },
+          "MA": 0,
+          "BA": 37,
+          "TOF": 1
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 4.9,
+            "DC": 5
+          },
+          "JHP": {
+            "PEN": 4.7,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 6.9,
+            "DC": 4
+          },
+          "MA": 0,
+          "BA": 29,
+          "TOF": 2
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 4.2,
+            "DC": 4
+          },
+          "JHP": {
+            "PEN": 4,
+            "DC": 6
+          },
+          "AP": {
+            "PEN": 5.9,
+            "DC": 4
+          },
+          "MA": 0,
+          "BA": 24,
+          "TOF": 3
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 2.4,
+            "DC": 2
+          },
+          "JHP": {
+            "PEN": 2.3,
+            "DC": 3
+          },
+          "AP": {
+            "PEN": 3.4,
+            "DC": 2
+          },
+          "MA": 0,
+          "BA": 14,
+          "TOF": 8
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 1.4,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 1.3,
+            "DC": 2
+          },
+          "AP": {
+            "PEN": 2,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 8,
+          "TOF": 13
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "JHP": {
+            "PEN": 0.8,
+            "DC": 1
+          },
+          "AP": {
+            "PEN": 1.1,
+            "DC": 1
+          },
+          "MA": 0,
+          "BA": 5,
+          "TOF": 18
+        },
+        "Name": "M1 Carbine",
+        "Type": "Assault Rifle",
+        "Description": "More M1 Carbines were produced in WWII than any other American weapon. It was designed as a light weapon for use by machine-gunners, mortarmen, and officers. Extremely popular, it was used throughout WWII and the Korean War.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/m1-carbine.png?alt=media&token=2b5867d8-d24d-48fc-a203-8274105e334e",
+        "L": "36",
+        "W": 5.9,
+        "RT": 8,
+        "ROF": 0,
+        "Cap": 15,
+        "AW": ".77 Mag",
+        "KD": 5,
+        "SAB": 4,
+        "Aim Time": {
+          "1": -21,
+          "2": -11,
+          "3": -9,
+          "4": -7,
+          "5": -6,
+          "6": -4,
+          "7": -3,
+          "8": -2,
+          "9": -2,
+          "10": -1,
+          "11": 0,
+          "12": 1,
+          "13": 2,
+          "14": 3,
+          "15": 4,
+          "16": 5
+        }
       }
 }
