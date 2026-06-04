@@ -8994,5 +8994,173 @@ export const weapons = {
           "15": 3,
           "16": 4
         }
+      },
+      "BAR A2": {
+        "10": {
+          "FMJ": {
+            "PEN": 20,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 19,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 28,
+            "DC": 8
+          },
+          "MA": 0.3,
+          "BA": 62,
+          "TOF": 0
+        },
+        "20": {
+          "FMJ": {
+            "PEN": 19,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 18,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 27,
+            "DC": 8
+          },
+          "MA": 0.5,
+          "BA": 54,
+          "TOF": 0
+        },
+        "40": {
+          "FMJ": {
+            "PEN": 18,
+            "DC": 8
+          },
+          "JHP": {
+            "PEN": 17,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 25,
+            "DC": 7
+          },
+          "MA": 1,
+          "BA": 45,
+          "TOF": 1
+        },
+        "70": {
+          "FMJ": {
+            "PEN": 16,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 16,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 23,
+            "DC": 7
+          },
+          "MA": 2,
+          "BA": 38,
+          "TOF": 2
+        },
+        "100": {
+          "FMJ": {
+            "PEN": 15,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 14,
+            "DC": 9
+          },
+          "AP": {
+            "PEN": 21,
+            "DC": 7
+          },
+          "MA": 3,
+          "BA": 33,
+          "TOF": 2
+        },
+        "200": {
+          "FMJ": {
+            "PEN": 11,
+            "DC": 7
+          },
+          "JHP": {
+            "PEN": 11,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 16,
+            "DC": 6
+          },
+          "MA": 5,
+          "BA": 24,
+          "TOF": 5
+        },
+        "300": {
+          "FMJ": {
+            "PEN": 8.1,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 7.8,
+            "DC": 8
+          },
+          "AP": {
+            "PEN": 11,
+            "DC": 6
+          },
+          "MA": 8,
+          "BA": 18,
+          "TOF": 8
+        },
+        "400": {
+          "FMJ": {
+            "PEN": 6,
+            "DC": 6
+          },
+          "JHP": {
+            "PEN": 5.7,
+            "DC": 7
+          },
+          "AP": {
+            "PEN": 8.4,
+            "DC": 5
+          },
+          "MA": 10,
+          "BA": 14,
+          "TOF": 12
+        },
+        "Name": "BAR A2",
+        "Type": "Assault Rifle",
+        "Description": "The Browning Automatic Rifle served as a light machine-gun through WWII and the Korean war. It is heavy and has limited capacity, but is very robust and reliable.",
+        "Image": "https://firebasestorage.googleapis.com/v0/b/firebird-f30dc.appspot.com/o/bar-a2.png?alt=media&token=e1e3230a-e9a3-4d69-ba1a-caef2cd65acf",
+        "L": "48",
+        "W": 19.7,
+        "RT": 8,
+        "ROF": 4,
+        "Cap": 20,
+        "AW": "1.8",
+        "KD": 10,
+        "SAB": 4,
+        "Aim Time": {
+          "1": -27,
+          "2": -17,
+          "3": -11,
+          "4": -9,
+          "5": -7,
+          "6": -6,
+          "7": -5,
+          "8": -4,
+          "9": -3,
+          "10": -2,
+          "11": -1,
+          "12": 0,
+          "13": 1,
+          "14": 2,
+          "15": 3,
+          "16": 4
+        }
       }
 }

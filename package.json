@@ -1,10 +1,10 @@
 {
   "name": "phoenix-functions",
-  "version": "0.9.86",
+  "version": "0.9.87",
   "description": "equations for phoenix command",
   "main": "dist/phoenix-functions.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js",
     "prepublishOnly": "npm run build",
     "watch": "webpack --watch",
     "webpack": "webpack",
