@@ -14,7 +14,7 @@ import * as tables from './tables'
  */
 export function calculateActionTime(actionPoints, actionsPerImpulse, time, currentImpulseRemainder) {
     let actions = actionPoints
-    let ca = actionsPerImpulse
+    let ca = _.clone(actionsPerImpulse)
     let next = _.cloneDeep(time)
     let phase = _.toNumber(time.phase)
     let impulse = _.toNumber(time.impulse)
@@ -657,38 +657,42 @@ export function multipleHitCheck(arc, rof, chance) {
     return star
 }
 
+// Use the ranges actually recorded for this weapon and ammunition.
+// Explosive entries describe blast radii rather than firearm range bands.
+function weaponAmmoAtRange(weapon, rangeVal, ammo) {
+    const ranges = Object.keys(weapon)
+        .filter(key => key.trim() !== '' && _.isFinite(Number(key)) && _.isObject(weapon[key][ammo]))
+        .map(Number)
+        .sort((a, b) => a - b)
+
+    if (ranges.length === 0) {
+        throw Error('No range data found for the requested ammunition.')
+    }
+
+    const range = snapToValue(rangeVal, ranges)
+    return weapon[range][ammo]
+}
+
 /**
- * Returns the DC for a weapon firing specific ammo at range
+ * Returns the DC for a weapon firing specific ammo at the nearest available range
  * @param {object} weapon - The database weapon
- * @param {number} rangeVal - The range in hexes
+ * @param {number} rangeVal - The range in hexes (blast radius for explosives)
  * @param {string} ammo - One of three ammo types
  * @return {number} - The correct damage class
  */
 export function damageClass(weapon, rangeVal, ammo) {
-    let range
-    range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
-    if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
-    if (weapon.Type === 'Explosive') {range = snapToValue(rangeVal, [40,100,200,400])}
-    range = _.clamp(range, 0, 400)
-    let dc = weapon[_.toString(range)][ammo]['DC']
-    return dc
+    return weaponAmmoAtRange(weapon, rangeVal, ammo)['DC']
 }
 
 /**
- * Returns the PEN for a weapon firing specific ammo at range
+ * Returns the PEN for a weapon firing specific ammo at the nearest available range
  * @param {object} weapon - The database weapon
- * @param {number} rangeVal - The range in hexes
+ * @param {number} rangeVal - The range in hexes (blast radius for explosives)
  * @param {string} ammo - One of three ammo types
  * @return {number} - The correct penetration value
  */
 export function penetration(weapon, rangeVal, ammo) {
-    let range
-    range = snapToValue(rangeVal, [0,10,20,40,70,100,200,300,400,600,800,1000,1200,1500])
-    if (weapon.Type === 'Shotgun') {range = snapToValue(rangeVal, [1,2,4,6,8,10,15,20,30,40,80])}
-    if (weapon.Type === 'Explosive') {range = snapToValue(rangeVal, [40,100,200,400])}
-    range = _.clamp(range, 0, 400)
-    let pen = weapon[_.toString(range)][ammo]['PEN']
-    return pen
+    return weaponAmmoAtRange(weapon, rangeVal, ammo)['PEN']
 }
 
 /**
@@ -724,8 +728,8 @@ export function damageReduction(pen, epf) {
         result = 'low velocity penetration'
     }
 
-    //default
-    if (epen > epf) {
+    // At equality, keep the full damage class used by hitDamage.
+    if (epen > 0 && epen >= epf) {
         result = 'high velocity penetration'
     }
     return result

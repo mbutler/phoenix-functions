@@ -15,6 +15,15 @@ const mods3 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"rang
 const mods4 = {"sal":9,"shotType":"Burst","targetSpeed":0,"shooterSpeed":2,"range":9,"aimTime":1,"firingStance":"True","position":"Standing &amp; Braced","situational":[],"visibility":["Good Visibility"],"targetSize":["Look Over/Around"],"weaponAimMod":-23,"targetDiameter": 1, "sab": 4, "salm": 0}
 
 describe('Calculate Action Time', () => {
+    it('preserves the action schedule and time when using a partial impulse', () => {
+        const schedule = Object.freeze({1: 2, 2: 1, 3: 2, 4: 2})
+        const time = Object.freeze({phase: 1, impulse: 1})
+        const expected = {time: {phase: 1, impulse: 3}, remainder: 1}
+        expect(calculateActionTime(3, schedule, time, 1)).to.eql(expected)
+        expect(calculateActionTime(3, schedule, time, 1)).to.eql(expected)
+        expect(schedule).to.eql({1: 2, 2: 1, 3: 2, 4: 2})
+        expect(time).to.eql({phase: 1, impulse: 1})
+    })
     it('tests next phase with no remainder actions', () => {
         expect(calculateActionTime(5, fourAP, {"impulse" : 1, "phase" : 1}, 1)).to.eql({"time":{"impulse":1,"phase":2},"remainder":0})
     })
@@ -550,6 +559,28 @@ describe('Calculations', () => {
         expect(penetration(weapons['Uzi'], 20, 'FMJ')).to.equal(2.3)
         expect(penetration(weapons['Uzi'], 30, 'FMJ')).to.equal(2)
     })
+    it('uses the nearest available firearm range at both ends', () => {
+        expect(penetration(weapons['Uzi'], 0, 'FMJ')).to.equal(2.5)
+        expect(damageClass(weapons['Uzi'], 0, 'FMJ')).to.equal(3)
+        expect(penetration(weapons['Uzi'], 1500, 'FMJ')).to.equal(weapons['Uzi']['400']['FMJ']['PEN'])
+        expect(damageClass(weapons['Uzi'], 1500, 'FMJ')).to.equal(weapons['Uzi']['400']['FMJ']['DC'])
+    })
+    it('uses shotgun ranges and rounds midpoint ties up', () => {
+        expect(penetration(weapons['Remington M870'], 0, 'Shot')).to.equal(5.4)
+        expect(damageClass(weapons['Remington M870'], 0, 'Shot')).to.equal(weapons['Remington M870']['1']['Shot']['DC'])
+        expect(penetration(weapons['Remington M870'], 3, 'Shot')).to.equal(weapons['Remington M870']['4']['Shot']['PEN'])
+        expect(penetration(weapons['Remington M870'], 100, 'Shot')).to.equal(weapons['Remington M870']['80']['Shot']['PEN'])
+    })
+    it('uses the recorded blast radii for explosive ammunition', () => {
+        expect(penetration(weapons['M26A2'], 1, 'HE')).to.equal(2.4)
+        expect(damageClass(weapons['LAW 80'], 1, 'HEAT')).to.equal(weapons['LAW 80']['1']['HEAT']['DC'])
+        expect(penetration(weapons['M79'], 0, 'HEAT')).to.equal(weapons['M79']['0']['HEAT']['PEN'])
+        expect(penetration(weapons['M26A2'], 100, 'HE')).to.equal(1)
+    })
+    it('reports unsupported ammunition without treating metadata as ammunition', () => {
+        expect(() => penetration(weapons['Uzi'], 10, 'HE')).to.throw('No range data found')
+        expect(() => damageClass(weapons['Uzi'], 10, 'BA')).to.throw('No range data found')
+    })
     it('tests hitDamage function', () => {
         expect(hitDamage(3, false, 3, 11, 23)).to.equal(0)
         expect(hitDamage(19, true, 3, 7, 4)).to.equal(3000)
@@ -567,6 +598,17 @@ describe('Calculations', () => {
         expect(damageReduction(11, 23)).to.equal('no penetration')
         expect(damageReduction(7, 4)).to.equal('low velocity penetration')
         expect(damageReduction(17, 4)).to.equal('high velocity penetration')
+    })
+    it('classifies penetration at the velocity boundary without changing damage', () => {
+        expect(damageReduction(7.9, 4)).to.equal('low velocity penetration')
+        expect(damageReduction(8, 4)).to.equal('high velocity penetration')
+        expect(damageReduction(8.1, 4)).to.equal('high velocity penetration')
+        expect(hitDamage(19, true, 3, 8, 4)).to.equal(tableLookup(hitLocationDamage_6A['DC 3'], 'Fire', 5, 19))
+    })
+    it('keeps zero effective penetration classified as no penetration', () => {
+        expect(damageReduction(4, 4)).to.equal('no penetration')
+        expect(damageReduction(0, 0)).to.equal('no penetration')
+        expect(damageReduction(1, 0)).to.equal('high velocity penetration')
     })
     it('tests medicalAid function', () => {
         expect(medicalAid(200, 'First Aid')).to.equal('21% survival chance in 23d. Healed in 61d.')
